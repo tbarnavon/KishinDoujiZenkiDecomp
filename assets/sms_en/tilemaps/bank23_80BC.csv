@@ -1,0 +1,4 @@
+# tilemap banque 23 $80BC : 3 lignes x 5 colonnes, 1 octet par case (attribut 00)
+D0,D1,D2,D3,D4
+D5,D6,D7,D8,D9
+DA,DB,DB,DB,DC

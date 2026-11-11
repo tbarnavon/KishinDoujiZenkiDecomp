@@ -1,0 +1,2142 @@
+{
+ "_doc": "GENERE par tools/assets/gfx.py extract. Voir docs/graphics.md.",
+ "blocks": [
+  {
+   "bank": 6,
+   "addr": "0x94BA",
+   "file": "bank06/94BA.png",
+   "tiles": 193,
+   "streams": 4,
+   "compressed_size": 4538,
+   "vram": "0x1FC0",
+   "palette": "gris (palette inconnue)",
+   "used_by": [
+    "niveau 0F ($4C88)",
+    "niveau 10 ($4C88)",
+    "niveau 11 ($4C88)"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 6,
+   "addr": "0xA674",
+   "file": "bank06/A674.png",
+   "tiles": 196,
+   "streams": 4,
+   "compressed_size": 5572,
+   "vram": "0x1F80",
+   "palette": "gris (palette inconnue)",
+   "used_by": [
+    "niveau 12 ($4C88)",
+    "niveau 13 ($4C88)",
+    "niveau 1B ($4C88)",
+    "niveau 1C ($4C88)",
+    "niveau 1D ($4C88)"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 7,
+   "addr": "0xA7EC",
+   "file": "bank07/A7EC.png",
+   "tiles": 4,
+   "streams": 4,
+   "compressed_size": 106,
+   "vram": "0x0080",
+   "palette": "banque 28 $82F4",
+   "used_by": [
+    "niveau 14 ($4C14)",
+    "niveau 15 ($4C14)",
+    "niveau 16 ($4C14)",
+    "niveau 17 ($4C14)",
+    "niveau 18 ($4C14)",
+    "niveau 19 ($4C14)"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 7,
+   "addr": "0xA856",
+   "file": "bank07/A856.png",
+   "tiles": 4,
+   "streams": 4,
+   "compressed_size": 104,
+   "vram": "0x0100",
+   "palette": "banque 28 $82F4",
+   "used_by": [
+    "niveau 20 ($4C14)",
+    "niveau 26 ($4C14)",
+    "niveau 27 ($4C14)",
+    "script scene_12"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 7,
+   "addr": "0xA8BE",
+   "file": "bank07/A8BE.png",
+   "tiles": 4,
+   "streams": 4,
+   "compressed_size": 106,
+   "vram": "0x0180",
+   "palette": "banque 28 $82F4",
+   "used_by": [
+    "niveau 04 ($4C14)",
+    "niveau 05 ($4C14)",
+    "niveau 06 ($4C14)",
+    "niveau 21 ($4C14)",
+    "script scene_12"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 7,
+   "addr": "0xA928",
+   "file": "bank07/A928.png",
+   "tiles": 4,
+   "streams": 4,
+   "compressed_size": 106,
+   "vram": "0x0200",
+   "palette": "banque 28 $82F4",
+   "used_by": [
+    "niveau 08 ($4C14)",
+    "niveau 09 ($4C14)",
+    "niveau 0C ($4C14)",
+    "script scene_12"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 7,
+   "addr": "0xA992",
+   "file": "bank07/A992.png",
+   "tiles": 4,
+   "streams": 4,
+   "compressed_size": 106,
+   "vram": "0x0280",
+   "palette": "banque 28 $82F4",
+   "used_by": [
+    "niveau 0F ($4C14)",
+    "niveau 10 ($4C14)",
+    "niveau 11 ($4C14)",
+    "niveau 12 ($4C14)",
+    "niveau 13 ($4C14)",
+    "niveau 1B ($4C14)"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 7,
+   "addr": "0xB84E",
+   "file": "bank07/B84E.png",
+   "tiles": 14,
+   "streams": 4,
+   "compressed_size": 338,
+   "vram": "0x0280",
+   "palette": "gris (palette inconnue)",
+   "used_by": [
+    "code $0513B"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 7,
+   "addr": "0xBA1F",
+   "file": "bank07/BA1F.png",
+   "tiles": 2,
+   "streams": 4,
+   "compressed_size": 54,
+   "vram": "0x0220",
+   "palette": "gris (palette inconnue)",
+   "used_by": [
+    "code $016C8",
+    "code $018DD",
+    "code $050FD"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 7,
+   "addr": "0xBA55",
+   "file": "bank07/BA55.png",
+   "tiles": 6,
+   "streams": 4,
+   "compressed_size": 163,
+   "vram": "0x1C00",
+   "palette": "gris (palette inconnue)",
+   "used_by": [
+    "niveau 00 ($4C14)",
+    "niveau 01 ($4C14)",
+    "niveau 02 ($4C14)",
+    "niveau 03 ($4C14)",
+    "niveau 08 ($4C14)",
+    "niveau 09 ($4C14)"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 7,
+   "addr": "0xBAF8",
+   "file": "bank07/BAF8.png",
+   "tiles": 10,
+   "streams": 4,
+   "compressed_size": 319,
+   "vram": "0x1A80",
+   "palette": "gris (palette inconnue)",
+   "used_by": [
+    "niveau 00 ($4C14)",
+    "niveau 01 ($4C14)",
+    "niveau 02 ($4C14)",
+    "niveau 03 ($4C14)"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 7,
+   "addr": "0xBC37",
+   "file": "bank07/BC37.png",
+   "tiles": 3,
+   "streams": 4,
+   "compressed_size": 61,
+   "vram": "0x14E0",
+   "palette": "gris (palette inconnue)",
+   "used_by": [
+    "niveau 00 ($4C14)",
+    "niveau 01 ($4C14)",
+    "niveau 02 ($4C14)",
+    "niveau 03 ($4C14)",
+    "niveau 04 ($4C14)",
+    "niveau 05 ($4C14)"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 8,
+   "addr": "0x8000",
+   "file": "bank08/8000.png",
+   "tiles": 198,
+   "streams": 4,
+   "compressed_size": 4029,
+   "vram": "0x1F00",
+   "palette": "gris (palette inconnue)",
+   "used_by": [
+    "niveau 00 ($4C88)",
+    "niveau 01 ($4C88)",
+    "niveau 02 ($4C88)",
+    "niveau 03 ($4C88)"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 8,
+   "addr": "0x8FBD",
+   "file": "bank08/8FBD.png",
+   "tiles": 156,
+   "streams": 4,
+   "compressed_size": 3898,
+   "vram": "0x2000",
+   "palette": "gris (palette inconnue)",
+   "used_by": [
+    "niveau 04 ($4C88)",
+    "niveau 05 ($4C88)",
+    "niveau 06 ($4C88)",
+    "niveau 21 ($4C88)"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 8,
+   "addr": "0x9EF7",
+   "file": "bank08/9EF7.png",
+   "tiles": 180,
+   "streams": 4,
+   "compressed_size": 5096,
+   "vram": "0x2000",
+   "palette": "gris (palette inconnue)",
+   "used_by": [
+    "niveau 07 ($4C88)"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 8,
+   "addr": "0xB2DF",
+   "file": "bank08/B2DF.png",
+   "tiles": 130,
+   "streams": 4,
+   "compressed_size": 3188,
+   "vram": "0x2000",
+   "palette": "gris (palette inconnue)",
+   "used_by": [
+    "niveau 34 ($4C88)",
+    "niveau 35 ($4C88)",
+    "niveau 36 ($4C88)",
+    "niveau 39 ($4C88)"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 9,
+   "addr": "0x8000",
+   "file": "bank09/8000.png",
+   "tiles": 54,
+   "streams": 4,
+   "compressed_size": 1242,
+   "vram": "0x2000",
+   "palette": "banque 28 $8D94",
+   "used_by": [
+    "script scene_1B"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 9,
+   "addr": "0x880A",
+   "file": "bank09/880A.png",
+   "tiles": 65,
+   "streams": 4,
+   "compressed_size": 1235,
+   "vram": "0x26C0",
+   "palette": "banque 28 $8D94",
+   "used_by": [
+    "script scene_1B"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 9,
+   "addr": "0x8FAD",
+   "file": "bank09/8FAD.png",
+   "tiles": 25,
+   "streams": 4,
+   "compressed_size": 361,
+   "vram": "0x0400",
+   "palette": "banque 28 $81B4",
+   "used_by": [
+    "script scene_04",
+    "script scene_1B"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 9,
+   "addr": "0x9116",
+   "file": "bank09/9116.png",
+   "tiles": 39,
+   "streams": 4,
+   "compressed_size": 425,
+   "vram": "0x0720",
+   "palette": "banque 28 $81B4",
+   "used_by": [
+    "script scene_1B"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 9,
+   "addr": "0x92BF",
+   "file": "bank09/92BF.png",
+   "tiles": 111,
+   "streams": 4,
+   "compressed_size": 2242,
+   "vram": "0x0000",
+   "palette": "banque 16 $BEA5",
+   "used_by": [
+    "script scene_03",
+    "script scene_04",
+    "script scene_05",
+    "script scene_08",
+    "script scene_09",
+    "script scene_0A"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 9,
+   "addr": "0x9BC1",
+   "file": "bank09/9BC1.png",
+   "tiles": 63,
+   "streams": 4,
+   "compressed_size": 1628,
+   "vram": "0x0E00",
+   "palette": "gris (palette inconnue)",
+   "used_by": [
+    "script scene_03",
+    "script scene_05",
+    "script scene_06",
+    "script scene_08",
+    "script scene_12"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 9,
+   "addr": "0xA311",
+   "file": "bank09/A311.png",
+   "tiles": 49,
+   "streams": 4,
+   "compressed_size": 1110,
+   "vram": "0x0800",
+   "palette": "banque 28 $81B4",
+   "used_by": [
+    "script scene_04",
+    "script scene_1B"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 9,
+   "addr": "0xA8A7",
+   "file": "bank09/A8A7.png",
+   "tiles": 20,
+   "streams": 4,
+   "compressed_size": 423,
+   "vram": "0x2000",
+   "palette": "banque 28 $8594",
+   "used_by": [
+    "script scene_0D"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 9,
+   "addr": "0xACCE",
+   "file": "bank09/ACCE.png",
+   "tiles": 45,
+   "streams": 4,
+   "compressed_size": 1153,
+   "vram": "0x0200",
+   "palette": "banque 28 $9CD4",
+   "used_by": [
+    "script scene_0D"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 9,
+   "addr": "0xB14F",
+   "file": "bank09/B14F.png",
+   "tiles": 162,
+   "streams": 4,
+   "compressed_size": 1317,
+   "vram": "0x23E0",
+   "palette": "banque 28 $8A74",
+   "used_by": [
+    "script scene_05",
+    "script scene_11"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 9,
+   "addr": "0xBACF",
+   "file": "bank09/BACF.png",
+   "tiles": 49,
+   "streams": 4,
+   "compressed_size": 1032,
+   "vram": "0x0000",
+   "palette": "banque 28 $8C34",
+   "used_by": [
+    "script scene_03"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 12,
+   "addr": "0x9220",
+   "file": "bank12/9220.png",
+   "tiles": 14,
+   "streams": 4,
+   "compressed_size": 341,
+   "vram": "0x0960",
+   "palette": "gris (palette inconnue)",
+   "used_by": [
+    "code $050EC"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 12,
+   "addr": "0x9375",
+   "file": "bank12/9375.png",
+   "tiles": 4,
+   "streams": 4,
+   "compressed_size": 106,
+   "vram": "0x08E0",
+   "palette": "gris (palette inconnue)",
+   "used_by": [
+    "niveau 07 ($4C14)",
+    "niveau 0E ($4C14)",
+    "niveau 23 ($4C14)",
+    "niveau 24 ($4C14)",
+    "niveau 25 ($4C14)",
+    "niveau 28 ($4C14)"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 12,
+   "addr": "0x93DF",
+   "file": "bank12/93DF.png",
+   "tiles": 5,
+   "streams": 4,
+   "compressed_size": 45,
+   "vram": "0x0D60",
+   "palette": "gris (palette inconnue)",
+   "used_by": [
+    "niveau 07 ($4C14)",
+    "niveau 0E ($4C14)",
+    "niveau 24 ($4C14)",
+    "niveau 25 ($4C14)",
+    "niveau 29 ($4C14)",
+    "niveau 2B ($4C14)"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 12,
+   "addr": "0x940C",
+   "file": "bank12/940C.png",
+   "tiles": 96,
+   "streams": 4,
+   "compressed_size": 2794,
+   "vram": "0x0E00",
+   "palette": "gris (palette inconnue)",
+   "used_by": [
+    "niveau 07 ($4C14)"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 12,
+   "addr": "0x9EF6",
+   "file": "bank12/9EF6.png",
+   "tiles": 5,
+   "streams": 4,
+   "compressed_size": 128,
+   "vram": "0x1A00",
+   "palette": "gris (palette inconnue)",
+   "used_by": [
+    "niveau 07 ($4C14)"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 12,
+   "addr": "0x9F76",
+   "file": "bank12/9F76.png",
+   "tiles": 36,
+   "streams": 4,
+   "compressed_size": 912,
+   "vram": "0x1600",
+   "palette": "gris (palette inconnue)",
+   "used_by": [
+    "niveau 00 ($4C14)",
+    "niveau 01 ($4C14)",
+    "niveau 02 ($4C14)",
+    "niveau 03 ($4C14)",
+    "niveau 08 ($4C14)",
+    "niveau 09 ($4C14)"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 12,
+   "addr": "0xA306",
+   "file": "bank12/A306.png",
+   "tiles": 16,
+   "streams": 4,
+   "compressed_size": 418,
+   "vram": "0x1D00",
+   "palette": "gris (palette inconnue)",
+   "used_by": [
+    "niveau 04 ($4C14)",
+    "niveau 05 ($4C14)",
+    "niveau 06 ($4C14)",
+    "niveau 0F ($4C14)",
+    "niveau 10 ($4C14)",
+    "niveau 11 ($4C14)"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 12,
+   "addr": "0xA4A8",
+   "file": "bank12/A4A8.png",
+   "tiles": 25,
+   "streams": 4,
+   "compressed_size": 726,
+   "vram": "0x11C0",
+   "palette": "gris (palette inconnue)",
+   "used_by": [
+    "niveau 00 ($4C14)",
+    "niveau 01 ($4C14)",
+    "niveau 02 ($4C14)",
+    "niveau 03 ($4C14)",
+    "niveau 04 ($4C14)",
+    "niveau 05 ($4C14)"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 12,
+   "addr": "0xA77E",
+   "file": "bank12/A77E.png",
+   "tiles": 16,
+   "streams": 4,
+   "compressed_size": 365,
+   "vram": "0x0D20",
+   "palette": "gris (palette inconnue)",
+   "used_by": [
+    "niveau 00 ($4C14)",
+    "niveau 01 ($4C14)",
+    "niveau 02 ($4C14)",
+    "niveau 03 ($4C14)",
+    "niveau 04 ($4C14)",
+    "niveau 05 ($4C14)"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 12,
+   "addr": "0xA8EB",
+   "file": "bank12/A8EB.png",
+   "tiles": 21,
+   "streams": 4,
+   "compressed_size": 567,
+   "vram": "0x0F20",
+   "palette": "gris (palette inconnue)",
+   "used_by": [
+    "niveau 04 ($4C14)",
+    "niveau 05 ($4C14)",
+    "niveau 06 ($4C14)",
+    "niveau 08 ($4C14)",
+    "niveau 09 ($4C14)",
+    "niveau 0C ($4C14)"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 12,
+   "addr": "0xAB22",
+   "file": "bank12/AB22.png",
+   "tiles": 14,
+   "streams": 4,
+   "compressed_size": 322,
+   "vram": "0x1E20",
+   "palette": "gris (palette inconnue)",
+   "used_by": [
+    "niveau 07 ($4C14)",
+    "niveau 0E ($4C14)",
+    "niveau 25 ($4C14)",
+    "niveau 2B ($4C14)",
+    "niveau 32 ($4C14)",
+    "niveau 33 ($4C14)"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 12,
+   "addr": "0xAE44",
+   "file": "bank12/AE44.png",
+   "tiles": 3,
+   "streams": 4,
+   "compressed_size": 57,
+   "vram": "0x0C00",
+   "palette": "gris (palette inconnue)",
+   "used_by": [
+    "niveau 07 ($4C14)",
+    "niveau 24 ($4C14)",
+    "niveau 29 ($4C14)",
+    "niveau 30 ($4C14)",
+    "niveau 32 ($4C14)",
+    "niveau 33 ($4C14)"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 12,
+   "addr": "0xAE7D",
+   "file": "bank12/AE7D.png",
+   "tiles": 33,
+   "streams": 4,
+   "compressed_size": 825,
+   "vram": "0x0540",
+   "palette": "gris (palette inconnue)",
+   "used_by": [
+    "code $05066"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 12,
+   "addr": "0xB1B6",
+   "file": "bank12/B1B6.png",
+   "tiles": 4,
+   "streams": 4,
+   "compressed_size": 106,
+   "vram": "0x1560",
+   "palette": "gris (palette inconnue)",
+   "used_by": [
+    "niveau 00 ($4C14)",
+    "niveau 01 ($4C14)",
+    "niveau 02 ($4C14)",
+    "niveau 03 ($4C14)",
+    "niveau 08 ($4C14)",
+    "niveau 09 ($4C14)"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 12,
+   "addr": "0xB220",
+   "file": "bank12/B220.png",
+   "tiles": 8,
+   "streams": 4,
+   "compressed_size": 233,
+   "vram": "0x1CC0",
+   "palette": "gris (palette inconnue)",
+   "used_by": [
+    "niveau 08 ($4C14)",
+    "niveau 09 ($4C14)",
+    "niveau 0A ($4C14)",
+    "niveau 0B ($4C14)",
+    "niveau 0C ($4C14)",
+    "niveau 0F ($4C14)"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 12,
+   "addr": "0xB309",
+   "file": "bank12/B309.png",
+   "tiles": 18,
+   "streams": 4,
+   "compressed_size": 530,
+   "vram": "0x1A80",
+   "palette": "gris (palette inconnue)",
+   "used_by": [
+    "niveau 08 ($4C14)",
+    "niveau 09 ($4C14)",
+    "niveau 0A ($4C14)",
+    "niveau 0B ($4C14)",
+    "niveau 0C ($4C14)",
+    "niveau 0F ($4C14)"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 12,
+   "addr": "0xB51B",
+   "file": "bank12/B51B.png",
+   "tiles": 18,
+   "streams": 4,
+   "compressed_size": 581,
+   "vram": "0x13C0",
+   "palette": "gris (palette inconnue)",
+   "used_by": [
+    "niveau 08 ($4C14)",
+    "niveau 09 ($4C14)",
+    "niveau 0A ($4C14)",
+    "niveau 0B ($4C14)",
+    "niveau 0C ($4C14)"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 12,
+   "addr": "0xB760",
+   "file": "bank12/B760.png",
+   "tiles": 24,
+   "streams": 4,
+   "compressed_size": 764,
+   "vram": "0x0CA0",
+   "palette": "gris (palette inconnue)",
+   "used_by": [
+    "niveau 0A ($4C14)",
+    "niveau 0B ($4C14)"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 12,
+   "addr": "0xBA5C",
+   "file": "bank12/BA5C.png",
+   "tiles": 22,
+   "streams": 4,
+   "compressed_size": 701,
+   "vram": "0x0FA0",
+   "palette": "gris (palette inconnue)",
+   "used_by": [
+    "niveau 0A ($4C14)",
+    "niveau 0B ($4C14)"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 12,
+   "addr": "0xBD19",
+   "file": "bank12/BD19.png",
+   "tiles": 8,
+   "streams": 4,
+   "compressed_size": 216,
+   "vram": "0x1560",
+   "palette": "gris (palette inconnue)",
+   "used_by": [
+    "niveau 0F ($4C14)",
+    "niveau 10 ($4C14)",
+    "niveau 11 ($4C14)",
+    "niveau 12 ($4C14)",
+    "niveau 13 ($4C14)",
+    "niveau 1B ($4C14)"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 12,
+   "addr": "0xBDF1",
+   "file": "bank12/BDF1.png",
+   "tiles": 8,
+   "streams": 4,
+   "compressed_size": 189,
+   "vram": "0x1780",
+   "palette": "gris (palette inconnue)",
+   "used_by": [
+    "niveau 14 ($4C14)",
+    "niveau 15 ($4C14)",
+    "niveau 16 ($4C14)",
+    "niveau 17 ($4C14)",
+    "niveau 18 ($4C14)",
+    "niveau 19 ($4C14)"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 12,
+   "addr": "0xBEAE",
+   "file": "bank12/BEAE.png",
+   "tiles": 3,
+   "streams": 4,
+   "compressed_size": 69,
+   "vram": "0x0C00",
+   "palette": "gris (palette inconnue)",
+   "used_by": [
+    "niveau 0E ($4C14)"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 12,
+   "addr": "0xBEF3",
+   "file": "bank12/BEF3.png",
+   "tiles": 3,
+   "streams": 4,
+   "compressed_size": 45,
+   "vram": "0x0C00",
+   "palette": "gris (palette inconnue)",
+   "used_by": [
+    "niveau 25 ($4C14)"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 12,
+   "addr": "0xBF20",
+   "file": "bank12/BF20.png",
+   "tiles": 3,
+   "streams": 4,
+   "compressed_size": 69,
+   "vram": "0x0C00",
+   "palette": "gris (palette inconnue)",
+   "used_by": [
+    "niveau 2B ($4C14)",
+    "niveau 2C ($4C14)"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 13,
+   "addr": "0x8000",
+   "file": "bank13/8000.png",
+   "tiles": 205,
+   "streams": 4,
+   "compressed_size": 5345,
+   "vram": "0x1E60",
+   "palette": "gris (palette inconnue)",
+   "used_by": [
+    "niveau 1E ($4C88)",
+    "niveau 1F ($4C88)",
+    "niveau 20 ($4C88)",
+    "niveau 22 ($4C88)",
+    "niveau 23 ($4C88)",
+    "niveau 24 ($4C88)"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 13,
+   "addr": "0x94E1",
+   "file": "bank13/94E1.png",
+   "tiles": 81,
+   "streams": 4,
+   "compressed_size": 1651,
+   "vram": "0x2000",
+   "palette": "gris (palette inconnue)",
+   "used_by": [
+    "niveau 25 ($4C88)"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 13,
+   "addr": "0x9E5B",
+   "file": "bank13/9E5B.png",
+   "tiles": 54,
+   "streams": 4,
+   "compressed_size": 1553,
+   "vram": "0x0E00",
+   "palette": "gris (palette inconnue)",
+   "used_by": [
+    "niveau 2A ($4C14)",
+    "niveau 2B ($4C14)",
+    "niveau 2C ($4C14)"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 13,
+   "addr": "0xA46C",
+   "file": "bank13/A46C.png",
+   "tiles": 11,
+   "streams": 4,
+   "compressed_size": 211,
+   "vram": "0x14C0",
+   "palette": "gris (palette inconnue)",
+   "used_by": [
+    "niveau 2C ($4C14)",
+    "niveau 37 ($4C14)"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 13,
+   "addr": "0xA53F",
+   "file": "bank13/A53F.png",
+   "tiles": 37,
+   "streams": 4,
+   "compressed_size": 1093,
+   "vram": "0x14C0",
+   "palette": "gris (palette inconnue)",
+   "used_by": [
+    "niveau 2B ($4C14)"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 13,
+   "addr": "0xA984",
+   "file": "bank13/A984.png",
+   "tiles": 24,
+   "streams": 4,
+   "compressed_size": 578,
+   "vram": "0x1400",
+   "palette": "gris (palette inconnue)",
+   "used_by": [
+    "niveau 2A ($4C14)"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 13,
+   "addr": "0xABC6",
+   "file": "bank13/ABC6.png",
+   "tiles": 106,
+   "streams": 4,
+   "compressed_size": 2664,
+   "vram": "0x2000",
+   "palette": "gris (palette inconnue)",
+   "used_by": [
+    "niveau 33 ($4C88)"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 13,
+   "addr": "0xB62E",
+   "file": "bank13/B62E.png",
+   "tiles": 14,
+   "streams": 4,
+   "compressed_size": 285,
+   "vram": "0x2000",
+   "palette": "gris (palette inconnue)",
+   "used_by": [
+    "niveau 32 ($4C88)",
+    "niveau 38 ($4C88)"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 13,
+   "addr": "0xB74B",
+   "file": "bank13/B74B.png",
+   "tiles": 3,
+   "streams": 4,
+   "compressed_size": 102,
+   "vram": "0x1980",
+   "palette": "gris (palette inconnue)",
+   "used_by": [
+    "niveau 20 ($4C14)",
+    "niveau 26 ($4C14)",
+    "niveau 27 ($4C14)",
+    "niveau 2D ($4C14)",
+    "niveau 2E ($4C14)"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 13,
+   "addr": "0xB7B1",
+   "file": "bank13/B7B1.png",
+   "tiles": 47,
+   "streams": 4,
+   "compressed_size": 1101,
+   "vram": "0x0E00",
+   "palette": "gris (palette inconnue)",
+   "used_by": [
+    "niveau 32 ($4C14)",
+    "niveau 38 ($4C14)"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 14,
+   "addr": "0x8160",
+   "file": "bank14/8160.png",
+   "tiles": 84,
+   "streams": 4,
+   "compressed_size": 2434,
+   "vram": "0x0E00",
+   "palette": "banque 28 $82F4",
+   "used_by": [
+    "script scene_03",
+    "script scene_09",
+    "script scene_0B",
+    "script scene_0D",
+    "script scene_0E",
+    "script scene_19"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 14,
+   "addr": "0x8AE2",
+   "file": "bank14/8AE2.png",
+   "tiles": 34,
+   "streams": 4,
+   "compressed_size": 869,
+   "vram": "0x1BA0",
+   "palette": "banque 28 $82F4",
+   "used_by": [
+    "script scene_09",
+    "script scene_0D",
+    "script scene_11",
+    "script scene_12"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 14,
+   "addr": "0x8E47",
+   "file": "bank14/8E47.png",
+   "tiles": 20,
+   "streams": 4,
+   "compressed_size": 258,
+   "vram": "0x20C0",
+   "palette": "banque 28 $82D4",
+   "used_by": [
+    "script scene_03",
+    "script scene_09",
+    "script scene_0A",
+    "script scene_0B",
+    "script scene_12",
+    "script scene_13"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 14,
+   "addr": "0x91C9",
+   "file": "bank14/91C9.png",
+   "tiles": 63,
+   "streams": 4,
+   "compressed_size": 1506,
+   "vram": "0x0000",
+   "palette": "banque 16 $BEA5",
+   "used_by": [
+    "script scene_08"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 14,
+   "addr": "0x9DEB",
+   "file": "bank14/9DEB.png",
+   "tiles": 67,
+   "streams": 4,
+   "compressed_size": 1431,
+   "vram": "0x0E00",
+   "palette": "banque 28 $82F4",
+   "used_by": [
+    "script scene_0A"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 14,
+   "addr": "0xA602",
+   "file": "bank14/A602.png",
+   "tiles": 30,
+   "streams": 4,
+   "compressed_size": 668,
+   "vram": "0x16C0",
+   "palette": "banque 28 $82F4",
+   "used_by": [
+    "script scene_0A"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 14,
+   "addr": "0xA89E",
+   "file": "bank14/A89E.png",
+   "tiles": 43,
+   "streams": 4,
+   "compressed_size": 1020,
+   "vram": "0x1A80",
+   "palette": "banque 17 $B7D7",
+   "used_by": [
+    "script scene_0B",
+    "script scene_11"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 14,
+   "addr": "0xAC9A",
+   "file": "bank14/AC9A.png",
+   "tiles": 85,
+   "streams": 4,
+   "compressed_size": 1968,
+   "vram": "0x0E00",
+   "palette": "banque 28 $8634",
+   "used_by": [
+    "script scene_0C"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 15,
+   "addr": "0x8000",
+   "file": "bank15/8000.png",
+   "tiles": 191,
+   "streams": 4,
+   "compressed_size": 5389,
+   "vram": "0x2000",
+   "palette": "gris (palette inconnue)",
+   "used_by": [
+    "niveau 08 ($4C88)",
+    "niveau 09 ($4C88)",
+    "niveau 0A ($4C88)",
+    "niveau 0B ($4C88)",
+    "niveau 0C ($4C88)"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 15,
+   "addr": "0x950D",
+   "file": "bank15/950D.png",
+   "tiles": 85,
+   "streams": 4,
+   "compressed_size": 2223,
+   "vram": "0x2000",
+   "palette": "gris (palette inconnue)",
+   "used_by": [
+    "niveau 0D ($4C88)",
+    "niveau 0E ($4C88)"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 15,
+   "addr": "0x9DBC",
+   "file": "bank15/9DBC.png",
+   "tiles": 92,
+   "streams": 4,
+   "compressed_size": 1683,
+   "vram": "0x2000",
+   "palette": "banque 28 $8A74",
+   "used_by": [
+    "niveau 2A ($4C88)",
+    "niveau 2B ($4C88)",
+    "niveau 2C ($4C88)",
+    "niveau 37 ($4C88)",
+    "script scene_11"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 15,
+   "addr": "0xA44F",
+   "file": "bank15/A44F.png",
+   "tiles": 213,
+   "streams": 4,
+   "compressed_size": 5467,
+   "vram": "0x1D60",
+   "palette": "gris (palette inconnue)",
+   "used_by": [
+    "niveau 14 ($4C88)",
+    "niveau 15 ($4C88)",
+    "niveau 16 ($4C88)",
+    "niveau 17 ($4C88)",
+    "niveau 18 ($4C88)",
+    "niveau 19 ($4C88)"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 15,
+   "addr": "0xB9AA",
+   "file": "bank15/B9AA.png",
+   "tiles": 42,
+   "streams": 4,
+   "compressed_size": 1247,
+   "vram": "0x0E00",
+   "palette": "gris (palette inconnue)",
+   "used_by": [
+    "niveau 33 ($4C14)"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 16,
+   "addr": "0xA34F",
+   "file": "bank16/A34F.png",
+   "tiles": 111,
+   "streams": 4,
+   "compressed_size": 2446,
+   "vram": "0x0000",
+   "palette": "banque 28 $8854",
+   "used_by": [
+    "script scene_0E",
+    "script scene_0F"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 16,
+   "addr": "0xAE44",
+   "file": "bank16/AE44.png",
+   "tiles": 42,
+   "streams": 4,
+   "compressed_size": 984,
+   "vram": "0x1A80",
+   "palette": "banque 28 $8874",
+   "used_by": [
+    "script scene_03",
+    "script scene_04",
+    "script scene_10",
+    "script scene_11",
+    "script scene_12",
+    "script scene_15"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 16,
+   "addr": "0xB21C",
+   "file": "bank16/B21C.png",
+   "tiles": 51,
+   "streams": 4,
+   "compressed_size": 1192,
+   "vram": "0x0E00",
+   "palette": "banque 28 $8FD4",
+   "used_by": [
+    "script scene_13",
+    "script scene_14"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 16,
+   "addr": "0xB804",
+   "file": "bank16/B804.png",
+   "tiles": 38,
+   "streams": 4,
+   "compressed_size": 1121,
+   "vram": "0x1500",
+   "palette": "banque 28 $8FD4",
+   "used_by": [
+    "script scene_13",
+    "script scene_14"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 17,
+   "addr": "0x8000",
+   "file": "bank17/8000.png",
+   "tiles": 32,
+   "streams": 4,
+   "compressed_size": 902,
+   "vram": "0x0E00",
+   "palette": "banque 28 $8874",
+   "used_by": [
+    "script scene_03",
+    "script scene_04",
+    "script scene_10",
+    "script scene_11",
+    "script scene_12",
+    "script scene_15"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 17,
+   "addr": "0x8386",
+   "file": "bank17/8386.png",
+   "tiles": 16,
+   "streams": 4,
+   "compressed_size": 449,
+   "vram": "0x2000",
+   "palette": "banque 28 $8954",
+   "used_by": [
+    "script scene_03",
+    "script scene_04",
+    "script scene_10",
+    "script scene_11",
+    "script scene_12",
+    "script scene_15"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 17,
+   "addr": "0x8547",
+   "file": "bank17/8547.png",
+   "tiles": 28,
+   "streams": 4,
+   "compressed_size": 833,
+   "vram": "0x25E0",
+   "palette": "banque 28 $8954",
+   "used_by": [
+    "script scene_03",
+    "script scene_04",
+    "script scene_10",
+    "script scene_11",
+    "script scene_12",
+    "script scene_15"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 17,
+   "addr": "0x89C8",
+   "file": "bank17/89C8.png",
+   "tiles": 40,
+   "streams": 4,
+   "compressed_size": 998,
+   "vram": "0x1200",
+   "palette": "banque 28 $8874",
+   "used_by": [
+    "script scene_04",
+    "script scene_10",
+    "script scene_12"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 17,
+   "addr": "0x907E",
+   "file": "bank17/907E.png",
+   "tiles": 33,
+   "streams": 4,
+   "compressed_size": 748,
+   "vram": "0x1200",
+   "palette": "banque 28 $8A94",
+   "used_by": [
+    "script scene_11"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 17,
+   "addr": "0x93EA",
+   "file": "bank17/93EA.png",
+   "tiles": 39,
+   "streams": 4,
+   "compressed_size": 1175,
+   "vram": "0x15A0",
+   "palette": "banque 28 $8A94",
+   "used_by": [
+    "script scene_11",
+    "script scene_12"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 17,
+   "addr": "0x9881",
+   "file": "bank17/9881.png",
+   "tiles": 8,
+   "streams": 4,
+   "compressed_size": 157,
+   "vram": "0x0BA0",
+   "palette": "banque 28 $8A94",
+   "used_by": [
+    "script scene_11",
+    "script scene_12"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 17,
+   "addr": "0x991E",
+   "file": "bank17/991E.png",
+   "tiles": 14,
+   "streams": 4,
+   "compressed_size": 196,
+   "vram": "0x2200",
+   "palette": "banque 28 $8A74",
+   "used_by": [
+    "script scene_11"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 17,
+   "addr": "0x9A82",
+   "file": "bank17/9A82.png",
+   "tiles": 64,
+   "streams": 4,
+   "compressed_size": 1636,
+   "vram": "0x1200",
+   "palette": "banque 28 $82F4",
+   "used_by": [
+    "script scene_03",
+    "script scene_04",
+    "script scene_12"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 17,
+   "addr": "0xA226",
+   "file": "bank17/A226.png",
+   "tiles": 20,
+   "streams": 4,
+   "compressed_size": 577,
+   "vram": "0x0BA0",
+   "palette": "banque 28 $82F4",
+   "used_by": [
+    "script scene_12"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 17,
+   "addr": "0xA467",
+   "file": "bank17/A467.png",
+   "tiles": 14,
+   "streams": 4,
+   "compressed_size": 262,
+   "vram": "0x1E20",
+   "palette": "banque 28 $93B4",
+   "used_by": [
+    "script scene_03",
+    "script scene_04",
+    "script scene_12",
+    "script scene_14"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 17,
+   "addr": "0xA56D",
+   "file": "bank17/A56D.png",
+   "tiles": 7,
+   "streams": 4,
+   "compressed_size": 132,
+   "vram": "0x1F00",
+   "palette": "banque 28 $82F4",
+   "used_by": [
+    "script scene_12"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 17,
+   "addr": "0xA5F1",
+   "file": "bank17/A5F1.png",
+   "tiles": 10,
+   "streams": 4,
+   "compressed_size": 246,
+   "vram": "0x1A00",
+   "palette": "banque 28 $82F4",
+   "used_by": [
+    "script scene_12"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 17,
+   "addr": "0xA6E7",
+   "file": "bank17/A6E7.png",
+   "tiles": 18,
+   "streams": 4,
+   "compressed_size": 438,
+   "vram": "0x0BC0",
+   "palette": "banque 28 $82F4",
+   "used_by": [
+    "script scene_12"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 17,
+   "addr": "0xA89D",
+   "file": "bank17/A89D.png",
+   "tiles": 80,
+   "streams": 4,
+   "compressed_size": 2108,
+   "vram": "0x0200",
+   "palette": "banque 28 $82F4",
+   "used_by": [
+    "script scene_04",
+    "script scene_12"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 18,
+   "addr": "0x82D8",
+   "file": "bank18/82D8.png",
+   "tiles": 99,
+   "streams": 4,
+   "compressed_size": 2821,
+   "vram": "0x0E00",
+   "palette": "gris (palette inconnue)",
+   "used_by": [
+    "niveau 25 ($4C14)"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 18,
+   "addr": "0x8DDD",
+   "file": "bank18/8DDD.png",
+   "tiles": 6,
+   "streams": 4,
+   "compressed_size": 56,
+   "vram": "0x1A00",
+   "palette": "banque 28 $8FD4",
+   "used_by": [
+    "niveau 31 ($4C14)",
+    "script scene_13"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 18,
+   "addr": "0x8E15",
+   "file": "bank18/8E15.png",
+   "tiles": 89,
+   "streams": 4,
+   "compressed_size": 2146,
+   "vram": "0x0E00",
+   "palette": "gris (palette inconnue)",
+   "used_by": [
+    "niveau 34 ($4C14)"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 18,
+   "addr": "0x9677",
+   "file": "bank18/9677.png",
+   "tiles": 18,
+   "streams": 4,
+   "compressed_size": 280,
+   "vram": "0x1920",
+   "palette": "gris (palette inconnue)",
+   "used_by": [
+    "niveau 34 ($4C14)"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 18,
+   "addr": "0x978F",
+   "file": "bank18/978F.png",
+   "tiles": 128,
+   "streams": 4,
+   "compressed_size": 2855,
+   "vram": "0x0E00",
+   "palette": "banque 17 $B7D7",
+   "used_by": [
+    "niveau 35 ($4C14)",
+    "niveau 36 ($4C14)",
+    "niveau 39 ($4C14)",
+    "script scene_16"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 18,
+   "addr": "0xA2B6",
+   "file": "bank18/A2B6.png",
+   "tiles": 53,
+   "streams": 4,
+   "compressed_size": 1415,
+   "vram": "0x0E00",
+   "palette": "gris (palette inconnue)",
+   "used_by": [
+    "niveau 23 ($4C14)",
+    "niveau 24 ($4C14)",
+    "niveau 28 ($4C14)",
+    "niveau 29 ($4C14)",
+    "niveau 2F ($4C14)",
+    "niveau 30 ($4C14)"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 18,
+   "addr": "0xA83D",
+   "file": "bank18/A83D.png",
+   "tiles": 7,
+   "streams": 4,
+   "compressed_size": 66,
+   "vram": "0x0B20",
+   "palette": "banque 17 $B7D7",
+   "used_by": [
+    "niveau 35 ($4C14)",
+    "niveau 36 ($4C14)",
+    "niveau 39 ($4C14)",
+    "script scene_16"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 18,
+   "addr": "0xA87F",
+   "file": "bank18/A87F.png",
+   "tiles": 2,
+   "streams": 4,
+   "compressed_size": 28,
+   "vram": "0x08E0",
+   "palette": "banque 17 $B7D7",
+   "used_by": [
+    "niveau 35 ($4C14)",
+    "niveau 36 ($4C14)",
+    "niveau 39 ($4C14)",
+    "script scene_16"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 18,
+   "addr": "0xA89B",
+   "file": "bank18/A89B.png",
+   "tiles": 71,
+   "streams": 4,
+   "compressed_size": 2015,
+   "vram": "0x0E00",
+   "palette": "banque 28 $8A94",
+   "used_by": [
+    "niveau 37 ($4C14)",
+    "script scene_11"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 18,
+   "addr": "0xB468",
+   "file": "bank18/B468.png",
+   "tiles": 18,
+   "streams": 4,
+   "compressed_size": 281,
+   "vram": "0x0000",
+   "palette": "banque 17 $BE67",
+   "used_by": [
+    "code $01658",
+    "code $017CE",
+    "script scene_2A"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 22,
+   "addr": "0x8000",
+   "file": "bank22/8000.png",
+   "tiles": 55,
+   "streams": 4,
+   "compressed_size": 1263,
+   "vram": "0x1200",
+   "palette": "banque 17 $B7D7",
+   "used_by": [
+    "script scene_16"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 22,
+   "addr": "0x858F",
+   "file": "bank22/858F.png",
+   "tiles": 105,
+   "streams": 4,
+   "compressed_size": 2670,
+   "vram": "0x0000",
+   "palette": "banque 17 $B7D7",
+   "used_by": [
+    "script scene_04",
+    "script scene_16",
+    "script scene_17",
+    "script scene_18"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 22,
+   "addr": "0x92F5",
+   "file": "bank22/92F5.png",
+   "tiles": 56,
+   "streams": 4,
+   "compressed_size": 1528,
+   "vram": "0x1000",
+   "palette": "banque 16 $BD25",
+   "used_by": [
+    "script scene_17"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 22,
+   "addr": "0x9A2D",
+   "file": "bank22/9A2D.png",
+   "tiles": 69,
+   "streams": 4,
+   "compressed_size": 1664,
+   "vram": "0x1800",
+   "palette": "banque 16 $BD25",
+   "used_by": [
+    "script scene_17"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 22,
+   "addr": "0xA1ED",
+   "file": "bank22/A1ED.png",
+   "tiles": 32,
+   "streams": 4,
+   "compressed_size": 807,
+   "vram": "0x1200",
+   "palette": "banque 16 $BDE5",
+   "used_by": [
+    "script scene_04"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 22,
+   "addr": "0xA5B4",
+   "file": "bank22/A5B4.png",
+   "tiles": 45,
+   "streams": 4,
+   "compressed_size": 1122,
+   "vram": "0x1200",
+   "palette": "banque 16 $BDE5",
+   "used_by": [
+    "script scene_04"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 22,
+   "addr": "0xAB56",
+   "file": "bank22/AB56.png",
+   "tiles": 49,
+   "streams": 4,
+   "compressed_size": 1207,
+   "vram": "0x1200",
+   "palette": "banque 16 $BDE5",
+   "used_by": [
+    "script scene_04"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 22,
+   "addr": "0xB0AD",
+   "file": "bank22/B0AD.png",
+   "tiles": 35,
+   "streams": 4,
+   "compressed_size": 603,
+   "vram": "0x1800",
+   "palette": "banque 16 $BDE5",
+   "used_by": [
+    "script scene_04"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 22,
+   "addr": "0xB3A8",
+   "file": "bank22/B3A8.png",
+   "tiles": 32,
+   "streams": 4,
+   "compressed_size": 564,
+   "vram": "0x0E00",
+   "palette": "banque 16 $BDE5",
+   "used_by": [
+    "script scene_04"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 22,
+   "addr": "0xBAA4",
+   "file": "bank22/BAA4.png",
+   "tiles": 43,
+   "streams": 4,
+   "compressed_size": 1003,
+   "vram": "0x1200",
+   "palette": "banque 16 $BE85",
+   "used_by": [
+    "script scene_05"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 23,
+   "addr": "0x8012",
+   "file": "bank23/8012.png",
+   "tiles": 13,
+   "streams": 4,
+   "compressed_size": 170,
+   "vram": "0x1A00",
+   "palette": "banque 17 $BE67",
+   "used_by": [
+    "script scene_2A"
+   ],
+   "editable": false
+  },
+  {
+   "bank": 23,
+   "addr": "0x80CB",
+   "file": "bank23/80CB.png",
+   "tiles": 44,
+   "streams": 4,
+   "compressed_size": 410,
+   "vram": "0x0800",
+   "palette": "banque 16 $BDE5",
+   "used_by": [
+    "script scene_04"
+   ],
+   "editable": false
+  },
+  {
+   "bank": 23,
+   "addr": "0x8265",
+   "file": "bank23/8265.png",
+   "tiles": 177,
+   "streams": 4,
+   "compressed_size": 4319,
+   "vram": "0x2000",
+   "palette": "banque 28 $A164",
+   "used_by": [
+    "script scene_05"
+   ],
+   "editable": false
+  },
+  {
+   "bank": 23,
+   "addr": "0xAE77",
+   "file": "bank23/AE77.png",
+   "tiles": 11,
+   "streams": 4,
+   "compressed_size": 145,
+   "vram": "0x1620",
+   "palette": "gris (palette inconnue)",
+   "used_by": [
+    "niveau 2C ($4C14)",
+    "niveau 37 ($4C14)"
+   ],
+   "editable": false
+  },
+  {
+   "bank": 23,
+   "addr": "0xAF08",
+   "file": "bank23/AF08.png",
+   "tiles": 12,
+   "streams": 4,
+   "compressed_size": 355,
+   "vram": "0x1780",
+   "palette": "gris (palette inconnue)",
+   "used_by": [
+    "niveau 2C ($4C14)",
+    "niveau 37 ($4C14)"
+   ],
+   "editable": false
+  },
+  {
+   "bank": 23,
+   "addr": "0xB06E",
+   "file": "bank23/B06E.png",
+   "tiles": 1,
+   "streams": 4,
+   "compressed_size": 13,
+   "vram": "0x0000",
+   "palette": "banque 28 $9CD4",
+   "used_by": [
+    "script scene_0D"
+   ],
+   "editable": false
+  },
+  {
+   "bank": 30,
+   "addr": "0xB2B8",
+   "file": "bank30/B2B8.png",
+   "tiles": 27,
+   "streams": 4,
+   "compressed_size": 573,
+   "vram": "0x0580",
+   "palette": "gris (palette inconnue)",
+   "used_by": [
+    "niveau 07 ($4C14)",
+    "niveau 0E ($4C14)",
+    "niveau 24 ($4C14)",
+    "niveau 25 ($4C14)",
+    "niveau 29 ($4C14)",
+    "niveau 2B ($4C14)"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 30,
+   "addr": "0xBAF4",
+   "file": "bank30/BAF4.png",
+   "tiles": 12,
+   "streams": 4,
+   "compressed_size": 267,
+   "vram": "0x0B20",
+   "palette": "gris (palette inconnue)",
+   "used_by": [
+    "niveau 00 ($4C14)",
+    "niveau 01 ($4C14)",
+    "niveau 02 ($4C14)",
+    "niveau 03 ($4C14)",
+    "niveau 04 ($4C14)",
+    "niveau 05 ($4C14)"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 31,
+   "addr": "0xA980",
+   "file": "bank31/A980.png",
+   "tiles": 36,
+   "streams": 4,
+   "compressed_size": 1135,
+   "vram": "0x1600",
+   "palette": "gris (palette inconnue)",
+   "used_by": [
+    "niveau 0A ($4C14)",
+    "niveau 0B ($4C14)"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 31,
+   "addr": "0xADEF",
+   "file": "bank31/ADEF.png",
+   "tiles": 27,
+   "streams": 4,
+   "compressed_size": 778,
+   "vram": "0x1720",
+   "palette": "gris (palette inconnue)",
+   "used_by": [
+    "niveau 0F ($4C14)",
+    "niveau 10 ($4C14)",
+    "niveau 11 ($4C14)",
+    "niveau 12 ($4C14)",
+    "niveau 13 ($4C14)",
+    "niveau 14 ($4C14)"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 31,
+   "addr": "0xB0F9",
+   "file": "bank31/B0F9.png",
+   "tiles": 74,
+   "streams": 4,
+   "compressed_size": 1717,
+   "vram": "0x0E00",
+   "palette": "gris (palette inconnue)",
+   "used_by": [
+    "niveau 0D ($4C14)",
+    "niveau 0E ($4C14)"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 31,
+   "addr": "0xB7AE",
+   "file": "bank31/B7AE.png",
+   "tiles": 30,
+   "streams": 4,
+   "compressed_size": 761,
+   "vram": "0x1740",
+   "palette": "gris (palette inconnue)",
+   "used_by": [
+    "niveau 0E ($4C14)"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 31,
+   "addr": "0xBAA7",
+   "file": "bank31/BAA7.png",
+   "tiles": 4,
+   "streams": 4,
+   "compressed_size": 64,
+   "vram": "0x1880",
+   "palette": "gris (palette inconnue)",
+   "used_by": [
+    "niveau 14 ($4C14)",
+    "niveau 15 ($4C14)",
+    "niveau 16 ($4C14)",
+    "niveau 17 ($4C14)",
+    "niveau 18 ($4C14)",
+    "niveau 19 ($4C14)"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 31,
+   "addr": "0xBAE7",
+   "file": "bank31/BAE7.png",
+   "tiles": 4,
+   "streams": 4,
+   "compressed_size": 115,
+   "vram": "0x1980",
+   "palette": "gris (palette inconnue)",
+   "used_by": [
+    "niveau 14 ($4C14)",
+    "niveau 15 ($4C14)",
+    "niveau 16 ($4C14)",
+    "niveau 17 ($4C14)",
+    "niveau 18 ($4C14)",
+    "niveau 19 ($4C14)"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 31,
+   "addr": "0xBB5A",
+   "file": "bank31/BB5A.png",
+   "tiles": 20,
+   "streams": 4,
+   "compressed_size": 465,
+   "vram": "0x0F20",
+   "palette": "gris (palette inconnue)",
+   "used_by": [
+    "niveau 14 ($4C14)",
+    "niveau 15 ($4C14)",
+    "niveau 16 ($4C14)",
+    "niveau 17 ($4C14)",
+    "niveau 18 ($4C14)",
+    "niveau 19 ($4C14)"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 31,
+   "addr": "0xBD2B",
+   "file": "bank31/BD2B.png",
+   "tiles": 18,
+   "streams": 4,
+   "compressed_size": 559,
+   "vram": "0x14E0",
+   "palette": "gris (palette inconnue)",
+   "used_by": [
+    "niveau 14 ($4C14)",
+    "niveau 15 ($4C14)",
+    "niveau 16 ($4C14)",
+    "niveau 17 ($4C14)",
+    "niveau 18 ($4C14)",
+    "niveau 19 ($4C14)"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 33,
+   "addr": "0x81B8",
+   "file": "bank33/81B8.png",
+   "tiles": 35,
+   "streams": 4,
+   "compressed_size": 509,
+   "vram": "0x3000",
+   "palette": "banque 28 $8D94",
+   "used_by": [
+    "script scene_1B"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 33,
+   "addr": "0x8446",
+   "file": "bank33/8446.png",
+   "tiles": 40,
+   "streams": 4,
+   "compressed_size": 731,
+   "vram": "0x2000",
+   "palette": "banque 28 $A164",
+   "used_by": [
+    "script scene_05"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 33,
+   "addr": "0x8FB6",
+   "file": "bank33/8FB6.png",
+   "tiles": 314,
+   "streams": 4,
+   "compressed_size": 2193,
+   "vram": "0x0800",
+   "palette": "banque 17 $BE67",
+   "used_by": [
+    "script scene_2A"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 33,
+   "addr": "0x9848",
+   "file": "bank33/9848.png",
+   "tiles": 410,
+   "streams": 4,
+   "compressed_size": 7919,
+   "vram": "0x0000",
+   "palette": "banque 17 $B219",
+   "used_by": [
+    "script scene_00",
+    "script scene_02"
+   ],
+   "editable": true
+  }
+ ]
+}

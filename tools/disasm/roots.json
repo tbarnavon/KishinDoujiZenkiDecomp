@@ -1,0 +1,259 @@
+{
+ "_doc": "Racines du graphe d'appels pour analyze.py. Cle : 'banque:adresse'.",
+ "roots": {
+  "0:0000": "boot",
+  "0:00B0": "irq",
+  "0:0066": "nmi",
+  "0:06B3": "task0_main",
+  "0:1A2D": "task1",
+  "0:3476": "task2",
+  "1:4767": "task3",
+  "0:0FA9": "task4",
+  "1:6337": "task5_scene",
+  "0:042E": "joypad"
+ },
+ "tables": [
+  {
+   "table": "0:093A",
+   "name": "mode_093A"
+  },
+  {
+   "table": "0:0A02",
+   "name": "submode_0A02"
+  },
+  {
+   "table": "0:048B",
+   "name": "vdp_xfer_048B"
+  },
+  {
+   "table": "0:0B3D",
+   "name": "tbl_0B3D"
+  },
+  {
+   "table": "0:1D9E",
+   "name": "tbl_1D9E"
+  },
+  {
+   "table": "0:2539",
+   "name": "tbl_2539"
+  },
+  {
+   "table": "0:2CEE",
+   "name": "tbl_2CEE"
+  },
+  {
+   "table": "0:2E2D",
+   "name": "tbl_2E2D"
+  },
+  {
+   "table": "0:3CC3",
+   "name": "tbl_3CC3"
+  },
+  {
+   "table": "1:4F01",
+   "name": "objects_4F01"
+  },
+  {
+   "table": "1:6595",
+   "name": "script_op_6595"
+  },
+  {
+   "table": "1:72EB",
+   "name": "entcmd_72EB"
+  },
+  {
+   "table": "1:7500",
+   "name": "tbl_7500"
+  },
+  {
+   "table": "1:760B",
+   "name": "tbl_760B"
+  },
+  {
+   "table": "2:8000",
+   "name": "tbl_b02_8000"
+  },
+  {
+   "table": "23:970D",
+   "name": "tbl_b23_970D"
+  },
+  {
+   "table": "26:4164",
+   "name": "snd_4164"
+  },
+  {
+   "table": "26:47D1",
+   "name": "snd_47D1"
+  }
+ ],
+ "root_modules": {
+  "boot": "core/boot",
+  "irq": "core/irq",
+  "nmi": "core/irq",
+  "joypad": "input/joypad",
+  "task0_main": "core/game_flow",
+  "mode_093A": "core/game_flow",
+  "submode_0A02": "core/game_flow",
+  "task1": "game/player",
+  "tbl_2CEE": "game/player",
+  "tbl_2E2D": "game/player",
+  "tbl_3CC3": "game/player",
+  "tbl_b02_8000": "game/player",
+  "task2": "game/actors",
+  "entcmd_72EB": "game/actor_script",
+  "tbl_7500": "game/actor_script",
+  "tbl_760B": "game/actor_script",
+  "task3": "game/level",
+  "objects_4F01": "game/level",
+  "task4": "game/stage_events",
+  "tbl_0B3D": "game/stage_events",
+  "tbl_1D9E": "game/collision",
+  "tbl_2539": "game/collision",
+  "task5_scene": "game/script",
+  "script_op_6595": "game/script",
+  "vdp_xfer_048B": "video/vdp",
+  "tbl_b23_970D": "screens/debug_menu",
+  "snd_4164": "audio/sound_driver",
+  "snd_47D1": "audio/sound_driver"
+ },
+ "regions": [
+  {
+   "from": "1:574C",
+   "to": "1:5922",
+   "module": "video/palette",
+   "why": "effets de palette ($C0E4, 32 entrees) et fondus ($C0D3)"
+  },
+  {
+   "from": "1:6C26",
+   "to": "1:7292",
+   "module": "video/sprites",
+   "why": "moteur de meta-sprites (tampon $C200, tables banques 23/24)"
+  },
+  {
+   "from": "1:6415",
+   "to": "1:6427",
+   "module": "game/text",
+   "why": "chargement de la police (banque 9)"
+  },
+  {
+   "from": "1:687F",
+   "to": "1:6924",
+   "module": "game/text",
+   "why": "fenetre de texte (banque 32, $C904/$CBB1)"
+  },
+  {
+   "from": "1:4984",
+   "to": "1:4B40",
+   "module": "game/level",
+   "why": "metatuiles (banque 10, 8 octets par metatuile)"
+  },
+  {
+   "from": "1:4F01",
+   "to": "1:5011",
+   "module": "game/level",
+   "why": "preparation par scene (table $4F01 indexee par $C014)"
+  },
+  {
+   "from": "0:0A33",
+   "to": "0:0A92",
+   "module": "video/vdp",
+   "why": "remise a zero ecran (defilement, raster, tampon sprites)"
+  },
+  {
+   "from": "26:4000",
+   "to": "27:8000",
+   "module": "audio/sound_driver",
+   "why": "banque du driver son"
+  },
+  {
+   "from": "1:7292",
+   "to": "1:7F94",
+   "module": "game/actor_script",
+   "why": "interpreteur de scripts d'acteurs (banque 25) et ses commandes"
+  },
+  {
+   "from": "0:29C5",
+   "to": "0:2AF0",
+   "module": "game/collision",
+   "why": "lecture de la tuile/metatuile sous une position (banque 10)"
+  },
+  {
+   "from": "0:1616",
+   "to": "0:1800",
+   "module": "screens/pause_menu",
+   "why": "menu de pause : bouton Pause/Start, graphismes $B468 (banque 18), curseur (scripts actors_BD21/BD35)"
+  },
+  {
+   "from": "0:3B28",
+   "to": "0:3C1D",
+   "module": "game/actors",
+   "why": "routines d'acteurs partagees (banques 4/25)"
+  },
+  {
+   "from": "0:1380",
+   "to": "0:138B",
+   "module": "input/joypad",
+   "why": "conversion manette -> direction"
+  },
+  {
+   "from": "1:5198",
+   "to": "1:51CA",
+   "module": "game/level",
+   "why": "chargement de donnees de niveau"
+  },
+  {
+   "from": "1:59C1",
+   "to": "1:5AFF",
+   "module": "game/level",
+   "why": "chargeurs banques 2/23 pilotes par $C014"
+  },
+  {
+   "from": "0:0042",
+   "to": "0:005B",
+   "module": "video/vdp",
+   "why": "affichage on/off (registre VDP 1, copie $C0B4)"
+  },
+  {
+   "from": "0:003B",
+   "to": "0:0042",
+   "module": "video/vdp",
+   "why": "vecteurs vers les routines VDP de la banque 1"
+  },
+  {
+   "from": "23:9600",
+   "to": "23:9A00",
+   "module": "screens/debug_menu",
+   "why": "menu cache (combinaison $B4), appele par la tache 0"
+  }
+ ],
+ "ram_rules": [
+  {
+   "from": "0xDE00",
+   "to": "0xDE10",
+   "module": "audio/sound_api",
+   "why": "ecrit les commandes du driver son ($DE04-$DE0B)"
+  },
+  {
+   "from": "0xC09A",
+   "to": "0xC0B1",
+   "module": "game/scroll",
+   "why": "ecrit le defilement (C09B -> reg VDP 9, C0AE -> reg 8)"
+  },
+  {
+   "from": "0xC0B6",
+   "to": "0xC0C1",
+   "module": "game/scroll",
+   "why": "ecrit les variables de defilement"
+  },
+  {
+   "from": "0xCEEF",
+   "to": "0xCF20",
+   "module": "game/player",
+   "why": "ecrit la structure du joueur ($CEEF)"
+  }
+ ],
+ "bank_fallback": {
+  "2": "game/banked_b02",
+  "23": "game/banked_b23"
+ }
+}

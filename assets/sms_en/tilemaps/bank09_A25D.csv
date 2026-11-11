@@ -1,0 +1,5 @@
+# tilemap banque 9 $A25D : 4 lignes x 4 colonnes, 2 octets par case (mot VDP)
+0072,0073,0273,0272
+007A,007B,027B,027A
+007C,007D,027D,027C
+0472,0473,0673,0672

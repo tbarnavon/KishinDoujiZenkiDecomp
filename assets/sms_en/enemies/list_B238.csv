@@ -1,0 +1,9 @@
+# ennemis banque 4 $B238 : 7 ennemis ; niveaux 03
+# type (hex), x, y (decimal, pixels), drapeaux (hex)
+06,920,200,00
+07,952,152,00
+B0,1036,288,00
+B1,1044,156,00
+B0,1088,288,00
+B1,1108,152,00
+AA,1192,120,00

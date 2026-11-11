@@ -1,0 +1,8 @@
+# ennemis banque 4 $AC95 : 6 ennemis ; niveaux 31
+# type (hex), x, y (decimal, pixels), drapeaux (hex)
+46,56,104,00
+47,176,108,00
+46,248,104,00
+46,344,112,00
+47,464,92,00
+65,784,64,00

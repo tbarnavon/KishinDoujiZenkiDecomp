@@ -1,0 +1,5 @@
+# ennemis banque 4 $AF20 : 3 ennemis ; niveaux 1C
+# type (hex), x, y (decimal, pixels), drapeaux (hex)
+1F,560,132,00
+1F,592,180,00
+1F,624,212,00

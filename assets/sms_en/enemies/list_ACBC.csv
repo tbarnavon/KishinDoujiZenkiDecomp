@@ -1,0 +1,6 @@
+# ennemis banque 4 $ACBC : 4 ennemis ; niveaux 22
+# type (hex), x, y (decimal, pixels), drapeaux (hex)
+54,112,64,00
+54,208,56,00
+54,288,64,00
+54,368,56,00

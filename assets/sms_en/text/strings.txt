@@ -1,0 +1,223 @@
+# Textes des dialogues - version sms_en - banque 32
+# [NNN] = numero utilise par l'opcode `text` des scripts (assets/<ver>/scripts/bank05.zs).
+# \n = nouvelle ligne, {XX} = octet brut ; espaces de debut/fin significatifs.
+# Fichier EDITE A LA MAIN puis recompile au build (tools/assets/text.py build).
+
+[000] There is something\ncapable of grant-\ning the wishes of\n   a mortal...
+[001]  ...seeds of\n  possession...
+[002]   They have been\n sealed all over\n   Japan since\n  ancient times.
+[003] However, the seals\n on the seeds of\n    possession
+[004]  are about to be\n    broken by\n    someone...
+[005] What was that\nsound?!
+[006] Aah--!
+[007] Are you scared,\nlittle girl?
+[008] I'm gonna devour\nyou now...
+[009] (gasp)...The\nring?!
+[010] “When the ring\nshines, Zenki\nshall awaken...”
+[011] ...That's right!\nZenki!
+[012] I order thy soul\nto appear before\nme!
+[013] Show yourself,\nZenki!
+[014] Obey my will and\ndispel evil!!
+[015] Gah! W-What the\nheck! What happ-\nened to me?!
+[016] Ahah, he's so\ncute.
+[017] That old fart Ozu-\nnu must have done\nsomething to my\nbody!!
+[018] Hahahahah!
+[019] So much for the\n“strongest” of de-\nmon gods!
+[020] You'll never de-\nfeat Inugami like\nthat.
+[021] Who are you?!
+[022] Name's Souma Miki.\nI'm an exorcist of\nthe Kagekouya.
+[023] Hmph, and what's a\npuny exorcist do-\ning here?!
+[024] There are folks\nplanning to misuse\nthe seeds of po-\nssession.
+[025] We collect all of\nthem, and seal\nthem on Mt. Kouya.
+[026] That's how we'll\nkeep 'em from bas-\ntards like them.
+[027] Hmm, I see. I'd\nlike to hear more\nabout this.
+[028] C'mon, take us to\nMt. Kouya!
+[029] Hey, Chiaki!\nYou're gonna trust\nthis monk just\nlike that?!
+[030] Hmph. Forget about\nthat shrimp. Let's\nhurry to Mt. Kou-\nya.
+[031] Heh heh heh heh...
+[032] I am one of Inuga-\nmi's Four Heavenly\nKings, Hiki the\nDark Tortoise.
+[033] Inugami's...Four\nHeavenly Kings?!
+[034] Listen well, litt-\nle girl. Our lord,\nInugami,
+[035] will purge this\nrotten world with\nKokutei's power,
+[036] and create a new\nworld that will be\nruled by masters
+[037] of the occult such\nas us.
+[038] T-That's horri-\nble...
+[039] Dark magic will\nnever create a\nbetter world!!
+[040] Hmph. Say what you\nwill.
+[041] After all, this\nplace shall be\nyour grave.
+[042] Yay! You're un-\nbeatable, Zenki!
+[043] We even reclaimed\nthe seed of po-\nssession he had!
+[044] Damn it all!!
+[045] ...They're all\ndead...Even Master\nDaisoujou...
+[046] I'll never forgive\nyou for this, Inu-\ngami!!
+[047] Do you know where\nthey're hiding?
+[048] Yeah...I know the\ngeneral area.
+[049] Then let's hurry!
+[050] Hahahahaha...
+[051] You fools...
+[052] To stumble into\nthis mansion so\ncarelessly...
+[053] I, one of Inuga-\nmi's Four Heavenly\nKings,
+[054] the King of\nDarkness, Chimaru\nthe Dark Phoenix,
+[055] shall deal with\nyou!!
+[056] It's showtime,\nZenki!
+[057] Who knew his real\nbody was actually\nthe sword?...
+[058] Heh! No matter\nwhat they try, I,\nthe great Zenki,\nam invincible!
+[059] Yeah, right.
+[060] What was that?!\nSay that to my\nface, wench!
+[061] What did you just\ncall me?!
+[062] I'm starting to\nwonder if we can\nREALLY defeat Inu-\ngami...
+[063] I am one of Inu-\ngami's Four Heav-\nenly Kings, Kimon\nthe Dark Tiger.
+[064] You weaklings will\nnever defeat our\nlord, Inugami!
+[065] Not in a thousand\nyears!
+[066] Oh yeah?! We'll\nsee about that!
+[067] Chiaki, summon my\ntrue form already!
+[068] Not bad. But\nyou'll never de-\nfeat me!
+[069] Perish before my\ntrue power!
+[070] Tch...This isn't\ngood. I'll have to\nuse THAT...
+[071] My most powerful\nskill...“Rudra”!!
+[072]     Thunder!!
+[073] Become one with my\nlife! Let your\nlight lay waste\n
+[074] to all those be-\nfore you!
+[075]      RUDRA!!
+[076] I'll never die...\nNever.
+[077] Ain't that\nright...\n...Ozunu, you\nold bastard...?
+[078] ...Goki...
+[079] (gasp)\nZ-Zenki...\n...is...dead...
+[080] You idiot!!
+[081] Why did you have\nto throw your life\naway?!
+[082] How are we going\nto settle our\nscore if you're\ndead?!
+[083] This can't be\nreal...\nNOOOO!!\nZENKIII!!
+[084] ...I really liked\nyou...
+[085] Huh?!
+[086] Hey, Chiaki! Can\nyou hear me?!
+[087] Zenki, you're\nalive!
+[088] A badass like me\nain't gonna die\nthat easily!
+[089] But I messed up\nbig time! My body\nis in pieces!
+[090] You gotta do some-\nthing, Chiaki!
+[091] That's easy for\nyou to say...
+[092] Ahh!
+[093] Be not distressed,\nO heir of my pow-\ners.
+[094] Zenki's body was\none born from\ndarkness.
+[095] But Zenki's soul\nnow carries the\nenergy of light.
+[096] He deserves to be\nreborn into a be-\nfitting body
+[097] as a demon god of\nlight.
+[098] He shall become\nstronger,
+[099] and become the\nperfect ally of\nmankind.
+[100] For that to happ-\nen, you must seek\nmy other demon god
+[101] who wields the\npower of “protec-\ntion” and “crea-\ntion”:
+[102] Goki.
+[103] Thou shalt journey\nwith Goki, and\nfight with him\nagainst evil!
+[104] So, if we seek out\nthis Goki, we can\nbring Zenki back!
+[105] Me? An ally of\nmankind?! You\ngotta be kidding\nme, you old fart!
+[106] Goki...?
+[107] That's it!
+[108] On top of Mt. Oo-\nmine, there's a\nburial mound named\nGokizuka.
+[109] I'm sure we'll be\nable to find out\nabout Goki if we\ngo there!
+[110] And Mt. Oomine\nisn't that far\naway from here!
+[111] Then let's not\nwaste any time!
+[112] Here we are. This\nis Gokizuka.
+[113] Damn it! I can\nsmell Goki, but I\ncan't feel his en-\nergy at all!
+[114] Awaken, Goki!\nWe need your\nstrength!
+[115] There is no point\nsearching over\nthere.
+[116] Who are you?!
+[117] The demon god of\nprotection, Goki,\nhas been reincar-\nnated!
+[118] I have continuous-\nly reincarnated\namong humans,
+[119] waiting until a\nnew master would\nhave need of me.
+[120] I awoke in re-\nsponse to your\npleas.
+[121] Now it's Zenki's\nturn to be brought\nback. But doing so\nrequires five
+[122] elemental orbs:\n“earth”, “water”,\n“fire”, “wind”,\nand “aether”.
+[123] Oh, I'm impressed,\nMaster! You've al-\nready gathered\nthem!
+[124] Then we shall re-\nvive Zenki. Let's\nbegin!
+[125] The orbs are hidd-\nen along the path\nyou've trodden so\nfar.
+[126] Come now, Master!\nLet us hurry and\ngather the orbs!
+[127] Master, you hav-\nen't gathered all\nthe orbs yet...
+[128] We cannot revive\nZenki until you\ndo!
+[129] Come now, Master!\nLet us hurry and\ngather the orbs!
+[130] Master, you've ga-\nthered the five\norbs!
+[131] Then we shall re-\nvive Zenki. Let's\nbegin!
+[132] I call forth the\nfive elements!
+[133] Master, you must\nfocus the power of\nvajura, and pic-\nture in your mind
+[134] the form of the\nperfect demon god!
+[135] Got it!
+[136] Return among us,\nZenki!
+[137]   Vajura-on-Ark!
+[138] Break free!
+[139] The great demon\ngod Zenki...
+[140] ...has descended\nupon you!
+[141] Zenki's back!\nAnd he's a proper\ndemon god of\nlight!
+[142] It's been a thou-\nsand years, Zenki.
+[143] Tch. I really did\nNOT want your help\nwith this.
+[144] (giggle)
+[145] (He hasn't changed\nat all in the last\n1,000 years...)
+[146] Alright then! It's\ntime to kick some\nInugami ass!
+[147] I am one of Inuga-\nmi's Four Heavenly\nKings,
+[148] Dokuro Sou the\nDark Dragon.
+[149] I have complete\ncontrol over wa-\nter.
+[150] The force of water\ntears even rocks\nto shreds...
+[151] And the water I\nwield splits dia-\nmonds to boot!
+[152] Perish!!
+[153] Let us show you\nhow strong Zenki\nis now that he's\nreborn!
+[154] It's showtime!!
+[155] ARRGH!!
+[156] Mnnngh...kill\nyou...I'll kill\nyou...!
+[157] This seed of po-\nssession will un-\nlock my true pow-\ner!
+[158] BEHOLD!!
+[159] Hah! I told you I\nwas invincible!
+[160] Way to go, Zenki!
+[161] We've come so far.\nInugami's strong-\nhold has to be\nnear.
+[162] Okay, this is the\nfinal battle!!
+[163] So this is Inuga-\nmi's stronghold...\nIt's so dark I can\nhardly see!
+[164] Be careful, guys!
+[165] You actually man-\naged to come this\nfar...
+[166] You must have been\nvery lucky. Howev-\ner, your luck has\njust run out.
+[167] DIE!!
+[168] Watch out, Master!
+[169] I'm the one you're\nup against, Inuga-\nmi! Come out and\nfight like a man!
+[170] Hmph. Then let me\nshow you...
+[171] ...how pitifully\nweak you really\nare!
+[172] You're not half\nbad. However...
+[173] HAAAAH!!
+[174] Devil beast, grant\nme power!!
+[175] I have become one\nwith the devil\nbeast! This is the\nreal Inugami Roh!
+[176] Now that I wield\nthe ultimate pow-\ner, I shall purify\nthis world!!
+[177] That won't work!
+[178] Thanks to the pow-\ner of the devil\nbeast, I am immor-\ntal!!
+[179] Damn it!
+[180] I'll never take\nhim down like\nthis!
+[181] Chiaki, Goki!\nGive me your pow-\ner!
+[182] Huh?! What are you\ntrying to do now,\nZenki??
+[183] It's painfully\nclear that my pow-\ner alone can't\nbeat him...
+[184] So I'll channel\nyour power and\nlaunch the strong-\nest Rudra I can!
+[185] Rudra?!
+[186] Don't you remember\nwhat happened last\ntime?!
+[187] You lost your body\nwhen you used it\nagainst Kimon!
+[188] Silence, you simp-\nleton!
+[189] I don't care about\nwhat “might” happ-\nen after!
+[190] It certainly is a\nrisky gamble. How-\never...
+[191] We cannot simply\nlet it all end\nwithout even try-\ning.
+[192] Yeah...
+[193] When do we put our\nlives on the line\nand fight...
+[194] ...if not right\nhere and now?!
+[195] Alright then!
+[196] Chiaki, Goki!\nLet's do this!!
+[197] I'm gonna unleash\nall of my power!!
+[198]     Rajas Vam!
+[199] Releasing demon\ngod power!
+[200]     Ahasa Vam!
+[201] This is everything\nI have! Zenki,\ntake all of my\npower!
+[202]        Go!\nUltimate Vajura!!
+[203] Fools!
+[204] Your pathetic\nattempt will never\nwork!
+[205] It's over!!
+[206]      WHAAAAT?!
+[207] ...Zenki...\n...Goki...
+[208] Hah! I knew I\nsmelled a seed of\npossession!
+[209] Chiaki, summon my\ntrue form!
+[210] Alright, let's try\nagain!
+[211] You coward!!
+[212] C'mon, let's try\nagain!
+[213] Quit screwing\naround!
+[214] Let's go already!
+[215] You simpleton!!
+[216] Let's do our best,\nMaster!
+[217] What a shame...

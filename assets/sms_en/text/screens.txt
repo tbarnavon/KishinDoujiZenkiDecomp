@@ -1,0 +1,35 @@
+# Ecrans de texte - banque 33 (SMS EN) : 1 octet par case, 20 colonnes.
+# Chaque ligne du bloc est entouree de | ; garder exactement la largeur.
+# Le reste de la banque (tuiles, tilemaps) est dans assets/sms_en/raw/bank33.bin.
+
+@screen 0x8000 20x18 ; credits de la traduction
+|                    |
+| Kishin Douji Zenki |
+|      English       |
+| Translation Patch  |
+|                    |
+|                    |
+| Translation        |
+|   TheMajinZenki    |
+|                    |
+| Translation Check  |
+|   Filler           |
+|                    |
+| Hacking            |
+|   Supper           |
+|                    |
+| Testing            |
+|   cccmar           |
+|                    |
+
+@screen 0x8168 20x1 ; copyright 1
+|    MGA PRODUCTS    |
+
+@screen 0x817C 20x1 ; copyright 2
+|   SAORI KOBAYASHI  |
+
+@screen 0x8190 20x1 ; copyright 3
+|    SHUEISHA INC.   |
+
+@screen 0x81A4 20x1 ; copyright 4
+|   KITTY FILM INC.  |

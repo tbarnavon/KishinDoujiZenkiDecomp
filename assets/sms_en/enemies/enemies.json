@@ -1,0 +1,407 @@
+{
+ "_doc": "GENERE par tools/assets/enemies.py. Voir docs/enemies.md.",
+ "lists": [
+  {
+   "addr": "0xAC14",
+   "file": "list_AC14.csv",
+   "count": 1,
+   "levels": [
+    57
+   ],
+   "tail": "ff"
+  },
+  {
+   "addr": "0xAC1D",
+   "file": "list_AC1D.csv",
+   "count": 1,
+   "levels": [
+    56
+   ],
+   "tail": "ff"
+  },
+  {
+   "addr": "0xAC26",
+   "file": "list_AC26.csv",
+   "count": 1,
+   "levels": [
+    41
+   ],
+   "tail": "ff"
+  },
+  {
+   "addr": "0xAC2F",
+   "file": "list_AC2F.csv",
+   "count": 1,
+   "levels": [
+    48
+   ],
+   "tail": "ff"
+  },
+  {
+   "addr": "0xAC38",
+   "file": "list_AC38.csv",
+   "count": 1,
+   "levels": [
+    36
+   ],
+   "tail": "ff"
+  },
+  {
+   "addr": "0xAC41",
+   "file": "list_AC41.csv",
+   "count": 1,
+   "levels": [
+    35
+   ],
+   "tail": "ff"
+  },
+  {
+   "addr": "0xAC4A",
+   "file": "list_AC4A.csv",
+   "count": 1,
+   "levels": [
+    40
+   ],
+   "tail": "ff"
+  },
+  {
+   "addr": "0xAC53",
+   "file": "list_AC53.csv",
+   "count": 1,
+   "levels": [
+    47
+   ],
+   "tail": "ff"
+  },
+  {
+   "addr": "0xAC5F",
+   "file": "list_AC5F.csv",
+   "count": 1,
+   "levels": [
+    54
+   ],
+   "tail": "ff"
+  },
+  {
+   "addr": "0xAC68",
+   "file": "list_AC68.csv",
+   "count": 1,
+   "levels": [
+    53
+   ],
+   "tail": "ff"
+  },
+  {
+   "addr": "0xAC71",
+   "file": "list_AC71.csv",
+   "count": 1,
+   "levels": [
+    52
+   ],
+   "tail": "ff"
+  },
+  {
+   "addr": "0xAC7A",
+   "file": "list_AC7A.csv",
+   "count": 2,
+   "levels": [
+    37
+   ],
+   "tail": "ff"
+  },
+  {
+   "addr": "0xAC89",
+   "file": "list_AC89.csv",
+   "count": 0,
+   "levels": [
+    51
+   ],
+   "tail": "ff"
+  },
+  {
+   "addr": "0xAC8C",
+   "file": "list_AC8C.csv",
+   "count": 1,
+   "levels": [
+    50
+   ],
+   "tail": "ff"
+  },
+  {
+   "addr": "0xAC95",
+   "file": "list_AC95.csv",
+   "count": 6,
+   "levels": [
+    49
+   ],
+   "tail": "ff"
+  },
+  {
+   "addr": "0xACBC",
+   "file": "list_ACBC.csv",
+   "count": 4,
+   "levels": [
+    34
+   ],
+   "tail": "ff"
+  },
+  {
+   "addr": "0xACD7",
+   "file": "list_ACD7.csv",
+   "count": 13,
+   "levels": [
+    45,
+    46
+   ],
+   "tail": "ff"
+  },
+  {
+   "addr": "0xAD28",
+   "file": "list_AD28.csv",
+   "count": 12,
+   "levels": [
+    38,
+    39
+   ],
+   "tail": "ff"
+  },
+  {
+   "addr": "0xAD73",
+   "file": "list_AD73.csv",
+   "count": 1,
+   "levels": [
+    44
+   ],
+   "tail": "ff"
+  },
+  {
+   "addr": "0xAD7C",
+   "file": "list_AD7C.csv",
+   "count": 1,
+   "levels": [
+    43
+   ],
+   "tail": "ff"
+  },
+  {
+   "addr": "0xAD85",
+   "file": "list_AD85.csv",
+   "count": 1,
+   "levels": [
+    42
+   ],
+   "tail": "ff"
+  },
+  {
+   "addr": "0xAD8E",
+   "file": "list_AD8E.csv",
+   "count": 18,
+   "levels": [
+    33
+   ],
+   "tail": "ff"
+  },
+  {
+   "addr": "0xADFD",
+   "file": "list_ADFD.csv",
+   "count": 10,
+   "levels": [
+    30,
+    31
+   ],
+   "tail": "ff"
+  },
+  {
+   "addr": "0xAE3C",
+   "file": "list_AE3C.csv",
+   "count": 12,
+   "levels": [
+    32
+   ],
+   "tail": "ff"
+  },
+  {
+   "addr": "0xAE87",
+   "file": "list_AE87.csv",
+   "count": 7,
+   "levels": [
+    22,
+    23
+   ],
+   "tail": "ff"
+  },
+  {
+   "addr": "0xAEB4",
+   "file": "list_AEB4.csv",
+   "count": 9,
+   "levels": [
+    20,
+    21
+   ],
+   "tail": "ff"
+  },
+  {
+   "addr": "0xAEED",
+   "file": "list_AEED.csv",
+   "count": 8,
+   "levels": [
+    24,
+    25,
+    26
+   ],
+   "tail": "ff"
+  },
+  {
+   "addr": "0xAF20",
+   "file": "list_AF20.csv",
+   "count": 3,
+   "levels": [
+    28
+   ],
+   "tail": "ff"
+  },
+  {
+   "addr": "0xAF35",
+   "file": "list_AF35.csv",
+   "count": 12,
+   "levels": [
+    27,
+    29
+   ],
+   "tail": "ff"
+  },
+  {
+   "addr": "0xAF80",
+   "file": "list_AF80.csv",
+   "count": 16,
+   "levels": [
+    18,
+    19
+   ],
+   "tail": "ff"
+  },
+  {
+   "addr": "0xAFE3",
+   "file": "list_AFE3.csv",
+   "count": 10,
+   "levels": [
+    17
+   ],
+   "tail": "ff"
+  },
+  {
+   "addr": "0xB022",
+   "file": "list_B022.csv",
+   "count": 13,
+   "levels": [
+    15,
+    16
+   ],
+   "tail": "ff"
+  },
+  {
+   "addr": "0xB073",
+   "file": "list_B073.csv",
+   "count": 1,
+   "levels": [
+    13
+   ],
+   "tail": "ff"
+  },
+  {
+   "addr": "0xB07C",
+   "file": "list_B07C.csv",
+   "count": 1,
+   "levels": [
+    14
+   ],
+   "tail": "ff"
+  },
+  {
+   "addr": "0xB085",
+   "file": "list_B085.csv",
+   "count": 12,
+   "levels": [
+    10,
+    11
+   ],
+   "tail": "ff"
+  },
+  {
+   "addr": "0xB0D0",
+   "file": "list_B0D0.csv",
+   "count": 13,
+   "levels": [
+    12
+   ],
+   "tail": "ff"
+  },
+  {
+   "addr": "0xB121",
+   "file": "list_B121.csv",
+   "count": 0,
+   "levels": [
+    7
+   ],
+   "tail": "ff"
+  },
+  {
+   "addr": "0xB124",
+   "file": "list_B124.csv",
+   "count": 9,
+   "levels": [
+    8,
+    9
+   ],
+   "tail": "ff"
+  },
+  {
+   "addr": "0xB15D",
+   "file": "list_B15D.csv",
+   "count": 12,
+   "levels": [
+    4,
+    6
+   ],
+   "tail": "ff"
+  },
+  {
+   "addr": "0xB1A8",
+   "file": "list_B1A8.csv",
+   "count": 11,
+   "levels": [
+    5
+   ],
+   "tail": "ff"
+  },
+  {
+   "addr": "0xB1ED",
+   "file": "list_B1ED.csv",
+   "count": 12,
+   "levels": [
+    0,
+    1,
+    2
+   ],
+   "tail": "ff"
+  },
+  {
+   "addr": "0xB238",
+   "file": "list_B238.csv",
+   "count": 7,
+   "levels": [
+    3
+   ],
+   "tail": "ff"
+  },
+  {
+   "addr": "0xB265",
+   "file": "list_B265.csv",
+   "count": 1,
+   "levels": [
+    55
+   ],
+   "tail": "ff"
+  }
+ ]
+}

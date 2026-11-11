@@ -1,0 +1,823 @@
+{
+ "_doc": "Noms, modules et commentaires. Cle des labels : 'banque:adresseCPU' (vue canonique). 'module' = chemin sous src/ sans extension. Les 'ranges' affectent un module par defaut a une plage [from, to[.",
+ "modules": {
+  "core/boot": "Demarrage : vecteurs RST, reset, initialisation RAM/mapper/VDP.",
+  "core/irq": "Interruptions : vecteur IRQ ($0038), NMI ($0066), gestionnaire VBlank/HBlank.",
+  "core/tasks": "Ordonnanceur cooperatif a 7 taches (piles separees) et API des taches.",
+  "core/util": "Utilitaires partages (recherche en table, arithmetique, helpers generiques).",
+  "core/header": "En-tete ROM 'TMR SEGA' ($7FF0).",
+  "core/sms_port": "Code ajoute par le portage GG2SMS (conversion de palette, pause...).",
+  "input/joypad": "Lecture des manettes et detection des fronts (appuis).",
+  "video/vdp": "Acces VDP : adresse/registres, affichage on/off, transferts VRAM/CRAM.",
+  "audio/sound_api": "Interface avec le driver son : commandes $DE04-$DE0B, initialisation.",
+  "audio/sound_driver": "Driver son PSG (banque 26, execute en slot 1).",
+  "data/text_en": "Textes anglais ajoutes par la traduction (banques 32-33).",
+  "core/game_flow": "Sequenceur du jeu (tache 0) : titre, demo, lancement de partie, options de depart ($C006-$C008).",
+  "game/player": "Joueur (taches 1 et 4) : structure $CEEF, etats ($CEEF = etat), controle, tables d'etats.",
+  "game/actors": "Gestion des acteurs (tache 2) : 13 emplacements, apparition des ennemis depuis la liste du niveau ($C7FB, $3A9E).",
+  "game/actor_script": "Interpreteur des scripts d'acteurs (banque 25) : 54 commandes ($CA-$FF), table $72EB.",
+  "game/collision": "Collisions avec le decor : lecture de metatuile, handlers par type de tuile ($2539) et d'interaction ($1D9E).",
+  "game/level": "Chargement de niveau/scene (tache 3) : $5011, metatuiles (banque 10), preparation par scene ($4F01).",
+  "game/stage_events": "Evenements de niveau (tache 4) : declencheurs $C1E1, handlers $0B3D.",
+  "game/scroll": "Defilement : $C09B (registre VDP 9) et $C0AE (registre VDP 8).",
+  "game/script": "Moteur de scenes (tache 5) : interpreteur de bytecode (banque 5), 45 opcodes ($6595).",
+  "game/text": "Texte : police (banque 9), fenetre et affichage des chaines (banques 32/33 en EN).",
+  "video/palette": "Palette : effets par couleur ($C0E4) et fondus ($C0D3).",
+  "video/sprites": "Meta-sprites : tampon $C200, definitions en banques 23/24.",
+  "screens/debug_menu": "Menu cache (banque 23, combinaison $B4) : choix du niveau et des options de depart.",
+  "data/stage_data": "Banque 2 : donnees de niveau (et quelques routines banquees).",
+  "data/actor_data": "Banque 4 : donnees des acteurs (lues par la tache 2).",
+  "data/script": "Banque 5 : scripts de scenes (bytecode du moteur game/script). Differe entre JP et EN.",
+  "data/level_objects": "Banque 7 : placement des acteurs dans les niveaux.",
+  "data/font": "Banque 9 : police de caracteres (chargee par $6415).",
+  "data/metatiles": "Banque 10 : definitions des metatuiles (8 octets).",
+  "data/gfx_b12": "Banque 12 : tuiles graphiques de niveau.",
+  "data/stage_tables": "Banque 18 : tables par niveau (palettes $B07A...).",
+  "data/sprite_defs": "Banques 23-24 : definitions de meta-sprites et tables d'acteurs.",
+  "data/actor_scripts": "Banque 25 : scripts des acteurs (commandes de game/actor_script).",
+  "audio/music_data": "Donnees musicales (compilees depuis assets/<ver>/music/music.smps).",
+  "data/unknown": "Banques chargees via descripteurs (banque, pointeur) : type a determiner a l'etape 4.",
+  "data/bank03": "Banque 3 : type a determiner a l'etape 4 (chargee via descripteurs banque+pointeur).",
+  "data/bank06": "Banque 6 : type a determiner a l'etape 4 (chargee via descripteurs banque+pointeur).",
+  "data/bank08": "Banque 8 : type a determiner a l'etape 4 (chargee via descripteurs banque+pointeur).",
+  "data/bank11": "Banque 11 : type a determiner a l'etape 4 (chargee via descripteurs banque+pointeur).",
+  "data/bank13": "Banque 13 : type a determiner a l'etape 4 (chargee via descripteurs banque+pointeur).",
+  "data/bank14": "Banque 14 : type a determiner a l'etape 4 (chargee via descripteurs banque+pointeur).",
+  "data/bank15": "Banque 15 : type a determiner a l'etape 4 (chargee via descripteurs banque+pointeur).",
+  "data/bank16": "Banque 16 : type a determiner a l'etape 4 (chargee via descripteurs banque+pointeur).",
+  "data/bank17": "Banque 17 : type a determiner a l'etape 4 (chargee via descripteurs banque+pointeur).",
+  "data/bank19": "Banque 19 : type a determiner a l'etape 4 (chargee via descripteurs banque+pointeur).",
+  "data/bank20": "Banque 20 : type a determiner a l'etape 4 (chargee via descripteurs banque+pointeur).",
+  "data/bank21": "Banque 21 : type a determiner a l'etape 4 (chargee via descripteurs banque+pointeur).",
+  "data/bank22": "Banque 22 : type a determiner a l'etape 4 (chargee via descripteurs banque+pointeur).",
+  "data/bank28": "Banque 28 : type a determiner a l'etape 4 (chargee via descripteurs banque+pointeur).",
+  "data/bank29": "Banque 29 : type a determiner a l'etape 4 (chargee via descripteurs banque+pointeur).",
+  "data/bank30": "Banque 30 : type a determiner a l'etape 4 (chargee via descripteurs banque+pointeur).",
+  "data/bank31": "Banque 31 : type a determiner a l'etape 4 (chargee via descripteurs banque+pointeur).",
+  "game/banked_b02": "Routines de la banque 2 (executees en slot 2) non encore rattachees a un systeme : appellent le moteur (banques 0/1), pointees par les donnees de niveau.",
+  "game/banked_b23": "Routines de la banque 23 hors menu cache, non encore rattachees a un systeme.",
+  "screens/pause_menu": "Menu de pause (bouton Pause SMS / Start GG) : $1616."
+ },
+ "ranges": [
+  {
+   "from": "0:0000",
+   "to": "0:0038",
+   "module": "core/boot"
+  },
+  {
+   "from": "0:0038",
+   "to": "0:0074",
+   "module": "core/irq"
+  },
+  {
+   "from": "0:0074",
+   "to": "0:00B0",
+   "module": "core/boot"
+  },
+  {
+   "from": "0:00B0",
+   "to": "0:0273",
+   "module": "core/irq"
+  },
+  {
+   "from": "0:0273",
+   "to": "0:042E",
+   "module": "core/tasks"
+  },
+  {
+   "from": "0:042E",
+   "to": "0:047D",
+   "module": "input/joypad"
+  },
+  {
+   "from": "0:047D",
+   "to": "0:04EC",
+   "module": "video/vdp"
+  },
+  {
+   "from": "0:05DD",
+   "to": "0:05F8",
+   "module": "audio/sound_api"
+  },
+  {
+   "from": "0:2AF0",
+   "to": "0:2B00",
+   "module": "core/util"
+  },
+  {
+   "from": "1:4000",
+   "to": "1:4700",
+   "module": "video/vdp"
+  },
+  {
+   "from": "1:7F94",
+   "to": "1:7FF0",
+   "module": "core/sms_port"
+  },
+  {
+   "from": "1:7FF0",
+   "to": "2:8000",
+   "module": "core/header"
+  },
+  {
+   "from": "26:4000",
+   "to": "27:8000",
+   "module": "audio/sound_driver"
+  },
+  {
+   "from": "32:8000",
+   "to": "34:8000",
+   "module": "data/text_en"
+  }
+ ],
+ "labels": {
+  "0:0000": {
+   "name": "reset",
+   "comment": "Vecteur reset"
+  },
+  "0:0008": {
+   "name": "rst08_vdp_set_addr_di",
+   "comment": "RST $08 : rst $10 sous di/ei"
+  },
+  "0:0010": {
+   "name": "rst10_vdp_set_addr",
+   "comment": "RST $10 : ecrit de (e puis d) sur VDP_CTRL"
+  },
+  "0:0038": {
+   "name": "irq_vector"
+  },
+  "0:0066": {
+   "name": "nmi_vector",
+   "comment": "SMS : bouton Pause -> drapeau ram_DFF0 ; GG : simple retn"
+  },
+  "0:0074": {
+   "name": "boot_init",
+   "comment": "Efface la RAM, initialise le mapper (slots 0/1/2 = 0/1/2), la pile, puis lance la tache 0"
+  },
+  "0:00B0": {
+   "name": "irq_handler",
+   "comment": "IRQ : lit le statut VDP ; ligne (HBlank) ou trame (VBlank)"
+  },
+  "0:0273": {
+   "name": "task_start",
+   "comment": "a = numero de tache : (re)demarre la tache a son point d'entree"
+  },
+  "0:02C6": {
+   "name": "task_kill",
+   "comment": "a = numero de tache : arrete la tache"
+  },
+  "0:02F8": {
+   "name": "task_suspend",
+   "comment": "a = numero de tache : la marque en attente"
+  },
+  "0:030E": {
+   "name": "task_resume",
+   "comment": "a = numero de tache : la reveille"
+  },
+  "0:0330": {
+   "name": "task_yield",
+   "comment": "Rend la main pour 1 trame (a = nb de trames via $0332)"
+  },
+  "0:0364": {
+   "name": "task_scheduler",
+   "comment": "Choisit la prochaine tache active et restaure sa pile"
+  },
+  "0:0403": {
+   "name": "task_bit_table",
+   "comment": "Masques 1 << n des 8 taches"
+  },
+  "0:040B": {
+   "name": "task_entry_table",
+   "comment": "Points d'entree des 8 taches"
+  },
+  "0:041B": {
+   "name": "task_stack_table",
+   "comment": "Sommets de pile initiaux des 8 taches"
+  },
+  "0:042E": {
+   "name": "joypad_read",
+   "comment": "Lit les manettes : ram_C016 = etat, ram_C017 = nouveaux appuis"
+  },
+  "0:05DD": {
+   "name": "sound_init",
+   "comment": "Pagine le driver son (banques 26/27) et l'initialise"
+  },
+  "0:2AF0": {
+   "name": "util_jump_table",
+   "comment": "Saut indexe : l = index, de = table de mots"
+  },
+  "1:7FF0": {
+   "name": "rom_header",
+   "comment": "En-tete 'TMR SEGA' : checksum, code produit, region, taille"
+  },
+  "26:4000": {
+   "name": "sound_update",
+   "comment": "Mise a jour du son, appelee a chaque trame par l'IRQ"
+  },
+  "26:4B15": {
+   "name": "music_priorities",
+   "module": "audio/music_data",
+   "comment": "debut des donnees musicales (compilees depuis assets/<ver>/music/music.smps)"
+  }
+ },
+ "ram": {
+  "0xC016": {
+   "name": "joypad_state",
+   "comment": "Etat courant des boutons (1 = appuye)"
+  },
+  "0xC017": {
+   "name": "joypad_pressed",
+   "comment": "Boutons nouvellement appuyes cette trame"
+  },
+  "0xDCA1": {
+   "name": "task_active_mask",
+   "comment": "Bit n = tache n existante"
+  },
+  "0xDCA2": {
+   "name": "task_ready_mask",
+   "comment": "Bit n = tache n prete"
+  },
+  "0xDCA3": {
+   "name": "task_current",
+   "comment": "Numero de la tache courante ($FF = aucune)"
+  },
+  "0xDCA4": {
+   "name": "task_suspended_mask",
+   "comment": "Bit n = tache n suspendue"
+  },
+  "0xDCA5": {
+   "name": "task_sp_table",
+   "comment": "SP sauvegarde de chaque tache (8 mots)"
+  },
+  "0xDCB5": {
+   "name": "task_wait_table",
+   "comment": "Trames d'attente restantes par tache (8 octets)"
+  },
+  "0xDCBD": {
+   "name": "vdp_status_copy",
+   "comment": "Dernier statut VDP lu par l'IRQ"
+  },
+  "0xDCBE": {
+   "name": "bank_slot2_shadow",
+   "comment": "Copie de la banque mappee en slot 2 (restauree apres l'IRQ)"
+  },
+  "0xDFF0": {
+   "name": "sms_pause_flag",
+   "comment": "SMS uniquement : $40 si Pause appuye (NMI), lu par joypad_read"
+  },
+  "0xC000": {
+   "name": "game_flags",
+   "comment": "drapeaux globaux (bit 6 = jeu fige, bits 2/4 par scripts)"
+  },
+  "0xC001": {
+   "name": "irq_flags",
+   "comment": "bit 7 = trame en cours (IRQ)"
+  },
+  "0xC002": {
+   "name": "vdp_requests",
+   "comment": "demandes de transferts VDP a l'IRQ (bits 0,4,5,6,7)"
+  },
+  "0xC003": {
+   "name": "vdp_requests2",
+   "comment": "demandes complementaires (bits 5, 6)"
+  },
+  "0xC005": {
+   "name": "lives_or_c005",
+   "comment": "initialise a 3 au boot (?)"
+  },
+  "0xC006": {
+   "name": "start_stage",
+   "comment": "niveau de depart (menu cache)"
+  },
+  "0xC007": {
+   "name": "start_power",
+   "comment": "niveau de pouvoir de depart (menu cache)"
+  },
+  "0xC008": {
+   "name": "start_mode",
+   "comment": "mode special de depart (table $093A)"
+  },
+  "0xC011": {
+   "name": "demo_mode",
+   "comment": "non nul = demo (entrees effacees)"
+  },
+  "0xC012": {
+   "name": "current_stage",
+   "comment": "niveau courant"
+  },
+  "0xC013": {
+   "name": "game_mode",
+   "comment": "mode de jeu"
+  },
+  "0xC014": {
+   "name": "scene_id",
+   "comment": "numero de scene / niveau (indexe toutes les tables de niveau)"
+  },
+  "0xC09B": {
+   "name": "scroll_y",
+   "comment": "defilement vertical -> registre VDP 9"
+  },
+  "0xC0AE": {
+   "name": "scroll_x",
+   "comment": "defilement horizontal -> registre VDP 8 (via $C1BE)"
+  },
+  "0xC0B4": {
+   "name": "vdp_reg1_shadow",
+   "comment": "copie du registre VDP 1 (affichage on/off)"
+  },
+  "0xC0C7": {
+   "name": "pal_anim_bg_ptr",
+   "comment": "liste d'animation de la palette de fond"
+  },
+  "0xC0C9": {
+   "name": "pal_anim_spr_ptr",
+   "comment": "liste d'animation de la palette des sprites"
+  },
+  "0xC0D3": {
+   "name": "tmp_d3",
+   "comment": "parametre temporaire (fondus, coordonnees, pointeurs)"
+  },
+  "0xC0D5": {
+   "name": "tmp_d5",
+   "comment": "parametre temporaire"
+  },
+  "0xC0D7": {
+   "name": "map_bank",
+   "comment": "banque des donnees de carte en cours de dessin"
+  },
+  "0xC0E4": {
+   "name": "pal_fx_table",
+   "comment": "effets par couleur (32 entrees)"
+  },
+  "0xC186": {
+   "name": "tile_anim_ptr",
+   "comment": "liste d'animation de tuiles (banque 23)"
+  },
+  "0xC18F": {
+   "name": "freeze_timer",
+   "comment": "compte a rebours qui fige le jeu"
+  },
+  "0xC1C4": {
+   "name": "raster_ptr",
+   "comment": "table raster de l'IRQ de ligne"
+  },
+  "0xC244": {
+   "name": "sprite_buf_y_ptr",
+   "comment": "pointeur d'ecriture du tampon de sprites (Y)"
+  },
+  "0xC246": {
+   "name": "sprite_buf_xn_ptr",
+   "comment": "pointeur d'ecriture du tampon de sprites (X, tuile)"
+  },
+  "0xC7FB": {
+   "name": "spawn_list",
+   "comment": "liste d'apparition des ennemis du niveau (copie de la banque 4)"
+  },
+  "0xC8FF": {
+   "name": "scene_script_ptr",
+   "comment": "pointeur du script de scene / base des acteurs de scene"
+  },
+  "0xC901": {
+   "name": "scene_wait",
+   "comment": "trames d'attente du script de scene"
+  },
+  "0xC902": {
+   "name": "scene_scroll_dx",
+   "comment": "defilement automatique x"
+  },
+  "0xC903": {
+   "name": "scene_scroll_dy",
+   "comment": "defilement automatique y"
+  },
+  "0xC904": {
+   "name": "text_ptr",
+   "comment": "pointeur du texte en cours d'affichage"
+  },
+  "0xCEEF": {
+   "name": "player_state",
+   "comment": "etat du joueur (debut de la structure joueur)"
+  },
+  "0xCF27": {
+   "name": "level_map",
+   "comment": "carte du niveau en RAM (copie de la banque 19/20)"
+  },
+  "0xD4C7": {
+   "name": "level_attr_ptr",
+   "comment": "attributs des metatuiles du niveau"
+  },
+  "0xD4C9": {
+   "name": "level_metatile_ptr",
+   "comment": "jeu de metatuiles du niveau"
+  },
+  "0xD981": {
+   "name": "decomp_buffer",
+   "comment": "tampon de decompression"
+  },
+  "0xDE04": {
+   "name": "snd_queue_0",
+   "comment": "file de commandes du driver son"
+  },
+  "0xDE05": {
+   "name": "snd_queue_music",
+   "comment": "musique demandee"
+  },
+  "0xDE06": {
+   "name": "snd_queue_sfx",
+   "comment": "effet sonore demande"
+  }
+ },
+ "data_ranges": [
+  {
+   "from": "2:8000",
+   "to": "3:8000",
+   "module": "data/stage_data"
+  },
+  {
+   "from": "3:8000",
+   "to": "4:8000",
+   "module": "data/bank03"
+  },
+  {
+   "from": "4:8000",
+   "to": "5:8000",
+   "module": "data/actor_data"
+  },
+  {
+   "from": "5:8000",
+   "to": "6:8000",
+   "module": "data/script"
+  },
+  {
+   "from": "6:8000",
+   "to": "7:8000",
+   "module": "data/bank06"
+  },
+  {
+   "from": "7:8000",
+   "to": "8:8000",
+   "module": "data/level_objects"
+  },
+  {
+   "from": "8:8000",
+   "to": "9:8000",
+   "module": "data/bank08"
+  },
+  {
+   "from": "9:8000",
+   "to": "10:8000",
+   "module": "data/font"
+  },
+  {
+   "from": "10:8000",
+   "to": "11:8000",
+   "module": "data/metatiles"
+  },
+  {
+   "from": "11:8000",
+   "to": "12:8000",
+   "module": "data/bank11"
+  },
+  {
+   "from": "12:8000",
+   "to": "13:8000",
+   "module": "data/gfx_b12"
+  },
+  {
+   "from": "13:8000",
+   "to": "14:8000",
+   "module": "data/bank13"
+  },
+  {
+   "from": "14:8000",
+   "to": "15:8000",
+   "module": "data/bank14"
+  },
+  {
+   "from": "15:8000",
+   "to": "16:8000",
+   "module": "data/bank15"
+  },
+  {
+   "from": "16:8000",
+   "to": "17:8000",
+   "module": "data/bank16"
+  },
+  {
+   "from": "17:8000",
+   "to": "18:8000",
+   "module": "data/bank17"
+  },
+  {
+   "from": "18:8000",
+   "to": "19:8000",
+   "module": "data/stage_tables"
+  },
+  {
+   "from": "19:8000",
+   "to": "20:8000",
+   "module": "data/bank19"
+  },
+  {
+   "from": "20:8000",
+   "to": "21:8000",
+   "module": "data/bank20"
+  },
+  {
+   "from": "21:8000",
+   "to": "22:8000",
+   "module": "data/bank21"
+  },
+  {
+   "from": "22:8000",
+   "to": "23:8000",
+   "module": "data/bank22"
+  },
+  {
+   "from": "23:8000",
+   "to": "24:8000",
+   "module": "data/sprite_defs"
+  },
+  {
+   "from": "24:8000",
+   "to": "25:8000",
+   "module": "data/sprite_defs"
+  },
+  {
+   "from": "25:8000",
+   "to": "26:8000",
+   "module": "data/actor_scripts"
+  },
+  {
+   "from": "27:8000",
+   "to": "28:8000",
+   "module": "audio/music_data"
+  },
+  {
+   "from": "28:8000",
+   "to": "29:8000",
+   "module": "data/bank28"
+  },
+  {
+   "from": "29:8000",
+   "to": "30:8000",
+   "module": "data/bank29"
+  },
+  {
+   "from": "30:8000",
+   "to": "31:8000",
+   "module": "data/bank30"
+  },
+  {
+   "from": "31:8000",
+   "to": "32:8000",
+   "module": "data/bank31"
+  }
+ ],
+ "asset_banks": {
+  "5": {
+   "versions": [
+    "sms_en",
+    "gg_jp"
+   ],
+   "desc": "scripts de scenes : assets/<version>/scripts/bank05.zs (compile par tools/assets/scripts.py)"
+  },
+  "32": {
+   "versions": [
+    "sms_en"
+   ],
+   "desc": "textes EN : assets/sms_en/text/strings.txt (compile par tools/assets/text.py)"
+  },
+  "3": {
+   "versions": [
+    "sms_en"
+   ],
+   "desc": "banque de donnees composee par tools/assets/banks.py depuis assets/sms_en (raw/bank03.bin + formats decodes)"
+  },
+  "4": {
+   "versions": [
+    "sms_en"
+   ],
+   "desc": "banque de donnees composee par tools/assets/banks.py depuis assets/sms_en (raw/bank04.bin + formats decodes)"
+  },
+  "6": {
+   "versions": [
+    "sms_en"
+   ],
+   "desc": "banque de donnees composee par tools/assets/banks.py depuis assets/sms_en (raw/bank06.bin + formats decodes)"
+  },
+  "7": {
+   "versions": [
+    "sms_en"
+   ],
+   "desc": "banque de donnees composee par tools/assets/banks.py depuis assets/sms_en (raw/bank07.bin + formats decodes)"
+  },
+  "8": {
+   "versions": [
+    "sms_en"
+   ],
+   "desc": "banque de donnees composee par tools/assets/banks.py depuis assets/sms_en (raw/bank08.bin + formats decodes)"
+  },
+  "9": {
+   "versions": [
+    "sms_en"
+   ],
+   "desc": "banque de donnees composee par tools/assets/banks.py depuis assets/sms_en (raw/bank09.bin + formats decodes)"
+  },
+  "10": {
+   "versions": [
+    "sms_en"
+   ],
+   "desc": "banque de donnees composee par tools/assets/banks.py depuis assets/sms_en (raw/bank10.bin + formats decodes)"
+  },
+  "11": {
+   "versions": [
+    "sms_en"
+   ],
+   "desc": "banque de donnees composee par tools/assets/banks.py depuis assets/sms_en (raw/bank11.bin + formats decodes)"
+  },
+  "12": {
+   "versions": [
+    "sms_en"
+   ],
+   "desc": "banque de donnees composee par tools/assets/banks.py depuis assets/sms_en (raw/bank12.bin + formats decodes)"
+  },
+  "13": {
+   "versions": [
+    "sms_en"
+   ],
+   "desc": "banque de donnees composee par tools/assets/banks.py depuis assets/sms_en (raw/bank13.bin + formats decodes)"
+  },
+  "14": {
+   "versions": [
+    "sms_en"
+   ],
+   "desc": "banque de donnees composee par tools/assets/banks.py depuis assets/sms_en (raw/bank14.bin + formats decodes)"
+  },
+  "15": {
+   "versions": [
+    "sms_en"
+   ],
+   "desc": "banque de donnees composee par tools/assets/banks.py depuis assets/sms_en (raw/bank15.bin + formats decodes)"
+  },
+  "16": {
+   "versions": [
+    "sms_en"
+   ],
+   "desc": "banque de donnees composee par tools/assets/banks.py depuis assets/sms_en (raw/bank16.bin + formats decodes)"
+  },
+  "17": {
+   "versions": [
+    "sms_en"
+   ],
+   "desc": "banque de donnees composee par tools/assets/banks.py depuis assets/sms_en (raw/bank17.bin + formats decodes)"
+  },
+  "18": {
+   "versions": [
+    "sms_en"
+   ],
+   "desc": "banque de donnees composee par tools/assets/banks.py depuis assets/sms_en (raw/bank18.bin + formats decodes)"
+  },
+  "19": {
+   "versions": [
+    "sms_en"
+   ],
+   "desc": "banque de donnees composee par tools/assets/banks.py depuis assets/sms_en (raw/bank19.bin + formats decodes)"
+  },
+  "20": {
+   "versions": [
+    "sms_en"
+   ],
+   "desc": "banque de donnees composee par tools/assets/banks.py depuis assets/sms_en (raw/bank20.bin + formats decodes)"
+  },
+  "21": {
+   "versions": [
+    "sms_en"
+   ],
+   "desc": "banque de donnees composee par tools/assets/banks.py depuis assets/sms_en (raw/bank21.bin + formats decodes)"
+  },
+  "22": {
+   "versions": [
+    "sms_en"
+   ],
+   "desc": "banque de donnees composee par tools/assets/banks.py depuis assets/sms_en (raw/bank22.bin + formats decodes)"
+  },
+  "24": {
+   "versions": [
+    "sms_en"
+   ],
+   "desc": "banque de donnees composee par tools/assets/banks.py depuis assets/sms_en (raw/bank24.bin + formats decodes)"
+  },
+  "27": {
+   "versions": [
+    "sms_en",
+    "gg_jp"
+   ],
+   "desc": "musique (banque 27) : assets/<ver>/music/music.smps (tools/assets/music.py)"
+  },
+  "28": {
+   "versions": [
+    "sms_en"
+   ],
+   "desc": "banque de donnees composee par tools/assets/banks.py depuis assets/sms_en (raw/bank28.bin + formats decodes)"
+  },
+  "29": {
+   "versions": [
+    "sms_en"
+   ],
+   "desc": "banque de donnees composee par tools/assets/banks.py depuis assets/sms_en (raw/bank29.bin + formats decodes)"
+  },
+  "30": {
+   "versions": [
+    "sms_en"
+   ],
+   "desc": "banque de donnees composee par tools/assets/banks.py depuis assets/sms_en (raw/bank30.bin + formats decodes)"
+  },
+  "31": {
+   "versions": [
+    "sms_en"
+   ],
+   "desc": "banque de donnees composee par tools/assets/banks.py depuis assets/sms_en (raw/bank31.bin + formats decodes)"
+  },
+  "33": {
+   "versions": [
+    "sms_en"
+   ],
+   "desc": "banque de donnees composee par tools/assets/banks.py depuis assets/sms_en (raw/bank33.bin + formats decodes)"
+  }
+ },
+ "asset_areas": {
+  "_B25_8000": {
+   "versions": [
+    "sms_en",
+    "gg_jp"
+   ],
+   "desc": "scripts d'acteurs : assets/<ver>/actors/bank25.as (tools/assets/actors.py)"
+  },
+  "_B26_4B15": {
+   "versions": [
+    "sms_en",
+    "gg_jp"
+   ],
+   "desc": "musique : assets/<ver>/music/music.smps (tools/assets/music.py)"
+  }
+ },
+ "operand_symbols": {
+  "25:8000": "actors_8000",
+  "25:B8B8": "actors_B8B8",
+  "25:BD21": "actors_BD21",
+  "25:BD35": "actors_BD35",
+  "26:4B15": "music_priorities",
+  "26:4B74": "music_envelopes",
+  "26:5692": "music_table_5692",
+  "26:56B1": "music_song_table",
+  "26:56E5": "music_sfx_table"
+ },
+ "asset_ranges": [
+  [
+   "25:8000",
+   "25:BDAC"
+  ],
+  [
+   "26:4B15",
+   "27:8000"
+  ]
+ ],
+ "pointer_tables": [
+  {
+   "at": "0:000C",
+   "count": 2,
+   "stride": 2,
+   "why": "pointeurs vers $5D4D/$5D14 (banque 1)"
+  },
+  {
+   "at": "0:0017",
+   "count": 12,
+   "stride": 2,
+   "why": "table de 12 pointeurs vers du code $5CEA-$5D46"
+  },
+  {
+   "at": "0:3371",
+   "count": 4,
+   "stride": 5,
+   "why": "enregistrements [script d'acteur][anim][dx][dy] lus par $31D0"
+  },
+  {
+   "at": "0:3386",
+   "count": 4,
+   "stride": 5,
+   "why": "idem (variante $C1F2 != 1)"
+  },
+  {
+   "at": "1:4C88",
+   "count": 58,
+   "stride": 2,
+   "why": "listes de tuiles par niveau (1)"
+  },
+  {
+   "at": "1:4C14",
+   "count": 58,
+   "stride": 2,
+   "why": "listes de tuiles par niveau (2)"
+  }
+ ]
+}

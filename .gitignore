@@ -1,0 +1,15 @@
+# sorties de build (regenerees par tools/build.py ; build/cache = cache du tracage)
+build/
+
+# ROMs d'origine (references, jamais modifiees, non distribuees)
+original/
+
+# outils tiers volumineux (voir docs/toolchain.md pour les installer)
+tools/sdcc-4.1.0/
+tools/devkitSMS/
+tools/emulicious/
+*.zip
+
+# Python
+__pycache__/
+*.pyc

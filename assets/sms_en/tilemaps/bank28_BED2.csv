@@ -1,0 +1,5 @@
+# tilemap banque 28 $BED2 : 4 lignes x 18 colonnes, 1 octet par case (attribut 01)
+1F,1F,82,91,98,A0,1F,A2,98,9E,9B,9C,8E,95,8F,A4,1F,1F
+78,9D,AB,9C,1F,9D,92,96,8E,A5,1F,89,8E,97,94,92,A4,1F
+1F,1F,1F,1F,1F,1F,1F,1F,1F,1F,1F,1F,1F,1F,1F,1F,1F,1F
+1F,1F,1F,1F,1F,1F,1F,1F,1F,1F,1F,1F,1F,1F,1F,1F,1F,1F

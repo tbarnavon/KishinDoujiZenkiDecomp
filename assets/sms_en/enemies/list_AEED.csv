@@ -1,0 +1,10 @@
+# ennemis banque 4 $AEED : 8 ennemis ; niveaux 18, 19, 1A
+# type (hex), x, y (decimal, pixels), drapeaux (hex)
+92,120,56,00
+40,456,184,00
+39,600,120,00
+39,696,120,00
+40,808,136,00
+3A,1016,156,00
+3A,1104,156,00
+98,1224,104,00

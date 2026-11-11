@@ -1,0 +1,71 @@
+{
+  "bank_shadow": "0xDCBE",
+  "entries": [
+    {
+      "addr": "0x0000",
+      "s1": 1,
+      "s2": 2,
+      "name": "reset"
+    },
+    {
+      "addr": "0x0008",
+      "s1": 1,
+      "s2": 2,
+      "name": "rst08_vdp_set_addr_di"
+    },
+    {
+      "addr": "0x0010",
+      "s1": 1,
+      "s2": 2,
+      "name": "rst10_vdp_set_addr"
+    },
+    {
+      "addr": "0x0038",
+      "s1": 1,
+      "s2": 2,
+      "name": "irq_vector"
+    },
+    {
+      "addr": "0x0066",
+      "s1": 1,
+      "s2": 2,
+      "name": "nmi_vector"
+    }
+  ],
+  "jumptables": [
+    {
+      "addr": "0x040B",
+      "count": 8,
+      "s1": 1,
+      "s2": 2,
+      "kind": "call",
+      "name": "task_entry_table"
+    }
+  ],
+  "dispatch_helpers": [
+    {
+      "addr": "0x2AF0",
+      "reg": "de",
+      "name": "util_jump_table_de"
+    }
+  ],
+  "table_counts": [],
+  "data": [
+    {
+      "bank": 0,
+      "from": "0x000C",
+      "to": "0x0010",
+      "comment": "table de 2 mots"
+    },
+    {
+      "bank": 0,
+      "from": "0x0017",
+      "to": "0x0031",
+      "comment": "table de 13 pointeurs vers $5CEA-$5D4D"
+    }
+  ],
+  "speculate_banks": [
+    2,
+    23
+  ]
+}

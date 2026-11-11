@@ -1,0 +1,2 @@
+src/ est gele depuis le 2026-11-11 : les sources assembleur sont la reference, editees a la main.
+tools/disasm/emit.py refuse de les regenerer (sauf --force, qui ecraserait toutes les modifications).

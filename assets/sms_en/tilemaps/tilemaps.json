@@ -1,0 +1,1083 @@
+{
+ "_doc": "GENERE par tools/assets/tilemaps.py. Voir docs/tilemaps.md.",
+ "tilemaps": [
+  {
+   "bank": 9,
+   "addr": "0x84DA",
+   "file": "bank09_84DA.csv",
+   "rows": 18,
+   "cols": 20,
+   "bytes_per_cell": 2,
+   "vram": "0x380C",
+   "scenes": [
+    "scene_1B"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 9,
+   "addr": "0x8CDD",
+   "file": "bank09_8CDD.csv",
+   "rows": 18,
+   "cols": 20,
+   "bytes_per_cell": 2,
+   "vram": "0x380C",
+   "scenes": [
+    "scene_1B"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 9,
+   "addr": "0x9B81",
+   "file": "bank09_9B81.csv",
+   "rows": 8,
+   "cols": 8,
+   "bytes_per_cell": 1,
+   "vram": "0x3934",
+   "scenes": [
+    "scene_05",
+    "scene_08",
+    "scene_09"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 9,
+   "addr": "0xA21D",
+   "file": "bank09_A21D.csv",
+   "rows": 4,
+   "cols": 4,
+   "bytes_per_cell": 2,
+   "vram": "0x399C",
+   "scenes": [
+    "scene_08"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 9,
+   "addr": "0xA23D",
+   "file": "bank09_A23D.csv",
+   "rows": 4,
+   "cols": 4,
+   "bytes_per_cell": 2,
+   "vram": "0x399C",
+   "scenes": [
+    "scene_08"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 9,
+   "addr": "0xA25D",
+   "file": "bank09_A25D.csv",
+   "rows": 4,
+   "cols": 4,
+   "bytes_per_cell": 2,
+   "vram": "0x399C",
+   "scenes": [
+    "scene_08"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 9,
+   "addr": "0xA27D",
+   "file": "bank09_A27D.csv",
+   "rows": 4,
+   "cols": 4,
+   "bytes_per_cell": 2,
+   "vram": "0x399C",
+   "scenes": [
+    "scene_08"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 9,
+   "addr": "0xA29D",
+   "file": "bank09_A29D.csv",
+   "rows": 4,
+   "cols": 4,
+   "bytes_per_cell": 2,
+   "vram": "0x399C",
+   "scenes": [
+    "scene_08"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 9,
+   "addr": "0xA2BD",
+   "file": "bank09_A2BD.csv",
+   "rows": 6,
+   "cols": 7,
+   "bytes_per_cell": 2,
+   "vram": "0x39B4",
+   "scenes": [
+    "scene_08"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 9,
+   "addr": "0xA767",
+   "file": "bank09_A767.csv",
+   "rows": 8,
+   "cols": 20,
+   "bytes_per_cell": 2,
+   "vram": "0x390C",
+   "scenes": [
+    "scene_04",
+    "scene_1B"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 9,
+   "addr": "0xAA4E",
+   "file": "bank09_AA4E.csv",
+   "rows": 8,
+   "cols": 40,
+   "bytes_per_cell": 2,
+   "vram": "0x3900",
+   "scenes": [
+    "scene_0D"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 9,
+   "addr": "0xBED7",
+   "file": "bank09_BED7.csv",
+   "rows": 4,
+   "cols": 16,
+   "bytes_per_cell": 2,
+   "vram": "0x39D0",
+   "scenes": [
+    "scene_03"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 14,
+   "addr": "0x8F49",
+   "file": "bank14_8F49.csv",
+   "rows": 8,
+   "cols": 40,
+   "bytes_per_cell": 2,
+   "vram": "0x3900",
+   "scenes": [
+    "scene_03",
+    "scene_18"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 14,
+   "addr": "0x98EB",
+   "file": "bank14_98EB.csv",
+   "rows": 8,
+   "cols": 20,
+   "bytes_per_cell": 1,
+   "vram": "0x390C",
+   "scenes": [
+    "scene_08"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 14,
+   "addr": "0xA382",
+   "file": "bank14_A382.csv",
+   "rows": 8,
+   "cols": 20,
+   "bytes_per_cell": 2,
+   "vram": "0x390C",
+   "scenes": [
+    "scene_0A"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 14,
+   "addr": "0xA4C2",
+   "file": "bank14_A4C2.csv",
+   "rows": 8,
+   "cols": 20,
+   "bytes_per_cell": 2,
+   "vram": "0x390C",
+   "scenes": [
+    "scene_0A",
+    "scene_13"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 14,
+   "addr": "0xB44A",
+   "file": "bank14_B44A.csv",
+   "rows": 8,
+   "cols": 20,
+   "bytes_per_cell": 2,
+   "vram": "0x390C",
+   "scenes": [
+    "scene_0C"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 14,
+   "addr": "0xB58A",
+   "file": "bank14_B58A.csv",
+   "rows": 8,
+   "cols": 20,
+   "bytes_per_cell": 2,
+   "vram": "0x390C",
+   "scenes": [
+    "scene_0C"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 16,
+   "addr": "0x9DAF",
+   "file": "bank16_9DAF.csv",
+   "rows": 18,
+   "cols": 20,
+   "bytes_per_cell": 2,
+   "vram": "0x380C",
+   "scenes": [
+    "scene_00"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 16,
+   "addr": "0xA07F",
+   "file": "bank16_A07F.csv",
+   "rows": 18,
+   "cols": 20,
+   "bytes_per_cell": 2,
+   "vram": "0x380C",
+   "scenes": [
+    "scene_00",
+    "scene_02"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 16,
+   "addr": "0xACDD",
+   "file": "bank16_ACDD.csv",
+   "rows": 8,
+   "cols": 20,
+   "bytes_per_cell": 1,
+   "vram": "0x390C",
+   "scenes": [
+    "scene_0E",
+    "scene_0F"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 16,
+   "addr": "0xAD7D",
+   "file": "bank16_AD7D.csv",
+   "rows": 8,
+   "cols": 20,
+   "bytes_per_cell": 1,
+   "vram": "0x390C",
+   "scenes": [
+    "scene_0E"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 16,
+   "addr": "0xB6C4",
+   "file": "bank16_B6C4.csv",
+   "rows": 8,
+   "cols": 20,
+   "bytes_per_cell": 2,
+   "vram": "0x390C",
+   "scenes": [
+    "scene_13",
+    "scene_14"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 17,
+   "addr": "0x8888",
+   "file": "bank17_8888.csv",
+   "rows": 8,
+   "cols": 20,
+   "bytes_per_cell": 2,
+   "vram": "0x390C",
+   "scenes": [
+    "scene_12"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 17,
+   "addr": "0x8DAE",
+   "file": "bank17_8DAE.csv",
+   "rows": 18,
+   "cols": 20,
+   "bytes_per_cell": 2,
+   "vram": "0x380C",
+   "scenes": [
+    "scene_10",
+    "scene_12"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 17,
+   "addr": "0x8E2E",
+   "file": "bank17_8E2E.csv",
+   "rows": 8,
+   "cols": 20,
+   "bytes_per_cell": 2,
+   "vram": "0x390C",
+   "scenes": [
+    "scene_10"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 17,
+   "addr": "0x936A",
+   "file": "bank17_936A.csv",
+   "rows": 8,
+   "cols": 8,
+   "bytes_per_cell": 2,
+   "vram": "0x3918",
+   "scenes": [
+    "scene_11"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 17,
+   "addr": "0x99E2",
+   "file": "bank17_99E2.csv",
+   "rows": 8,
+   "cols": 20,
+   "bytes_per_cell": 1,
+   "vram": "0x390C",
+   "scenes": [
+    "scene_11"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 17,
+   "addr": "0xA0E6",
+   "file": "bank17_A0E6.csv",
+   "rows": 8,
+   "cols": 20,
+   "bytes_per_cell": 2,
+   "vram": "0x390C",
+   "scenes": [
+    "scene_12"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 17,
+   "addr": "0xB0D9",
+   "file": "bank17_B0D9.csv",
+   "rows": 8,
+   "cols": 20,
+   "bytes_per_cell": 2,
+   "vram": "0x390C",
+   "scenes": [
+    "scene_12"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 20,
+   "addr": "0xA83E",
+   "file": "bank20_A83E.csv",
+   "rows": 18,
+   "cols": 32,
+   "bytes_per_cell": 2,
+   "vram": "0x3834",
+   "scenes": [
+    "scene_11"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 22,
+   "addr": "0x84EF",
+   "file": "bank22_84EF.csv",
+   "rows": 8,
+   "cols": 20,
+   "bytes_per_cell": 1,
+   "vram": "0x390C",
+   "scenes": [
+    "scene_16"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 22,
+   "addr": "0x8FFD",
+   "file": "bank22_8FFD.csv",
+   "rows": 8,
+   "cols": 20,
+   "bytes_per_cell": 2,
+   "vram": "0x390C",
+   "scenes": [
+    "scene_16",
+    "scene_17"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 22,
+   "addr": "0x913D",
+   "file": "bank22_913D.csv",
+   "rows": 8,
+   "cols": 20,
+   "bytes_per_cell": 2,
+   "vram": "0x390C",
+   "scenes": [
+    "scene_04",
+    "scene_17",
+    "scene_18"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 22,
+   "addr": "0x98ED",
+   "file": "bank22_98ED.csv",
+   "rows": 8,
+   "cols": 20,
+   "bytes_per_cell": 1,
+   "vram": "0x390C",
+   "scenes": [
+    "scene_17"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 22,
+   "addr": "0x998D",
+   "file": "bank22_998D.csv",
+   "rows": 8,
+   "cols": 20,
+   "bytes_per_cell": 1,
+   "vram": "0x390C",
+   "scenes": [
+    "scene_17"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 22,
+   "addr": "0xA0AD",
+   "file": "bank22_A0AD.csv",
+   "rows": 8,
+   "cols": 20,
+   "bytes_per_cell": 2,
+   "vram": "0x390C",
+   "scenes": [
+    "scene_17"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 22,
+   "addr": "0xA514",
+   "file": "bank22_A514.csv",
+   "rows": 8,
+   "cols": 20,
+   "bytes_per_cell": 1,
+   "vram": "0x390C",
+   "scenes": [
+    "scene_04"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 22,
+   "addr": "0xAA16",
+   "file": "bank22_AA16.csv",
+   "rows": 8,
+   "cols": 20,
+   "bytes_per_cell": 2,
+   "vram": "0x390C",
+   "scenes": [
+    "scene_04"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 22,
+   "addr": "0xB00D",
+   "file": "bank22_B00D.csv",
+   "rows": 8,
+   "cols": 20,
+   "bytes_per_cell": 1,
+   "vram": "0x390C",
+   "scenes": [
+    "scene_04"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 22,
+   "addr": "0xB308",
+   "file": "bank22_B308.csv",
+   "rows": 8,
+   "cols": 20,
+   "bytes_per_cell": 1,
+   "vram": "0x390C",
+   "scenes": [
+    "scene_04"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 22,
+   "addr": "0xB5DC",
+   "file": "bank22_B5DC.csv",
+   "rows": 18,
+   "cols": 32,
+   "bytes_per_cell": 2,
+   "vram": "0x3800",
+   "scenes": [
+    "scene_04"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 23,
+   "addr": "0x80BC",
+   "file": "bank23_80BC.csv",
+   "rows": 3,
+   "cols": 5,
+   "bytes_per_cell": 1,
+   "vram": "0x3B8E",
+   "scenes": [
+    "scene_2A"
+   ],
+   "editable": false
+  },
+  {
+   "bank": 23,
+   "addr": "0x9344",
+   "file": "bank23_9344.csv",
+   "rows": 6,
+   "cols": 20,
+   "bytes_per_cell": 2,
+   "vram": "0x380C",
+   "scenes": [
+    "scene_05"
+   ],
+   "editable": false
+  },
+  {
+   "bank": 23,
+   "addr": "0x9434",
+   "file": "bank23_9434.csv",
+   "rows": 6,
+   "cols": 20,
+   "bytes_per_cell": 2,
+   "vram": "0x398C",
+   "scenes": [
+    "scene_05"
+   ],
+   "editable": false
+  },
+  {
+   "bank": 23,
+   "addr": "0x9524",
+   "file": "bank23_9524.csv",
+   "rows": 6,
+   "cols": 20,
+   "bytes_per_cell": 2,
+   "vram": "0x3B0C",
+   "scenes": [
+    "scene_05"
+   ],
+   "editable": false
+  },
+  {
+   "bank": 28,
+   "addr": "0xBCE2",
+   "file": "bank28_BCE2.csv",
+   "rows": 1,
+   "cols": 8,
+   "bytes_per_cell": 1,
+   "vram": "0x3BD8",
+   "scenes": [
+    "scene_03"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 28,
+   "addr": "0xBD92",
+   "file": "bank28_BD92.csv",
+   "rows": 1,
+   "cols": 20,
+   "bytes_per_cell": 1,
+   "vram": "0x3B4C",
+   "scenes": [
+    "scene_05"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 28,
+   "addr": "0xBDA6",
+   "file": "bank28_BDA6.csv",
+   "rows": 1,
+   "cols": 20,
+   "bytes_per_cell": 1,
+   "vram": "0x3B4C",
+   "scenes": [
+    "scene_05"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 28,
+   "addr": "0xBDBA",
+   "file": "bank28_BDBA.csv",
+   "rows": 1,
+   "cols": 20,
+   "bytes_per_cell": 1,
+   "vram": "0x3B4C",
+   "scenes": [
+    "scene_05"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 28,
+   "addr": "0xBDCE",
+   "file": "bank28_BDCE.csv",
+   "rows": 1,
+   "cols": 20,
+   "bytes_per_cell": 1,
+   "vram": "0x3B4C",
+   "scenes": [
+    "scene_05"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 28,
+   "addr": "0xBDE2",
+   "file": "bank28_BDE2.csv",
+   "rows": 1,
+   "cols": 20,
+   "bytes_per_cell": 1,
+   "vram": "0x3B4C",
+   "scenes": [
+    "scene_05"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 28,
+   "addr": "0xBDF6",
+   "file": "bank28_BDF6.csv",
+   "rows": 1,
+   "cols": 20,
+   "bytes_per_cell": 1,
+   "vram": "0x3B4C",
+   "scenes": [
+    "scene_05"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 28,
+   "addr": "0xBE0A",
+   "file": "bank28_BE0A.csv",
+   "rows": 1,
+   "cols": 20,
+   "bytes_per_cell": 1,
+   "vram": "0x3B4C",
+   "scenes": [
+    "scene_05"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 28,
+   "addr": "0xBE1E",
+   "file": "bank28_BE1E.csv",
+   "rows": 1,
+   "cols": 20,
+   "bytes_per_cell": 1,
+   "vram": "0x3BCC",
+   "scenes": [
+    "scene_05"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 28,
+   "addr": "0xBE32",
+   "file": "bank28_BE32.csv",
+   "rows": 1,
+   "cols": 20,
+   "bytes_per_cell": 1,
+   "vram": "0x3BCC",
+   "scenes": [
+    "scene_05"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 28,
+   "addr": "0xBE46",
+   "file": "bank28_BE46.csv",
+   "rows": 1,
+   "cols": 20,
+   "bytes_per_cell": 1,
+   "vram": "0x3BCC",
+   "scenes": [
+    "scene_05"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 28,
+   "addr": "0xBE5A",
+   "file": "bank28_BE5A.csv",
+   "rows": 1,
+   "cols": 20,
+   "bytes_per_cell": 1,
+   "vram": "0x3BCC",
+   "scenes": [
+    "scene_05"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 28,
+   "addr": "0xBE6E",
+   "file": "bank28_BE6E.csv",
+   "rows": 1,
+   "cols": 20,
+   "bytes_per_cell": 1,
+   "vram": "0x3BCC",
+   "scenes": [
+    "scene_05"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 28,
+   "addr": "0xBE82",
+   "file": "bank28_BE82.csv",
+   "rows": 1,
+   "cols": 20,
+   "bytes_per_cell": 1,
+   "vram": "0x3BCC",
+   "scenes": [
+    "scene_05"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 28,
+   "addr": "0xBE96",
+   "file": "bank28_BE96.csv",
+   "rows": 1,
+   "cols": 20,
+   "bytes_per_cell": 1,
+   "vram": "0x3BCC",
+   "scenes": [
+    "scene_05"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 28,
+   "addr": "0xBEAA",
+   "file": "bank28_BEAA.csv",
+   "rows": 1,
+   "cols": 20,
+   "bytes_per_cell": 1,
+   "vram": "0x3BCC",
+   "scenes": [
+    "scene_05"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 28,
+   "addr": "0xBEBE",
+   "file": "bank28_BEBE.csv",
+   "rows": 1,
+   "cols": 20,
+   "bytes_per_cell": 1,
+   "vram": "0x3BCC",
+   "scenes": [
+    "scene_05"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 28,
+   "addr": "0xBED2",
+   "file": "bank28_BED2.csv",
+   "rows": 4,
+   "cols": 18,
+   "bytes_per_cell": 1,
+   "vram": "0x3B4E",
+   "scenes": [
+    "scene_08"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 28,
+   "addr": "0xBF1A",
+   "file": "bank28_BF1A.csv",
+   "rows": 1,
+   "cols": 20,
+   "bytes_per_cell": 1,
+   "vram": "0x3B4C",
+   "scenes": [
+    "scene_05"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 28,
+   "addr": "0xBF2E",
+   "file": "bank28_BF2E.csv",
+   "rows": 1,
+   "cols": 20,
+   "bytes_per_cell": 1,
+   "vram": "0x3B4C",
+   "scenes": [
+    "scene_05"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 33,
+   "addr": "0x83B6",
+   "file": "bank33_83B6.csv",
+   "rows": 4,
+   "cols": 18,
+   "bytes_per_cell": 2,
+   "vram": "0x39CE",
+   "scenes": [
+    "scene_1B"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 33,
+   "addr": "0x8722",
+   "file": "bank33_8722.csv",
+   "rows": 5,
+   "cols": 18,
+   "bytes_per_cell": 2,
+   "vram": "0x398E",
+   "scenes": [
+    "scene_05"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 33,
+   "addr": "0x87D6",
+   "file": "bank33_87D6.csv",
+   "rows": 4,
+   "cols": 18,
+   "bytes_per_cell": 2,
+   "vram": "0x398E",
+   "scenes": [
+    "scene_1D"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 33,
+   "addr": "0x8866",
+   "file": "bank33_8866.csv",
+   "rows": 4,
+   "cols": 18,
+   "bytes_per_cell": 2,
+   "vram": "0x398E",
+   "scenes": [
+    "scene_1E"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 33,
+   "addr": "0x88F6",
+   "file": "bank33_88F6.csv",
+   "rows": 4,
+   "cols": 18,
+   "bytes_per_cell": 2,
+   "vram": "0x398E",
+   "scenes": [
+    "scene_1F"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 33,
+   "addr": "0x8986",
+   "file": "bank33_8986.csv",
+   "rows": 4,
+   "cols": 18,
+   "bytes_per_cell": 2,
+   "vram": "0x398E",
+   "scenes": [
+    "scene_20"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 33,
+   "addr": "0x8A16",
+   "file": "bank33_8A16.csv",
+   "rows": 4,
+   "cols": 18,
+   "bytes_per_cell": 2,
+   "vram": "0x398E",
+   "scenes": [
+    "scene_21"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 33,
+   "addr": "0x8AA6",
+   "file": "bank33_8AA6.csv",
+   "rows": 4,
+   "cols": 18,
+   "bytes_per_cell": 2,
+   "vram": "0x398E",
+   "scenes": [
+    "scene_22"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 33,
+   "addr": "0x8B36",
+   "file": "bank33_8B36.csv",
+   "rows": 4,
+   "cols": 18,
+   "bytes_per_cell": 2,
+   "vram": "0x398E",
+   "scenes": [
+    "scene_23"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 33,
+   "addr": "0x8BC6",
+   "file": "bank33_8BC6.csv",
+   "rows": 4,
+   "cols": 18,
+   "bytes_per_cell": 2,
+   "vram": "0x398E",
+   "scenes": [
+    "scene_24"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 33,
+   "addr": "0x8C56",
+   "file": "bank33_8C56.csv",
+   "rows": 4,
+   "cols": 18,
+   "bytes_per_cell": 2,
+   "vram": "0x398E",
+   "scenes": [
+    "scene_25"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 33,
+   "addr": "0x8CE6",
+   "file": "bank33_8CE6.csv",
+   "rows": 4,
+   "cols": 18,
+   "bytes_per_cell": 2,
+   "vram": "0x398E",
+   "scenes": [
+    "scene_26"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 33,
+   "addr": "0x8D76",
+   "file": "bank33_8D76.csv",
+   "rows": 4,
+   "cols": 18,
+   "bytes_per_cell": 2,
+   "vram": "0x398E",
+   "scenes": [
+    "scene_27"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 33,
+   "addr": "0x8E06",
+   "file": "bank33_8E06.csv",
+   "rows": 4,
+   "cols": 18,
+   "bytes_per_cell": 2,
+   "vram": "0x398E",
+   "scenes": [
+    "scene_28"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 33,
+   "addr": "0x8E96",
+   "file": "bank33_8E96.csv",
+   "rows": 4,
+   "cols": 18,
+   "bytes_per_cell": 2,
+   "vram": "0x398E",
+   "scenes": [
+    "scene_29"
+   ],
+   "editable": true
+  },
+  {
+   "bank": 33,
+   "addr": "0x8F26",
+   "file": "bank33_8F26.csv",
+   "rows": 4,
+   "cols": 18,
+   "bytes_per_cell": 2,
+   "vram": "0x398E",
+   "scenes": [
+    "scene_2A"
+   ],
+   "editable": true
+  }
+ ]
+}

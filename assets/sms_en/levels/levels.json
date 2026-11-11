@@ -1,0 +1,1132 @@
+{
+ "_doc": "GENERE par tools/assets/levels.py. Voir docs/levels.md.",
+ "levels": [
+  {
+   "level": "00",
+   "map": "maps/map_b20_8000.csv",
+   "width": 80,
+   "height": 18,
+   "metatiles": "metatiles/set_8518.csv",
+   "attributes": "attributes/attr_890A.csv",
+   "palette_bank2": "0xA499",
+   "gfx": [
+    "banque 8 $8000 -> VRAM $1F00",
+    "banque 30 $BAF4 -> VRAM $0B20",
+    "banque 12 $A77E -> VRAM $0D20",
+    "banque 12 $A4A8 -> VRAM $11C0",
+    "banque 12 $9F76 -> VRAM $1600",
+    "banque 12 $B1B6 -> VRAM $1560",
+    "banque 7 $BAF8 -> VRAM $1A80",
+    "banque 7 $BA55 -> VRAM $1C00",
+    "banque 7 $BC37 -> VRAM $14E0"
+   ]
+  },
+  {
+   "level": "01",
+   "map": "maps/map_b20_8000.csv",
+   "width": 80,
+   "height": 18,
+   "metatiles": "metatiles/set_8518.csv",
+   "attributes": "attributes/attr_890A.csv",
+   "palette_bank2": "0xA499",
+   "gfx": [
+    "banque 8 $8000 -> VRAM $1F00",
+    "banque 30 $BAF4 -> VRAM $0B20",
+    "banque 12 $A77E -> VRAM $0D20",
+    "banque 12 $A4A8 -> VRAM $11C0",
+    "banque 12 $9F76 -> VRAM $1600",
+    "banque 12 $B1B6 -> VRAM $1560",
+    "banque 7 $BAF8 -> VRAM $1A80",
+    "banque 7 $BA55 -> VRAM $1C00",
+    "banque 7 $BC37 -> VRAM $14E0"
+   ]
+  },
+  {
+   "level": "02",
+   "map": "maps/map_b20_8000.csv",
+   "width": 80,
+   "height": 18,
+   "metatiles": "metatiles/set_8518.csv",
+   "attributes": "attributes/attr_890A.csv",
+   "palette_bank2": "0xA499",
+   "gfx": [
+    "banque 8 $8000 -> VRAM $1F00",
+    "banque 30 $BAF4 -> VRAM $0B20",
+    "banque 12 $A77E -> VRAM $0D20",
+    "banque 12 $A4A8 -> VRAM $11C0",
+    "banque 12 $9F76 -> VRAM $1600",
+    "banque 12 $B1B6 -> VRAM $1560",
+    "banque 7 $BAF8 -> VRAM $1A80",
+    "banque 7 $BA55 -> VRAM $1C00",
+    "banque 7 $BC37 -> VRAM $14E0"
+   ]
+  },
+  {
+   "level": "03",
+   "map": "maps/map_b20_8000.csv",
+   "width": 80,
+   "height": 18,
+   "metatiles": "metatiles/set_8518.csv",
+   "attributes": "attributes/attr_890A.csv",
+   "palette_bank2": "0xA499",
+   "gfx": [
+    "banque 8 $8000 -> VRAM $1F00",
+    "banque 30 $BAF4 -> VRAM $0B20",
+    "banque 12 $A77E -> VRAM $0D20",
+    "banque 12 $A4A8 -> VRAM $11C0",
+    "banque 12 $9F76 -> VRAM $1600",
+    "banque 12 $B1B6 -> VRAM $1560",
+    "banque 7 $BAF8 -> VRAM $1A80",
+    "banque 7 $BA55 -> VRAM $1C00",
+    "banque 7 $BC37 -> VRAM $14E0"
+   ]
+  },
+  {
+   "level": "04",
+   "map": "maps/map_b19_83D5.csv",
+   "width": 40,
+   "height": 36,
+   "metatiles": "metatiles/set_898C.csv",
+   "attributes": "attributes/attr_8D7E.csv",
+   "palette_bank2": "0xA519",
+   "gfx": [
+    "banque 8 $8FBD -> VRAM $2000",
+    "banque 30 $BAF4 -> VRAM $0B20",
+    "banque 7 $A8BE -> VRAM $0CA0",
+    "banque 12 $A77E -> VRAM $0D20",
+    "banque 12 $A4A8 -> VRAM $11C0",
+    "banque 12 $A306 -> VRAM $1D00",
+    "banque 12 $A8EB -> VRAM $0F20",
+    "banque 7 $BC37 -> VRAM $14E0"
+   ]
+  },
+  {
+   "level": "05",
+   "map": "maps/map_b19_83D5.csv",
+   "width": 40,
+   "height": 36,
+   "metatiles": "metatiles/set_898C.csv",
+   "attributes": "attributes/attr_8D7E.csv",
+   "palette_bank2": "0xA519",
+   "gfx": [
+    "banque 8 $8FBD -> VRAM $2000",
+    "banque 30 $BAF4 -> VRAM $0B20",
+    "banque 7 $A8BE -> VRAM $0CA0",
+    "banque 12 $A77E -> VRAM $0D20",
+    "banque 12 $A4A8 -> VRAM $11C0",
+    "banque 12 $A306 -> VRAM $1D00",
+    "banque 12 $A8EB -> VRAM $0F20",
+    "banque 7 $BC37 -> VRAM $14E0"
+   ]
+  },
+  {
+   "level": "06",
+   "map": "maps/map_b19_83D5.csv",
+   "width": 40,
+   "height": 36,
+   "metatiles": "metatiles/set_898C.csv",
+   "attributes": "attributes/attr_8D7E.csv",
+   "palette_bank2": "0xA519",
+   "gfx": [
+    "banque 8 $8FBD -> VRAM $2000",
+    "banque 30 $BAF4 -> VRAM $0B20",
+    "banque 7 $A8BE -> VRAM $0CA0",
+    "banque 12 $A77E -> VRAM $0D20",
+    "banque 12 $A4A8 -> VRAM $11C0",
+    "banque 12 $A306 -> VRAM $1D00",
+    "banque 12 $A8EB -> VRAM $0F20",
+    "banque 7 $BC37 -> VRAM $14E0"
+   ]
+  },
+  {
+   "level": "07",
+   "map": "maps/map_b19_8277.csv",
+   "width": 10,
+   "height": 9,
+   "metatiles": "metatiles/set_931E.csv",
+   "attributes": "attributes/attr_97E0.csv",
+   "palette_bank2": "0xA539",
+   "gfx": [
+    "banque 8 $9EF7 -> VRAM $2000",
+    "banque 30 $B2B8 -> VRAM $0580",
+    "banque 12 $AE44 -> VRAM $0C00",
+    "banque 12 $93DF -> VRAM $0D60",
+    "banque 12 $940C -> VRAM $0E00",
+    "banque 12 $9EF6 -> VRAM $1A00",
+    "banque 12 $AB22 -> VRAM $1E20",
+    "banque 12 $9375 -> VRAM $08E0"
+   ]
+  },
+  {
+   "level": "08",
+   "map": "maps/map_b19_8979.csv",
+   "width": 80,
+   "height": 18,
+   "metatiles": "metatiles/set_A640.csv",
+   "attributes": "attributes/attr_AABA.csv",
+   "palette_bank2": "0xA5F9",
+   "gfx": [
+    "banque 15 $8000 -> VRAM $2000",
+    "banque 7 $A928 -> VRAM $0CA0",
+    "banque 30 $BAF4 -> VRAM $0B20",
+    "banque 12 $A77E -> VRAM $0D20",
+    "banque 12 $A8EB -> VRAM $0F20",
+    "banque 7 $BA55 -> VRAM $11C0",
+    "banque 12 $B51B -> VRAM $13C0",
+    "banque 12 $9F76 -> VRAM $1600",
+    "banque 12 $B309 -> VRAM $1A80",
+    "banque 12 $B220 -> VRAM $1CC0",
+    "banque 12 $B1B6 -> VRAM $1DC0"
+   ]
+  },
+  {
+   "level": "09",
+   "map": "maps/map_b19_8979.csv",
+   "width": 80,
+   "height": 18,
+   "metatiles": "metatiles/set_A640.csv",
+   "attributes": "attributes/attr_AABA.csv",
+   "palette_bank2": "0xA5F9",
+   "gfx": [
+    "banque 15 $8000 -> VRAM $2000",
+    "banque 7 $A928 -> VRAM $0CA0",
+    "banque 30 $BAF4 -> VRAM $0B20",
+    "banque 12 $A77E -> VRAM $0D20",
+    "banque 12 $A8EB -> VRAM $0F20",
+    "banque 7 $BA55 -> VRAM $11C0",
+    "banque 12 $B51B -> VRAM $13C0",
+    "banque 12 $9F76 -> VRAM $1600",
+    "banque 12 $B309 -> VRAM $1A80",
+    "banque 12 $B220 -> VRAM $1CC0",
+    "banque 12 $B1B6 -> VRAM $1DC0"
+   ]
+  },
+  {
+   "level": "0A",
+   "map": "maps/map_b19_8F1D.csv",
+   "width": 130,
+   "height": 9,
+   "metatiles": "metatiles/set_A640.csv",
+   "attributes": "attributes/attr_AABA.csv",
+   "palette_bank2": "0xA5F9",
+   "gfx": [
+    "banque 15 $8000 -> VRAM $2000",
+    "banque 30 $BAF4 -> VRAM $0B20",
+    "banque 12 $B760 -> VRAM $0CA0",
+    "banque 12 $BA5C -> VRAM $0FA0",
+    "banque 12 $B51B -> VRAM $13C0",
+    "banque 31 $A980 -> VRAM $1600",
+    "banque 12 $B309 -> VRAM $1A80",
+    "banque 12 $B220 -> VRAM $1CC0",
+    "banque 12 $B1B6 -> VRAM $1DC0"
+   ]
+  },
+  {
+   "level": "0B",
+   "map": "maps/map_b19_8F1D.csv",
+   "width": 130,
+   "height": 9,
+   "metatiles": "metatiles/set_A640.csv",
+   "attributes": "attributes/attr_AABA.csv",
+   "palette_bank2": "0xA5F9",
+   "gfx": [
+    "banque 15 $8000 -> VRAM $2000",
+    "banque 30 $BAF4 -> VRAM $0B20",
+    "banque 12 $B760 -> VRAM $0CA0",
+    "banque 12 $BA5C -> VRAM $0FA0",
+    "banque 12 $B51B -> VRAM $13C0",
+    "banque 31 $A980 -> VRAM $1600",
+    "banque 12 $B309 -> VRAM $1A80",
+    "banque 12 $B220 -> VRAM $1CC0",
+    "banque 12 $B1B6 -> VRAM $1DC0"
+   ]
+  },
+  {
+   "level": "0C",
+   "map": "maps/map_b19_93B3.csv",
+   "width": 80,
+   "height": 18,
+   "metatiles": "metatiles/set_A640.csv",
+   "attributes": "attributes/attr_AABA.csv",
+   "palette_bank2": "0xA5F9",
+   "gfx": [
+    "banque 15 $8000 -> VRAM $2000",
+    "banque 7 $A928 -> VRAM $0CA0",
+    "banque 30 $BAF4 -> VRAM $0B20",
+    "banque 12 $A77E -> VRAM $0D20",
+    "banque 12 $A8EB -> VRAM $0F20",
+    "banque 7 $BA55 -> VRAM $11C0",
+    "banque 12 $B51B -> VRAM $13C0",
+    "banque 12 $9F76 -> VRAM $1600",
+    "banque 12 $B309 -> VRAM $1A80",
+    "banque 12 $B220 -> VRAM $1CC0",
+    "banque 12 $B1B6 -> VRAM $1DC0"
+   ]
+  },
+  {
+   "level": "0D",
+   "map": "maps/map_b19_9957.csv",
+   "width": 16,
+   "height": 9,
+   "metatiles": "metatiles/set_8E00.csv",
+   "attributes": "attributes/attr_920A.csv",
+   "palette_bank2": "0xA619",
+   "gfx": [
+    "banque 15 $950D -> VRAM $2000",
+    "banque 31 $B0F9 -> VRAM $0E00"
+   ]
+  },
+  {
+   "level": "0E",
+   "map": "maps/map_b19_9957.csv",
+   "width": 16,
+   "height": 9,
+   "metatiles": "metatiles/set_8E00.csv",
+   "attributes": "attributes/attr_9294.csv",
+   "palette_bank2": "0xA619",
+   "gfx": [
+    "banque 15 $950D -> VRAM $2000",
+    "banque 30 $B2B8 -> VRAM $0580",
+    "banque 12 $BEAE -> VRAM $0C00",
+    "banque 12 $93DF -> VRAM $0D60",
+    "banque 31 $B0F9 -> VRAM $0E00",
+    "banque 31 $B7AE -> VRAM $1740",
+    "banque 12 $AB22 -> VRAM $1E20",
+    "banque 12 $9375 -> VRAM $08E0"
+   ]
+  },
+  {
+   "level": "0F",
+   "map": "maps/map_b19_9AEB.csv",
+   "width": 20,
+   "height": 72,
+   "metatiles": "metatiles/set_9892.csv",
+   "attributes": "attributes/attr_9C9C.csv",
+   "palette_bank2": "0xA6D9",
+   "gfx": [
+    "banque 6 $94BA -> VRAM $1FC0",
+    "banque 7 $A992 -> VRAM $0CA0",
+    "banque 30 $BAF4 -> VRAM $0B20",
+    "banque 12 $A77E -> VRAM $0D20",
+    "banque 12 $B220 -> VRAM $1000",
+    "banque 12 $A4A8 -> VRAM $11C0",
+    "banque 7 $BC37 -> VRAM $14E0",
+    "banque 12 $BD19 -> VRAM $1560",
+    "banque 31 $ADEF -> VRAM $1720",
+    "banque 12 $B309 -> VRAM $1A80",
+    "banque 12 $A306 -> VRAM $1D00"
+   ]
+  },
+  {
+   "level": "10",
+   "map": "maps/map_b19_9AEB.csv",
+   "width": 20,
+   "height": 72,
+   "metatiles": "metatiles/set_9892.csv",
+   "attributes": "attributes/attr_9C9C.csv",
+   "palette_bank2": "0xA6D9",
+   "gfx": [
+    "banque 6 $94BA -> VRAM $1FC0",
+    "banque 7 $A992 -> VRAM $0CA0",
+    "banque 30 $BAF4 -> VRAM $0B20",
+    "banque 12 $A77E -> VRAM $0D20",
+    "banque 12 $B220 -> VRAM $1000",
+    "banque 12 $A4A8 -> VRAM $11C0",
+    "banque 7 $BC37 -> VRAM $14E0",
+    "banque 12 $BD19 -> VRAM $1560",
+    "banque 31 $ADEF -> VRAM $1720",
+    "banque 12 $B309 -> VRAM $1A80",
+    "banque 12 $A306 -> VRAM $1D00"
+   ]
+  },
+  {
+   "level": "11",
+   "map": "maps/map_b19_A08F.csv",
+   "width": 10,
+   "height": 72,
+   "metatiles": "metatiles/set_9892.csv",
+   "attributes": "attributes/attr_9C9C.csv",
+   "palette_bank2": "0xA6D9",
+   "gfx": [
+    "banque 6 $94BA -> VRAM $1FC0",
+    "banque 7 $A992 -> VRAM $0CA0",
+    "banque 30 $BAF4 -> VRAM $0B20",
+    "banque 12 $A77E -> VRAM $0D20",
+    "banque 12 $B220 -> VRAM $1000",
+    "banque 12 $A4A8 -> VRAM $11C0",
+    "banque 7 $BC37 -> VRAM $14E0",
+    "banque 12 $BD19 -> VRAM $1560",
+    "banque 31 $ADEF -> VRAM $1720",
+    "banque 12 $B309 -> VRAM $1A80",
+    "banque 12 $A306 -> VRAM $1D00"
+   ]
+  },
+  {
+   "level": "12",
+   "map": "maps/map_b19_A363.csv",
+   "width": 50,
+   "height": 27,
+   "metatiles": "metatiles/set_9D1F.csv",
+   "attributes": "attributes/attr_A0E1.csv",
+   "palette_bank2": "0xA6F9",
+   "gfx": [
+    "banque 6 $A674 -> VRAM $1F80",
+    "banque 7 $A992 -> VRAM $0CA0",
+    "banque 30 $BAF4 -> VRAM $0B20",
+    "banque 12 $A77E -> VRAM $0D20",
+    "banque 12 $B220 -> VRAM $1000",
+    "banque 12 $A4A8 -> VRAM $11C0",
+    "banque 7 $BC37 -> VRAM $14E0",
+    "banque 12 $BD19 -> VRAM $1560",
+    "banque 31 $ADEF -> VRAM $1720",
+    "banque 12 $B309 -> VRAM $1A80",
+    "banque 12 $A306 -> VRAM $1D00"
+   ]
+  },
+  {
+   "level": "13",
+   "map": "maps/map_b19_A363.csv",
+   "width": 50,
+   "height": 27,
+   "metatiles": "metatiles/set_9D1F.csv",
+   "attributes": "attributes/attr_A0E1.csv",
+   "palette_bank2": "0xA6F9",
+   "gfx": [
+    "banque 6 $A674 -> VRAM $1F80",
+    "banque 7 $A992 -> VRAM $0CA0",
+    "banque 30 $BAF4 -> VRAM $0B20",
+    "banque 12 $A77E -> VRAM $0D20",
+    "banque 12 $B220 -> VRAM $1000",
+    "banque 12 $A4A8 -> VRAM $11C0",
+    "banque 7 $BC37 -> VRAM $14E0",
+    "banque 12 $BD19 -> VRAM $1560",
+    "banque 31 $ADEF -> VRAM $1720",
+    "banque 12 $B309 -> VRAM $1A80",
+    "banque 12 $A306 -> VRAM $1D00"
+   ]
+  },
+  {
+   "level": "14",
+   "map": "maps/map_b19_A8AD.csv",
+   "width": 80,
+   "height": 18,
+   "metatiles": "metatiles/set_ACFF.csv",
+   "attributes": "attributes/attr_B1D1.csv",
+   "palette_bank2": "0xA659",
+   "gfx": [
+    "banque 15 $A44F -> VRAM $1D60",
+    "banque 7 $A7EC -> VRAM $0CA0",
+    "banque 30 $BAF4 -> VRAM $0B20",
+    "banque 12 $A77E -> VRAM $0D20",
+    "banque 31 $BB5A -> VRAM $0F20",
+    "banque 12 $A4A8 -> VRAM $11C0",
+    "banque 31 $BD2B -> VRAM $14E0",
+    "banque 12 $BDF1 -> VRAM $1780",
+    "banque 31 $BAA7 -> VRAM $1880",
+    "banque 31 $BAE7 -> VRAM $1980",
+    "banque 31 $ADEF -> VRAM $1A00"
+   ]
+  },
+  {
+   "level": "15",
+   "map": "maps/map_b19_A8AD.csv",
+   "width": 80,
+   "height": 18,
+   "metatiles": "metatiles/set_ACFF.csv",
+   "attributes": "attributes/attr_B1D1.csv",
+   "palette_bank2": "0xA659",
+   "gfx": [
+    "banque 15 $A44F -> VRAM $1D60",
+    "banque 7 $A7EC -> VRAM $0CA0",
+    "banque 30 $BAF4 -> VRAM $0B20",
+    "banque 12 $A77E -> VRAM $0D20",
+    "banque 31 $BB5A -> VRAM $0F20",
+    "banque 12 $A4A8 -> VRAM $11C0",
+    "banque 31 $BD2B -> VRAM $14E0",
+    "banque 12 $BDF1 -> VRAM $1780",
+    "banque 31 $BAA7 -> VRAM $1880",
+    "banque 31 $BAE7 -> VRAM $1980",
+    "banque 31 $ADEF -> VRAM $1A00"
+   ]
+  },
+  {
+   "level": "16",
+   "map": "maps/map_b19_AE51.csv",
+   "width": 80,
+   "height": 18,
+   "metatiles": "metatiles/set_ACFF.csv",
+   "attributes": "attributes/attr_B1D1.csv",
+   "palette_bank2": "0xA659",
+   "gfx": [
+    "banque 15 $A44F -> VRAM $1D60",
+    "banque 7 $A7EC -> VRAM $0CA0",
+    "banque 30 $BAF4 -> VRAM $0B20",
+    "banque 12 $A77E -> VRAM $0D20",
+    "banque 31 $BB5A -> VRAM $0F20",
+    "banque 12 $A4A8 -> VRAM $11C0",
+    "banque 31 $BD2B -> VRAM $14E0",
+    "banque 12 $BDF1 -> VRAM $1780",
+    "banque 31 $BAA7 -> VRAM $1880",
+    "banque 31 $BAE7 -> VRAM $1980",
+    "banque 31 $ADEF -> VRAM $1A00"
+   ]
+  },
+  {
+   "level": "17",
+   "map": "maps/map_b19_AE51.csv",
+   "width": 80,
+   "height": 18,
+   "metatiles": "metatiles/set_ACFF.csv",
+   "attributes": "attributes/attr_B1D1.csv",
+   "palette_bank2": "0xA659",
+   "gfx": [
+    "banque 15 $A44F -> VRAM $1D60",
+    "banque 7 $A7EC -> VRAM $0CA0",
+    "banque 30 $BAF4 -> VRAM $0B20",
+    "banque 12 $A77E -> VRAM $0D20",
+    "banque 31 $BB5A -> VRAM $0F20",
+    "banque 12 $A4A8 -> VRAM $11C0",
+    "banque 31 $BD2B -> VRAM $14E0",
+    "banque 12 $BDF1 -> VRAM $1780",
+    "banque 31 $BAA7 -> VRAM $1880",
+    "banque 31 $BAE7 -> VRAM $1980",
+    "banque 31 $ADEF -> VRAM $1A00"
+   ]
+  },
+  {
+   "level": "18",
+   "map": "maps/map_b19_B3F5.csv",
+   "width": 80,
+   "height": 18,
+   "metatiles": "metatiles/set_ACFF.csv",
+   "attributes": "attributes/attr_B1D1.csv",
+   "palette_bank2": "0xA659",
+   "gfx": [
+    "banque 15 $A44F -> VRAM $1D60",
+    "banque 7 $A7EC -> VRAM $0CA0",
+    "banque 30 $BAF4 -> VRAM $0B20",
+    "banque 12 $A77E -> VRAM $0D20",
+    "banque 31 $BB5A -> VRAM $0F20",
+    "banque 12 $A4A8 -> VRAM $11C0",
+    "banque 31 $BD2B -> VRAM $14E0",
+    "banque 12 $BDF1 -> VRAM $1780",
+    "banque 31 $BAA7 -> VRAM $1880",
+    "banque 31 $BAE7 -> VRAM $1980",
+    "banque 31 $ADEF -> VRAM $1A00"
+   ]
+  },
+  {
+   "level": "19",
+   "map": "maps/map_b19_B3F5.csv",
+   "width": 80,
+   "height": 18,
+   "metatiles": "metatiles/set_ACFF.csv",
+   "attributes": "attributes/attr_B1D1.csv",
+   "palette_bank2": "0xA659",
+   "gfx": [
+    "banque 15 $A44F -> VRAM $1D60",
+    "banque 7 $A7EC -> VRAM $0CA0",
+    "banque 30 $BAF4 -> VRAM $0B20",
+    "banque 12 $A77E -> VRAM $0D20",
+    "banque 31 $BB5A -> VRAM $0F20",
+    "banque 12 $A4A8 -> VRAM $11C0",
+    "banque 31 $BD2B -> VRAM $14E0",
+    "banque 12 $BDF1 -> VRAM $1780",
+    "banque 31 $BAA7 -> VRAM $1880",
+    "banque 31 $BAE7 -> VRAM $1980",
+    "banque 31 $ADEF -> VRAM $1A00"
+   ]
+  },
+  {
+   "level": "1A",
+   "map": "maps/map_b19_B3F5.csv",
+   "width": 80,
+   "height": 18,
+   "metatiles": "metatiles/set_ACFF.csv",
+   "attributes": "attributes/attr_B1D1.csv",
+   "palette_bank2": "0xA659",
+   "gfx": [
+    "banque 15 $A44F -> VRAM $1D60",
+    "banque 7 $A7EC -> VRAM $0CA0",
+    "banque 30 $BAF4 -> VRAM $0B20",
+    "banque 12 $A77E -> VRAM $0D20",
+    "banque 31 $BB5A -> VRAM $0F20",
+    "banque 12 $A4A8 -> VRAM $11C0",
+    "banque 31 $BD2B -> VRAM $14E0",
+    "banque 12 $BDF1 -> VRAM $1780",
+    "banque 31 $BAA7 -> VRAM $1880",
+    "banque 31 $BAE7 -> VRAM $1980",
+    "banque 31 $ADEF -> VRAM $1A00"
+   ]
+  },
+  {
+   "level": "1B",
+   "map": "maps/map_b19_B999.csv",
+   "width": 50,
+   "height": 27,
+   "metatiles": "metatiles/set_9D1F.csv",
+   "attributes": "attributes/attr_A0E1.csv",
+   "palette_bank2": "0xA739",
+   "gfx": [
+    "banque 6 $A674 -> VRAM $1F80",
+    "banque 7 $A992 -> VRAM $0CA0",
+    "banque 30 $BAF4 -> VRAM $0B20",
+    "banque 12 $A77E -> VRAM $0D20",
+    "banque 12 $B220 -> VRAM $1000",
+    "banque 12 $A4A8 -> VRAM $11C0",
+    "banque 7 $BC37 -> VRAM $14E0",
+    "banque 12 $BD19 -> VRAM $1560",
+    "banque 31 $ADEF -> VRAM $1720",
+    "banque 12 $B309 -> VRAM $1A80",
+    "banque 12 $A306 -> VRAM $1D00"
+   ]
+  },
+  {
+   "level": "1C",
+   "map": "maps/map_b19_B999.csv",
+   "width": 50,
+   "height": 27,
+   "metatiles": "metatiles/set_9D1F.csv",
+   "attributes": "attributes/attr_A0E1.csv",
+   "palette_bank2": "0xA739",
+   "gfx": [
+    "banque 6 $A674 -> VRAM $1F80",
+    "banque 7 $A992 -> VRAM $0CA0",
+    "banque 30 $BAF4 -> VRAM $0B20",
+    "banque 12 $A77E -> VRAM $0D20",
+    "banque 12 $B220 -> VRAM $1000",
+    "banque 12 $A4A8 -> VRAM $11C0",
+    "banque 7 $BC37 -> VRAM $14E0",
+    "banque 12 $BD19 -> VRAM $1560",
+    "banque 31 $ADEF -> VRAM $1720",
+    "banque 12 $B309 -> VRAM $1A80",
+    "banque 12 $A306 -> VRAM $1D00"
+   ]
+  },
+  {
+   "level": "1D",
+   "map": "maps/map_b19_B999.csv",
+   "width": 50,
+   "height": 27,
+   "metatiles": "metatiles/set_9D1F.csv",
+   "attributes": "attributes/attr_A0E1.csv",
+   "palette_bank2": "0xA739",
+   "gfx": [
+    "banque 6 $A674 -> VRAM $1F80",
+    "banque 7 $A992 -> VRAM $0CA0",
+    "banque 30 $BAF4 -> VRAM $0B20",
+    "banque 12 $A77E -> VRAM $0D20",
+    "banque 12 $B220 -> VRAM $1000",
+    "banque 12 $A4A8 -> VRAM $11C0",
+    "banque 7 $BC37 -> VRAM $14E0",
+    "banque 12 $BD19 -> VRAM $1560",
+    "banque 31 $ADEF -> VRAM $1720",
+    "banque 12 $B309 -> VRAM $1A80",
+    "banque 12 $A306 -> VRAM $1D00"
+   ]
+  },
+  {
+   "level": "1E",
+   "map": "maps/map_b20_876E.csv",
+   "width": 50,
+   "height": 27,
+   "metatiles": "metatiles/set_A15B.csv",
+   "attributes": "attributes/attr_A5B3.csv",
+   "palette_bank2": "0xA779",
+   "gfx": [
+    "banque 13 $8000 -> VRAM $1E60",
+    "banque 7 $A7EC -> VRAM $0CA0",
+    "banque 30 $BAF4 -> VRAM $0B20",
+    "banque 12 $A77E -> VRAM $0D20",
+    "banque 31 $BB5A -> VRAM $0F20",
+    "banque 12 $A4A8 -> VRAM $11C0",
+    "banque 31 $BD2B -> VRAM $14E0",
+    "banque 12 $BDF1 -> VRAM $1780",
+    "banque 31 $BAA7 -> VRAM $1880",
+    "banque 31 $BAE7 -> VRAM $1980",
+    "banque 31 $ADEF -> VRAM $1A00"
+   ]
+  },
+  {
+   "level": "1F",
+   "map": "maps/map_b20_876E.csv",
+   "width": 50,
+   "height": 27,
+   "metatiles": "metatiles/set_A15B.csv",
+   "attributes": "attributes/attr_A5B3.csv",
+   "palette_bank2": "0xA779",
+   "gfx": [
+    "banque 13 $8000 -> VRAM $1E60",
+    "banque 7 $A7EC -> VRAM $0CA0",
+    "banque 30 $BAF4 -> VRAM $0B20",
+    "banque 12 $A77E -> VRAM $0D20",
+    "banque 31 $BB5A -> VRAM $0F20",
+    "banque 12 $A4A8 -> VRAM $11C0",
+    "banque 31 $BD2B -> VRAM $14E0",
+    "banque 12 $BDF1 -> VRAM $1780",
+    "banque 31 $BAA7 -> VRAM $1880",
+    "banque 31 $BAE7 -> VRAM $1980",
+    "banque 31 $ADEF -> VRAM $1A00"
+   ]
+  },
+  {
+   "level": "20",
+   "map": "maps/map_b20_8CB8.csv",
+   "width": 80,
+   "height": 18,
+   "metatiles": "metatiles/set_A15B.csv",
+   "attributes": "attributes/attr_A5B3.csv",
+   "palette_bank2": "0xA779",
+   "gfx": [
+    "banque 13 $8000 -> VRAM $1E60",
+    "banque 7 $A856 -> VRAM $0CA0",
+    "banque 30 $BAF4 -> VRAM $0B20",
+    "banque 12 $A77E -> VRAM $0D20",
+    "banque 31 $BB5A -> VRAM $0F20",
+    "banque 12 $A4A8 -> VRAM $11C0",
+    "banque 31 $BD2B -> VRAM $14E0",
+    "banque 12 $BDF1 -> VRAM $1780",
+    "banque 31 $BAA7 -> VRAM $1880",
+    "banque 13 $B74B -> VRAM $1980",
+    "banque 31 $ADEF -> VRAM $1A00"
+   ]
+  },
+  {
+   "level": "21",
+   "map": "maps/map_b20_925C.csv",
+   "width": 40,
+   "height": 36,
+   "metatiles": "metatiles/set_898C.csv",
+   "attributes": "attributes/attr_8D7E.csv",
+   "palette_bank2": "0xA519",
+   "gfx": [
+    "banque 8 $8FBD -> VRAM $2000",
+    "banque 30 $BAF4 -> VRAM $0B20",
+    "banque 7 $A8BE -> VRAM $0CA0",
+    "banque 12 $A77E -> VRAM $0D20",
+    "banque 12 $A4A8 -> VRAM $11C0",
+    "banque 12 $A306 -> VRAM $1D00",
+    "banque 12 $A8EB -> VRAM $0F20",
+    "banque 7 $BC37 -> VRAM $14E0"
+   ]
+  },
+  {
+   "level": "22",
+   "map": "maps/map_b20_85A4.csv",
+   "width": 30,
+   "height": 9,
+   "metatiles": "metatiles/set_A15B.csv",
+   "attributes": "attributes/attr_A5B3.csv",
+   "palette_bank2": "0xA779",
+   "gfx": [
+    "banque 13 $8000 -> VRAM $1E60",
+    "banque 12 $BDF1 -> VRAM $1780"
+   ]
+  },
+  {
+   "level": "23",
+   "map": "maps/map_b20_86B6.csv",
+   "width": 20,
+   "height": 9,
+   "metatiles": "metatiles/set_A15B.csv",
+   "attributes": "attributes/attr_A5B3.csv",
+   "palette_bank2": "0xA779",
+   "gfx": [
+    "banque 13 $8000 -> VRAM $1E60",
+    "banque 12 $9375 -> VRAM $0D20",
+    "banque 18 $A2B6 -> VRAM $0E00"
+   ]
+  },
+  {
+   "level": "24",
+   "map": "maps/map_b20_86B6.csv",
+   "width": 20,
+   "height": 9,
+   "metatiles": "metatiles/set_A15B.csv",
+   "attributes": "attributes/attr_A5B3.csv",
+   "palette_bank2": "0xA779",
+   "gfx": [
+    "banque 13 $8000 -> VRAM $1E60",
+    "banque 30 $B2B8 -> VRAM $0580",
+    "banque 12 $AE44 -> VRAM $0C00",
+    "banque 12 $93DF -> VRAM $0D60",
+    "banque 12 $9375 -> VRAM $08E0",
+    "banque 18 $A2B6 -> VRAM $0E00"
+   ]
+  },
+  {
+   "level": "25",
+   "map": "maps/map_b20_A494.csv",
+   "width": 16,
+   "height": 9,
+   "metatiles": "metatiles/set_AB4B.csv",
+   "attributes": "attributes/attr_ACCD.csv",
+   "palette_bank2": "0xA8D9",
+   "gfx": [
+    "banque 13 $94E1 -> VRAM $2000",
+    "banque 30 $B2B8 -> VRAM $0580",
+    "banque 12 $BEF3 -> VRAM $0C00",
+    "banque 18 $82D8 -> VRAM $0E00",
+    "banque 12 $AB22 -> VRAM $1E20",
+    "banque 12 $9375 -> VRAM $08E0",
+    "banque 12 $93DF -> VRAM $0D60"
+   ]
+  },
+  {
+   "level": "26",
+   "map": "maps/map_b20_9800.csv",
+   "width": 20,
+   "height": 72,
+   "metatiles": "metatiles/set_A15B.csv",
+   "attributes": "attributes/attr_A5B3.csv",
+   "palette_bank2": "0xA779",
+   "gfx": [
+    "banque 13 $8000 -> VRAM $1E60",
+    "banque 7 $A856 -> VRAM $0CA0",
+    "banque 30 $BAF4 -> VRAM $0B20",
+    "banque 12 $A77E -> VRAM $0D20",
+    "banque 31 $BB5A -> VRAM $0F20",
+    "banque 12 $A4A8 -> VRAM $11C0",
+    "banque 31 $BD2B -> VRAM $14E0",
+    "banque 12 $BDF1 -> VRAM $1780",
+    "banque 31 $BAA7 -> VRAM $1880",
+    "banque 13 $B74B -> VRAM $1980",
+    "banque 31 $ADEF -> VRAM $1A00"
+   ]
+  },
+  {
+   "level": "27",
+   "map": "maps/map_b20_9800.csv",
+   "width": 20,
+   "height": 72,
+   "metatiles": "metatiles/set_A15B.csv",
+   "attributes": "attributes/attr_A5B3.csv",
+   "palette_bank2": "0xA779",
+   "gfx": [
+    "banque 13 $8000 -> VRAM $1E60",
+    "banque 7 $A856 -> VRAM $0CA0",
+    "banque 30 $BAF4 -> VRAM $0B20",
+    "banque 12 $A77E -> VRAM $0D20",
+    "banque 31 $BB5A -> VRAM $0F20",
+    "banque 12 $A4A8 -> VRAM $11C0",
+    "banque 31 $BD2B -> VRAM $14E0",
+    "banque 12 $BDF1 -> VRAM $1780",
+    "banque 31 $BAA7 -> VRAM $1880",
+    "banque 13 $B74B -> VRAM $1980",
+    "banque 31 $ADEF -> VRAM $1A00"
+   ]
+  },
+  {
+   "level": "28",
+   "map": "maps/map_b20_A3DC.csv",
+   "width": 20,
+   "height": 9,
+   "metatiles": "metatiles/set_A15B.csv",
+   "attributes": "attributes/attr_A5B3.csv",
+   "palette_bank2": "0xA779",
+   "gfx": [
+    "banque 13 $8000 -> VRAM $1E60",
+    "banque 12 $9375 -> VRAM $0D20",
+    "banque 18 $A2B6 -> VRAM $0E00"
+   ]
+  },
+  {
+   "level": "29",
+   "map": "maps/map_b20_A3DC.csv",
+   "width": 20,
+   "height": 9,
+   "metatiles": "metatiles/set_A15B.csv",
+   "attributes": "attributes/attr_A5B3.csv",
+   "palette_bank2": "0xA779",
+   "gfx": [
+    "banque 13 $8000 -> VRAM $1E60",
+    "banque 30 $B2B8 -> VRAM $0580",
+    "banque 12 $AE44 -> VRAM $0C00",
+    "banque 12 $93DF -> VRAM $0D60",
+    "banque 12 $9375 -> VRAM $08E0",
+    "banque 18 $A2B6 -> VRAM $0E00"
+   ]
+  },
+  {
+   "level": "2A",
+   "map": "maps/map_b20_9DA4.csv",
+   "width": 16,
+   "height": 9,
+   "metatiles": "metatiles/set_B26D.csv",
+   "attributes": "attributes/attr_B567.csv",
+   "palette_bank2": "0xA639",
+   "gfx": [
+    "banque 15 $9DBC -> VRAM $2000",
+    "banque 13 $9E5B -> VRAM $0E00",
+    "banque 13 $A984 -> VRAM $1400"
+   ]
+  },
+  {
+   "level": "2B",
+   "map": "maps/map_b20_9DA4.csv",
+   "width": 16,
+   "height": 9,
+   "metatiles": "metatiles/set_B26D.csv",
+   "attributes": "attributes/attr_B567.csv",
+   "palette_bank2": "0xA639",
+   "gfx": [
+    "banque 15 $9DBC -> VRAM $2000",
+    "banque 30 $B2B8 -> VRAM $0580",
+    "banque 12 $BF20 -> VRAM $0C00",
+    "banque 13 $9E5B -> VRAM $0E00",
+    "banque 13 $A53F -> VRAM $14C0",
+    "banque 12 $AB22 -> VRAM $1E20",
+    "banque 12 $9375 -> VRAM $08E0",
+    "banque 12 $93DF -> VRAM $0D60"
+   ]
+  },
+  {
+   "level": "2C",
+   "map": "maps/map_b20_9DA4.csv",
+   "width": 16,
+   "height": 9,
+   "metatiles": "metatiles/set_B26D.csv",
+   "attributes": "attributes/attr_B567.csv",
+   "palette_bank2": "0xA639",
+   "gfx": [
+    "banque 15 $9DBC -> VRAM $2000",
+    "banque 30 $B2B8 -> VRAM $0580",
+    "banque 12 $BF20 -> VRAM $0C00",
+    "banque 13 $9E5B -> VRAM $0E00",
+    "banque 13 $A46C -> VRAM $14C0",
+    "banque 23 $AE77 -> VRAM $1620",
+    "banque 23 $AF08 -> VRAM $1780"
+   ]
+  },
+  {
+   "level": "2D",
+   "map": "maps/map_b20_9E38.csv",
+   "width": 80,
+   "height": 18,
+   "metatiles": "metatiles/set_A15B.csv",
+   "attributes": "attributes/attr_A5B3.csv",
+   "palette_bank2": "0xA779",
+   "gfx": [
+    "banque 13 $8000 -> VRAM $1E60",
+    "banque 30 $BAF4 -> VRAM $0B20",
+    "banque 12 $A77E -> VRAM $0D20",
+    "banque 31 $BB5A -> VRAM $0F20",
+    "banque 12 $A4A8 -> VRAM $11C0",
+    "banque 31 $BD2B -> VRAM $14E0",
+    "banque 12 $BDF1 -> VRAM $1780",
+    "banque 31 $BAA7 -> VRAM $1880",
+    "banque 13 $B74B -> VRAM $1980",
+    "banque 31 $ADEF -> VRAM $1A00"
+   ]
+  },
+  {
+   "level": "2E",
+   "map": "maps/map_b20_9E38.csv",
+   "width": 80,
+   "height": 18,
+   "metatiles": "metatiles/set_A15B.csv",
+   "attributes": "attributes/attr_A5B3.csv",
+   "palette_bank2": "0xA779",
+   "gfx": [
+    "banque 13 $8000 -> VRAM $1E60",
+    "banque 30 $BAF4 -> VRAM $0B20",
+    "banque 12 $A77E -> VRAM $0D20",
+    "banque 31 $BB5A -> VRAM $0F20",
+    "banque 12 $A4A8 -> VRAM $11C0",
+    "banque 31 $BD2B -> VRAM $14E0",
+    "banque 12 $BDF1 -> VRAM $1780",
+    "banque 31 $BAA7 -> VRAM $1880",
+    "banque 13 $B74B -> VRAM $1980",
+    "banque 31 $ADEF -> VRAM $1A00"
+   ]
+  },
+  {
+   "level": "2F",
+   "map": "maps/map_b20_A3DC.csv",
+   "width": 20,
+   "height": 9,
+   "metatiles": "metatiles/set_A15B.csv",
+   "attributes": "attributes/attr_A5B3.csv",
+   "palette_bank2": "0xA779",
+   "gfx": [
+    "banque 13 $8000 -> VRAM $1E60",
+    "banque 12 $9375 -> VRAM $0D20",
+    "banque 18 $A2B6 -> VRAM $0E00"
+   ]
+  },
+  {
+   "level": "30",
+   "map": "maps/map_b20_A3DC.csv",
+   "width": 20,
+   "height": 9,
+   "metatiles": "metatiles/set_A15B.csv",
+   "attributes": "attributes/attr_A5B3.csv",
+   "palette_bank2": "0xA779",
+   "gfx": [
+    "banque 13 $8000 -> VRAM $1E60",
+    "banque 30 $B2B8 -> VRAM $0580",
+    "banque 12 $AE44 -> VRAM $0C00",
+    "banque 12 $93DF -> VRAM $0D60",
+    "banque 12 $9375 -> VRAM $08E0",
+    "banque 18 $A2B6 -> VRAM $0E00"
+   ]
+  },
+  {
+   "level": "31",
+   "map": "maps/map_b20_A528.csv",
+   "width": 50,
+   "height": 9,
+   "metatiles": "metatiles/set_A15B.csv",
+   "attributes": "attributes/attr_A5B3.csv",
+   "palette_bank2": "0xA779",
+   "gfx": [
+    "banque 13 $8000 -> VRAM $1E60",
+    "banque 31 $BB5A -> VRAM $0F20",
+    "banque 31 $BD2B -> VRAM $14E0",
+    "banque 18 $8DDD -> VRAM $1A00"
+   ]
+  },
+  {
+   "level": "32",
+   "map": "maps/map_b20_A74C.csv",
+   "width": 16,
+   "height": 9,
+   "metatiles": "metatiles/set_B87E.csv",
+   "attributes": "attributes/attr_B823.csv",
+   "palette_bank2": "0xA579",
+   "gfx": [
+    "banque 13 $B62E -> VRAM $2000",
+    "banque 30 $B2B8 -> VRAM $0580",
+    "banque 12 $AE44 -> VRAM $0C00",
+    "banque 13 $B7B1 -> VRAM $0E00",
+    "banque 12 $AB22 -> VRAM $1E20",
+    "banque 12 $9375 -> VRAM $08E0",
+    "banque 12 $93DF -> VRAM $0D60"
+   ]
+  },
+  {
+   "level": "33",
+   "map": "maps/map_b20_A7E0.csv",
+   "width": 10,
+   "height": 9,
+   "metatiles": "metatiles/set_B940.csv",
+   "attributes": "attributes/attr_B823.csv",
+   "palette_bank2": "0xB1A2",
+   "gfx": [
+    "banque 13 $ABC6 -> VRAM $2000",
+    "banque 30 $B2B8 -> VRAM $0580",
+    "banque 12 $AE44 -> VRAM $0C00",
+    "banque 15 $B9AA -> VRAM $0E00",
+    "banque 12 $AB22 -> VRAM $1E20",
+    "banque 12 $9375 -> VRAM $08E0"
+   ]
+  },
+  {
+   "level": "34",
+   "map": "maps/map_b20_A6EE.csv",
+   "width": 10,
+   "height": 9,
+   "metatiles": "metatiles/set_B599.csv",
+   "attributes": "attributes/attr_B823.csv",
+   "palette_bank2": "0xA9F9",
+   "gfx": [
+    "banque 8 $B2DF -> VRAM $2000",
+    "banque 30 $B2B8 -> VRAM $0580",
+    "banque 12 $AE44 -> VRAM $0C00",
+    "banque 18 $8E15 -> VRAM $0E00",
+    "banque 18 $9677 -> VRAM $1920",
+    "banque 12 $AB22 -> VRAM $1E20",
+    "banque 12 $93DF -> VRAM $0D60"
+   ]
+  },
+  {
+   "level": "35",
+   "map": "maps/map_b20_A6EE.csv",
+   "width": 10,
+   "height": 9,
+   "metatiles": "metatiles/set_B599.csv",
+   "attributes": "attributes/attr_B823.csv",
+   "palette_bank2": "0xAA79",
+   "gfx": [
+    "banque 8 $B2DF -> VRAM $2000",
+    "banque 30 $B2B8 -> VRAM $0580",
+    "banque 12 $AE44 -> VRAM $0C00",
+    "banque 18 $978F -> VRAM $0E00",
+    "banque 18 $A83D -> VRAM $0B20",
+    "banque 18 $A87F -> VRAM $08E0",
+    "banque 12 $AB22 -> VRAM $1E20"
+   ]
+  },
+  {
+   "level": "36",
+   "map": "maps/map_b20_A6EE.csv",
+   "width": 10,
+   "height": 9,
+   "metatiles": "metatiles/set_B599.csv",
+   "attributes": "attributes/attr_B823.csv",
+   "palette_bank2": "0xABF9",
+   "gfx": [
+    "banque 8 $B2DF -> VRAM $2000",
+    "banque 30 $B2B8 -> VRAM $0580",
+    "banque 12 $AE44 -> VRAM $0C00",
+    "banque 18 $978F -> VRAM $0E00",
+    "banque 18 $A83D -> VRAM $0B20",
+    "banque 18 $A87F -> VRAM $08E0",
+    "banque 12 $AB22 -> VRAM $1E20"
+   ]
+  },
+  {
+   "level": "37",
+   "map": "maps/map_b20_9DA4.csv",
+   "width": 16,
+   "height": 9,
+   "metatiles": "metatiles/set_B26D.csv",
+   "attributes": "attributes/attr_B567.csv",
+   "palette_bank2": "0xA639",
+   "gfx": [
+    "banque 15 $9DBC -> VRAM $2000",
+    "banque 12 $AB22 -> VRAM $1E20",
+    "banque 18 $A89B -> VRAM $0E00",
+    "banque 13 $A46C -> VRAM $14C0",
+    "banque 23 $AE77 -> VRAM $1620",
+    "banque 23 $AF08 -> VRAM $1780"
+   ]
+  },
+  {
+   "level": "38",
+   "map": "maps/map_b20_A74C.csv",
+   "width": 16,
+   "height": 9,
+   "metatiles": "metatiles/set_B87E.csv",
+   "attributes": "attributes/attr_B823.csv",
+   "palette_bank2": "0xA579",
+   "gfx": [
+    "banque 13 $B62E -> VRAM $2000",
+    "banque 30 $B2B8 -> VRAM $0580",
+    "banque 12 $AE44 -> VRAM $0C00",
+    "banque 13 $B7B1 -> VRAM $0E00",
+    "banque 12 $AB22 -> VRAM $1E20",
+    "banque 12 $9375 -> VRAM $08E0",
+    "banque 12 $93DF -> VRAM $0D60"
+   ]
+  },
+  {
+   "level": "39",
+   "map": "maps/map_b20_A6EE.csv",
+   "width": 10,
+   "height": 9,
+   "metatiles": "metatiles/set_B599.csv",
+   "attributes": "attributes/attr_B823.csv",
+   "palette_bank2": "0xB1A2",
+   "gfx": [
+    "banque 8 $B2DF -> VRAM $2000",
+    "banque 30 $B2B8 -> VRAM $0580",
+    "banque 12 $AE44 -> VRAM $0C00",
+    "banque 18 $978F -> VRAM $0E00",
+    "banque 18 $A83D -> VRAM $0B20",
+    "banque 18 $A87F -> VRAM $08E0",
+    "banque 12 $AB22 -> VRAM $1E20"
+   ]
+  }
+ ]
+}
