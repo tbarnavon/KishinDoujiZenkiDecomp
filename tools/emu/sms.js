@@ -16,6 +16,7 @@
 //   checkbg               verifie le decor de la vue elargie (WIDE=1) sur la trame courante
 //   prof LO HI BANQUE     mesure les cycles passes dans [LO,HI) ; 'prof off' affiche le bilan
 //   audit on|off          ecritures VRAM trop rapides (< 26 cycles) ou hors tilemap (bilan a off)
+//   ramuse on|off         liste les plages de RAM jamais ecrites entre on et off
 //   trace ADR [NOM]       signale chaque passage du PC en ADR (trame, ligne)
 //   regs                  affiche les registres VDP et le mapper
 'use strict';
@@ -58,6 +59,7 @@ class SMS {
   }
   write(a, v) {
     if (a < 0xC000) return;
+    if (this.ramTouched) this.ramTouched[a & 0x1FFF] = 1;
     this.ram[a & 0x1FFF] = v;
     if (a >= 0xFFFC) this.mapper[a - 0xFFFC] = v;
   }
@@ -321,6 +323,18 @@ function main() {
         console.log('ecritures trop rapprochees (< 26 cycles, affichage actif) par PC :', [...A.fast].sort((a, b) => b[1] - a[1]).slice(0, 15));
         console.log('ecritures de la vue elargie hors du tilemap :', [...A.outside].slice(0, 15));
         sms.audit = null;
+      }
+    } else if (cmd === 'ramuse') {   // ramuse on / ramuse off : plages de RAM jamais ecrites
+      if (w[1] === 'on') sms.ramTouched = new Uint8Array(0x2000);
+      else {
+        const t = sms.ramTouched, out = [];
+        for (let i = 0; i < 0x2000;) {
+          if (t[i]) { i++; continue; }
+          let j = i; while (j < 0x2000 && !t[j]) j++;
+          if (j - i >= 4) out.push(`$${(0xC000 + i).toString(16)}-$${(0xC000 + j - 1).toString(16)} (${j - i})`);
+          i = j;
+        }
+        console.log('RAM jamais ecrite :', out.join(', '));
       }
     } else if (cmd === 'trace') {   // trace ADR NOM : affiche trame/ligne quand le PC passe par ADR
       if (!sms.traces) sms.traces = new Map();
