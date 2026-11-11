@@ -802,6 +802,58 @@ loc_48A5:
 ;; classement : utilitaire partage par task3+task4+tbl_0B3D
 	.area _B01_48DA
 sub_48DA::
+.if WIDESCREEN
+	ld a,#0x0a                      ; 48DA  vue elargie : redessin de tout le tilemap
+	ld (bank_slot2_shadow),a        ; 48DC
+	ld (MAPPER_SLOT2),a             ; 48DF
+	jp wide_full                    ; 48E2
+;; Masquage des sprites de la vue elargie (appele par sub_6F03, banque 1 toujours visible).
+;; Entree : sprite_C249 = Y, sprite_C24A = X d'un morceau de meta-sprite (8 bits).
+;; Sortie : Z = visible, NZ = a masquer. Conserve bc, de, hl.
+;; Un morceau qui deborde d'un bord de l'ecran reviendrait de l'autre cote (calcul sur
+;; 8 bits) : on compare son X a celui de l'objet (acteur : ACTOR_Y(iy), qui porte le X
+;; ecran ; joueur : player_CEF4) pour detecter ce bouclage.
+wide_cull::
+	ld a,(sprite_C249)              ; 48E5
+	cp #0xc0                        ;       sous l'ecran (et jamais $D0, fin de liste)
+	jr nc,wcu_out
+	ld a,(sprite_C24A)
+	cp #0x08                        ;       colonne 0 masquee par le VDP
+	jr c,wcu_out
+	sub #0x30                       ;       chemin rapide : X dans [48, 208) (fenetre GG),
+	cp #0xa0                        ;       un bouclage y est impossible (comme sur GG)
+	jr c,wcu_in
+	push hl
+	push bc
+	ld hl,#4
+	add hl,sp
+	ld a,(hl)                       ;       adresse de retour : quel appelant ?
+	ld b,ACTOR_Y(iy)
+	cp #<wide_ret_actor
+	jr z,wcu_base
+	ld a,(player_CEF4)
+	ld b,a
+wcu_base:
+	ld a,(sprite_C24A)
+	sub b                           ;       d = X - base ; retenue si X < base
+	jr c,wcu_c
+	and #0x80                       ;       X >= base mais d < 0 : bouclage
+	jr wcu_res
+wcu_c:
+	cpl                             ;       X < base mais d >= 0 : bouclage
+	and #0x80
+wcu_res:
+	pop bc
+	pop hl
+	jr nz,wcu_out
+wcu_in:
+	xor a
+	ret
+wcu_out:
+	or #0xff
+	ret
+	.ds 99                        ;       (place libre, jusqu'a $4983)
+.else
 	push ix                         ; 48DA
 	ld ix,#0x0000                   ; 48DC
 	add ix,sp                       ; 48E0
@@ -865,6 +917,7 @@ loc_490E:
 	ld sp,ix                        ; 497F
 	pop ix                          ; 4981
 	ret                             ; 4983
+.endif
 
 ;; ---------------------------------------------------------------- $056CA
 ;; classement : utilitaire partage par task1+task3+task4+tbl_0B3D

@@ -990,7 +990,11 @@ loc_3AAF:
 	or a                            ; 3AD2
 	ret nz                          ; 3AD3
 	ld a,l                          ; 3AD4
+.if WIDESCREEN
+	cp #0xce                        ; 3AD5  vue elargie : apparition au bord droit de l'ecran SMS
+.else
 	cp #0xc8                        ; 3AD5
+.endif
 	ret nc                          ; 3AD7
 	jr loc_3AE3                     ; 3AD8
 loc_3ADA:
@@ -998,7 +1002,11 @@ loc_3ADA:
 	or a                            ; 3ADB
 	jr nz,loc_3B20                  ; 3ADC
 	ld a,l                          ; 3ADE
+.if WIDESCREEN
+	cp #0x2f                        ; 3ADF  vue elargie : apparition au bord gauche de l'ecran SMS
+.else
 	cp #0x20                        ; 3ADF
+.endif
 	jr nc,loc_3B20                  ; 3AE1
 loc_3AE3:
 	ld hl,#actor_CDD7                 ; 3AE3

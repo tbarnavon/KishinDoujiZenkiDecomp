@@ -2,9 +2,11 @@
 """Build du projet en une commande.
 
 Usage :
-  python tools/build.py [VERSION=sms_en|gg_jp] [TRIM=1] [FIX_CHECKSUM=0|1] [VERBOSE=1]
+  python tools/build.py [VERSION=sms_en|gg_jp] [WIDE=1] [TRIM=1] [FIX_CHECKSUM=0|1] [VERBOSE=1]
 
   VERSION       version a produire (defaut : sms_en)
+  WIDE=1        vue elargie : decor sur tout l'ecran SMS 256x192 (sms_en seulement ;
+                sortie build/sms_en_wide/zenki_sms_en_wide.sms, voir docs/widescreen.md)
   TRIM=1        tronque la ROM a la plus petite puissance de 2 contenant les
                 donnees (le hack SMS fait 1 Mo dont 544 Ko utiles)
   FIX_CHECKSUM  recalcule le checksum de l'en-tete TMR SEGA (defaut : 1 pour
@@ -32,16 +34,24 @@ VERSIONS = ("sms_en", "gg_jp")
 EXT = {"sms_en": "sms", "gg_jp": "gg"}
 
 
-def remove_stale_rom(ver):
+def rom_name(ver, wide=False):
+    return f"zenki_{ver}{'_wide' if wide else ''}.{EXT[ver]}"
+
+
+def build_dir(ver, wide=False):
+    return os.path.join(ROOT, "build", ver + ("_wide" if wide else ""))
+
+
+def remove_stale_rom(ver, wide=False):
     """Une ROM perimee ne doit jamais etre verifiee a la place d'un build rate :
     on la supprime avant toute autre etape (meme si le build echoue ensuite)."""
-    p = os.path.join(ROOT, "build", ver, f"zenki_{ver}.{EXT[ver]}")
+    p = os.path.join(build_dir(ver, wide), rom_name(ver, wide))
     if os.path.exists(p):
         os.remove(p)
 
 
 def parse_args(argv):
-    opts = {"VERSION": "sms_en", "TRIM": "0", "FIX_CHECKSUM": None, "VERBOSE": "0"}
+    opts = {"VERSION": "sms_en", "WIDE": "0", "TRIM": "0", "FIX_CHECKSUM": None, "VERBOSE": "0"}
     for a in argv:
         if "=" not in a:
             sys.exit(f"argument invalide : {a} (attendu CLE=valeur)\n{__doc__}")
@@ -51,6 +61,8 @@ def parse_args(argv):
         opts[k.upper()] = v
     if opts["VERSION"] not in VERSIONS:
         sys.exit(f"VERSION doit etre parmi {VERSIONS}")
+    if opts["WIDE"] == "1" and opts["VERSION"] != "sms_en":
+        sys.exit("WIDE=1 n'existe que pour VERSION=sms_en")
     if opts["FIX_CHECKSUM"] is None:
         opts["FIX_CHECKSUM"] = "1" if opts["VERSION"] == "sms_en" else "0"
     return opts
@@ -102,39 +114,38 @@ CHECKSUM_SIZES = {0xA: 0x2000, 0xB: 0x4000, 0xC: 0x8000, 0xD: 0xC000, 0xE: 0x100
 def main():
     # tout premier geste : supprimer la ROM de sortie (avant meme l'analyse des options)
     ver0 = next((a.split("=", 1)[1] for a in sys.argv[1:] if a.upper().startswith("VERSION=")), "sms_en")
+    wide0 = any(a.upper() == "WIDE=1" for a in sys.argv[1:])
     if ver0 in VERSIONS:
-        remove_stale_rom(ver0)
+        remove_stale_rom(ver0, wide0)
     o = parse_args(sys.argv[1:])
-    ver, verbose = o["VERSION"], o["VERBOSE"] == "1"
-    bdir = os.path.join(ROOT, "build", ver)
+    ver, verbose, wide = o["VERSION"], o["VERBOSE"] == "1", o["WIDE"] == "1"
+    bdir = build_dir(ver, wide)   # build large : dossier separe (objets, generes, ROM)
     gen = os.path.join(bdir, "generated")
     obj = os.path.join(bdir, "obj")
     os.makedirs(gen, exist_ok=True)
     os.makedirs(obj, exist_ok=True)
 
-    # 0. une ROM perimee ne doit jamais etre verifiee a la place d'un build rate
-    for ext in ("sms", "gg"):
-        stale = os.path.join(bdir, f"zenki_{ver}.{ext}")
-        if os.path.exists(stale):
-            os.remove(stale)
-    for x in os.listdir(gen):
-        if x.endswith(".s"):
-            os.remove(os.path.join(gen, x))   # regeneres a chaque build
+    # 0. les outils d'assets ecrivent toujours dans build/<ver>/generated (asset_gen) ;
+    #    pour le build large, leur production est ensuite copiee dans gen.
+    asset_gen = os.path.join(ROOT, "build", ver, "generated")
+    os.makedirs(asset_gen, exist_ok=True)
+    for d in {gen, asset_gen}:
+        for x in os.listdir(d):
+            if x.endswith(".s") or x == "gfx_reloc.json":
+                os.remove(os.path.join(d, x))   # regeneres a chaque build
 
     # 1. fichiers generes
     with open(os.path.join(gen, "version.inc"), "w", newline="\n") as f:
         f.write(";; GENERE par tools/build.py - ne pas modifier\n")
         for v in VERSIONS:
             f.write(f"VERSION_{v.upper()} = {1 if v == ver else 0}\n")
+        f.write(f"WIDESCREEN = {1 if wide else 0}\n")
     rom_size, banks = parse_layout(os.path.join(ROOT, "config", f"layout_{ver}.cfg"))
 
     # 1b. compilation des assets (fichiers editables -> build/<ver>/generated/*.s)
     #     ordre : graphismes d'abord (ils peuvent deplacer des blocs), puis scripts (qui
     #     corrigent leurs references), puis textes.
     sys.path.insert(0, os.path.join(ROOT, "tools", "assets"))
-    rpath = os.path.join(gen, "gfx_reloc.json")
-    if os.path.exists(rpath):
-        os.remove(rpath)
     import banks as asset_banks  # noqa: E402
     extra_banks = asset_banks.build(ver, quiet=False)
     if extra_banks is not None:
@@ -155,6 +166,11 @@ def main():
     import text as asset_text  # noqa: E402
     if asset_text.build(ver, quiet=not verbose) is not None:
         print(f"[{ver}] assets : textes des dialogues")
+    if gen != asset_gen:
+        import shutil
+        for x in os.listdir(asset_gen):
+            if x.endswith(".s"):
+                shutil.copyfile(os.path.join(asset_gen, x), os.path.join(gen, x))
 
     with open(os.path.join(gen, "layout.s"), "w", newline="\n") as f:
         f.write(";; GENERE par tools/build.py depuis config/layout_%s.cfg\n" % ver)
@@ -181,7 +197,7 @@ def main():
 
     # 3. edition de liens
     lnk = os.path.join(bdir, "link.lnk")
-    ihx = os.path.join(bdir, f"zenki_{ver}.ihx")
+    ihx = os.path.join(bdir, rom_name(ver, wide)[:-len(EXT[ver])] + "ihx")
     with open(lnk, "w", newline="\n") as f:
         f.write("-m\n-w\n-i\n")
         for b, base, areas in banks:
@@ -223,7 +239,7 @@ def main():
         if csize:
             c = sega_checksum(rom, min(csize, len(rom)))
             rom[0x7FFA], rom[0x7FFB] = c & 0xFF, c >> 8
-    out = os.path.join(bdir, f"zenki_{ver}.{EXT[ver]}")
+    out = os.path.join(bdir, rom_name(ver, wide))
     open(out, "wb").write(rom)
     print(f"[{ver}] ROM : {os.path.relpath(out, ROOT)} ({len(rom) // 1024} Ko, {used} octets utiles)")
 

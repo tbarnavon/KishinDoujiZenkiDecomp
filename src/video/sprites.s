@@ -313,6 +313,7 @@ loc_6E32:
 	add a,c                         ; 6E40
 	ld (sprite_C24A),a                 ; 6E41
 	call sub_6F03                   ; 6E44
+wide_ret_actor::
 	jr nz,loc_6E6B                  ; 6E47
 	push hl                         ; 6E49
 	ld hl,(sprite_buf_xn_ptr)       ; 6E4A
@@ -421,6 +422,10 @@ loc_6F02:
 ;; classement : moteur de meta-sprites (tampon $C200, tables banques 23/24)
 	.area _B01_6F03
 sub_6F03:
+.if WIDESCREEN
+	jp wide_cull                    ; 6F03  vue elargie : masquage a l'ecran SMS complet
+	.ds 24                          ; 6F06  (place liberee)
+.else
 	ld a,(sprite_C249)                 ; 6F03
 	cp #0x0f                        ; 6F06
 	jr c,loc_6F1B                   ; 6F08
@@ -436,6 +441,7 @@ sub_6F03:
 loc_6F1B:
 	or #0xff                        ; 6F1B
 	ret                             ; 6F1D
+.endif
 
 ;; ---------------------------------------------------------------- $06F1E
 ;; classement : moteur de meta-sprites (tampon $C200, tables banques 23/24)

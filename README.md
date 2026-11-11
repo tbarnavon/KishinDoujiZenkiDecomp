@@ -21,6 +21,7 @@ Tout est fourni dans `tools/` (voir [docs/toolchain.md](docs/toolchain.md)) :
 
 ```sh
 python tools/build.py [VERSION=sms_en|gg_jp] [TRIM=1]
+python tools/build.py WIDE=1            # vue élargie 256×192 -> build/sms_en_wide/ (docs/widescreen.md)
 python tools/verify.py VERSION=all      # comparaison octet pour octet avec original/
 ```
 
@@ -36,7 +37,7 @@ src/        code (édité à la main, gelé depuis la génération) : core/ vide
 assets/     ressources éditables par version : scripts, texte, gfx (PNG), palettes, tilemaps,
             niveaux, ennemis, sprites, scripts d'acteurs, musique, raw/ (non décodé)
 config/     placement des areas par banque (layout_<ver>.cfg)
-tools/      build.py, verify.py, rominfo.py, romdiff.py, disasm/ (désassembleur),
+tools/      build.py, verify.py, rominfo.py, romdiff.py, emu/ (émulateur de test), disasm/ (désassembleur),
             assets/ (extraction / réinjection de chaque format)
 build/      sorties ; build/<ver>/generated/ = fichiers générés (jamais édités)
 docs/       toute la documentation
@@ -48,7 +49,7 @@ Commencer par [docs/README.md](docs/README.md). Principaux documents :
 [architecture](docs/architecture.md) (comment le jeu fonctionne) ·
 [mémoire](docs/memory_map.md) / [RAM par module](docs/ram_by_module.md) ·
 [banques](docs/banks.md) · [modules](docs/modules.md) · [ROMs et différences](docs/roms.md) ·
-[désassemblage](docs/disassembly.md) ·
+[désassemblage](docs/disassembly.md) · [vue élargie](docs/widescreen.md) ·
 [décisions](docs/decisions.md).
 
 ## Modifier le jeu

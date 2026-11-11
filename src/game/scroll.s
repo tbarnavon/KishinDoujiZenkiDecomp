@@ -346,12 +346,28 @@ loc_5612:
 	call sub_56CA                   ; 5625
 	ld (scroll_x),hl                ; 5628
 	ld a,l                          ; 562B
+.if WIDESCREEN
+	and #0xff                       ; 562C  vue elargie : chaque pixel compte
+.else
 	and #0xf0                       ; 562C
+.endif
 	ld b,a                          ; 562E
 	ld a,(scroll_C1B4)                 ; 562F
+.if WIDESCREEN
+	and #0xff                       ; 5632
+.else
 	and #0xf0                       ; 5632
+.endif
 	cp b                            ; 5634
 	jr z,loc_564D                   ; 5635
+.if WIDESCREEN
+	ld a,#0x0a                      ; 5637  banque 10 (metatuiles + code de la vue elargie)
+	ld (bank_slot2_shadow),a        ; 5639
+	ld (MAPPER_SLOT2),a             ; 563C
+	call wide_hscroll               ; 563F
+	jr loc_564D                     ; 5642
+	.ds 9                           ; 5644  (place liberee)
+.else
 	ld a,l                          ; 5637
 	ld (scroll_C1B4),a                 ; 5638
 	ld hl,(scroll_x)                ; 563B
@@ -362,6 +378,7 @@ loc_5612:
 	jr loc_564D                     ; 5648
 loc_564A:
 	call sub_489D                   ; 564A
+.endif
 loc_564D:
 	ld de,(player_C0B6)                ; 564D
 	ld a,#0x00                      ; 5651
@@ -383,12 +400,28 @@ loc_5659:
 	call sub_569A                   ; 566C
 	ld (scroll_y),hl                ; 566F
 	ld a,l                          ; 5672
+.if WIDESCREEN
+	and #0xff                       ; 5673
+.else
 	and #0xf0                       ; 5673
+.endif
 	ld b,a                          ; 5675
 	ld a,(scroll_C1B5)                 ; 5676
+.if WIDESCREEN
+	and #0xff                       ; 5679
+.else
 	and #0xf0                       ; 5679
+.endif
 	cp b                            ; 567B
 	jr z,loc_5694                   ; 567C
+.if WIDESCREEN
+	ld a,#0x0a                      ; 567E
+	ld (bank_slot2_shadow),a        ; 5680
+	ld (MAPPER_SLOT2),a             ; 5683
+	call wide_vscroll               ; 5686
+	jr loc_5694                     ; 5689
+	.ds 9                           ; 568B  (place liberee)
+.else
 	ld a,l                          ; 567E
 	ld (scroll_C1B5),a                 ; 567F
 	ld hl,(scroll_y)                ; 5682
@@ -399,6 +432,7 @@ loc_5659:
 	jr loc_5694                     ; 568F
 loc_5691:
 	call sub_485E                   ; 5691
+.endif
 loc_5694:
 	ld hl,#vdp_requests2            ; 5694
 	set 5,(hl)                      ; 5697

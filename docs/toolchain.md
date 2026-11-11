@@ -55,3 +55,24 @@ Lancement : `tools/emulicious/java/bin/javaw.exe -jar tools/emulicious/Emuliciou
   l'interface graphique : prévu pour confirmer les routines « supposées » (voir
   [disassembly.md](disassembly.md)).
 - Au premier lancement, il demande la politique de mise à jour : choix laissé à l'utilisateur.
+- Emulicious n'accepte qu'une instance et n'a pas de mode sans fenêtre : il ne sert pas aux
+  tests automatiques (voir ci-dessous).
+
+## Émulateur de test sans fenêtre (`tools/emu/`)
+
+Petit émulateur Master System en Node.js, écrit pour ce projet : Z80 complet (`z80.js`),
+mapper Sega, VDP mode 4 rendu ligne par ligne (effets raster), manette, Pause (NMI). Le son
+est ignoré. Environ 1 000 trames par seconde.
+
+```sh
+node tools/emu/sms.js <rom> <script.txt> [dossier_de_sortie]
+```
+
+Le script contient une commande par ligne : `run N`, `hold TOUCHES N` (UP, DOWN, LEFT,
+RIGHT, B1, B2), `pause`, `shot NOM` (PNG 256×192 de l'écran complet), `save`/`load NOM`
+(état), `peek`/`poke`, `regs`, `trace ADR NOM`, `prof LO HI BANQUE` / `prof off` (cycles),
+`check on|gg|off` et `checkbg` (vérification du décor de la vue élargie, voir
+[widescreen.md](widescreen.md)). Détails en tête de `tools/emu/sms.js`.
+
+Astuces : le bouton 1 sert aussi de Start ; `poke C006 N` au titre choisit le niveau de
+départ (`start_stage`).
