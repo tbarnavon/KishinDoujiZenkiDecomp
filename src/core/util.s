@@ -871,41 +871,30 @@ wcu_out:
 	or #0xff
 	ret
 
-;; Copie de la table des sprites (SAT) a l'IRQ de trame (remplace l'appel de sub_405C).
+;; Copie de la table des sprites (SAT) a l'IRQ de trame (remplace bit 7 / call nz,sub_405C).
 ;; L'original copie 192 octets en outi (16 cycles par octet), ce qui n'est sur que pendant le
-;; VBlank ; quand l'IRQ arrive a cette copie trop tard (fin du VBlank, apres la copie des
-;; tuiles du joueur), les dernieres ecritures tombent pendant l'affichage et sont perdues par
-;; le VDP : sprites corrompus. On copie alors a vitesse sure (>= 26 cycles par ecriture).
+;; VBlank. Quand l'IRQ arrive a cette copie trop tard (apres la copie des tuiles du joueur et
+;; la conversion de palette), les dernieres ecritures tombent pendant l'affichage (perdues par
+;; le VDP : sprites corrompus) et la fin de l'IRQ (remise a zero de la table raster) est
+;; retardee (bandes en parallaxe decalees : clignotement). La copie est alors reportee a la
+;; trame suivante : bit 2 de vdp_requests (inutilise par le jeu, conserve par le and #0x1f
+;; de fin d'IRQ).
 wide_sat::
+	ld hl,#vdp_requests
+	ld a,(hl)
+	and #0x84                       ;       demande (bit 7) ou copie reportee (bit 2)
+	ret z
 	in a,(VDP_VCOUNTER)
 	cp #0xc1                        ;       lignes 0-192 : affichage en cours
-	jr c,wsat_slow
+	jr c,wsat_later
 	cp #0xf0                        ;       lignes 193-245 : le temps suffit (~14 lignes)
-	jp c,sub_405C
-wsat_slow:
-	ld hl,#irq_flags
-	set 1,(hl)
-	xor a
-	out (VDP_CTRL),a
-	ld a,#0x7f
-	out (VDP_CTRL),a                ;       VRAM $3F00 : Y des 64 sprites
-	ld hl,#vdp_C200
-	ld b,#64
-	call wsat_copy
-	ld a,#0x80
-	out (VDP_CTRL),a
-	ld a,#0x7f
-	out (VDP_CTRL),a                ;       VRAM $3F80 : X et tuile
-	ld hl,#vdp_C200+0x4d
-	ld b,#128
-wsat_copy:
-	ld a,(hl)
-	out (VDP_DATA),a
-	inc hl
-	nop
-	djnz wsat_copy                  ;       41 cycles par ecriture
+	jr nc,wsat_later
+	res 2,(hl)
+	jp sub_405C
+wsat_later:
+	set 2,(hl)
 	ret
-	.ds 9                         ;       (place libre, jusqu'a $4983)
+	.ds 36                        ;       (place libre, jusqu'a $4983)
 .else
 	push ix                         ; 48DA
 	ld ix,#0x0000                   ; 48DC
