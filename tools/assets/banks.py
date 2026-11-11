@@ -103,13 +103,47 @@ def write_s(path, bank, data, origin):
             f.write("\t.db " + ", ".join("0x%02x" % x for x in data[i:i + 16]) + "\n")
 
 
-def build(ver, quiet=False):
-    """Ecrit les .s des banques composees ; retourne les banques libres utilisees."""
+def build(ver, quiet=False, rom512=None):
+    """Ecrit les .s des banques composees ; retourne les banques libres utilisees.
+
+    rom512 : None, ou {"wide": bool} pour une ROM de 512 Ko (voir rom512.py) : la banque 33
+    est decoupee dans la place libre des banques 0-31 ; ecrit aussi rom512_areas.json
+    (areas a placer par build.py) et ajoute les blocs deplaces a la table de relogement.
+    """
     if ver not in COMPOSED:
         return None
     gen = os.path.join(ROOT, "build", ver, "generated")
     os.makedirs(gen, exist_ok=True)
     out, extra, reloc, stats = compose(ver)
+    if rom512 is not None:
+        import rom512 as r5
+        import text
+        import music
+        if extra:
+            raise SystemExit("ROM512 : des graphismes agrandis demandent les banques 34-63 ; "
+                             "impossible en 512 Ko")
+        dialogs = text.compile_bank(ver)
+        msizes = music.section_sizes(ver)
+        bank33 = out.pop(r5.OLD_SCREEN_BANK)
+        areas, reloc33, music_base = r5.plan(ver, out, bank33, len(dialogs), msizes[27],
+                                             rom512.get("wide", False))
+        reloc.update(reloc33)
+        with open(os.path.join(gen, "data_rom512.s"), "w", encoding="utf-8", newline="\n") as f:
+            f.write(";; GENERE par tools/assets/banks.py (ROM512 : blocs de l'ex-banque 33) - ne pas modifier\n")
+            for name, b, addr, data in areas:
+                f.write(f"\n\t.area {name}\t\t; ex-banque 33 -> banque {b} ${addr:04X}\n")
+                for i in range(0, len(data), 16):
+                    f.write("\t.db " + ", ".join("0x%02x" % x for x in data[i:i + 16]) + "\n")
+        placed = [[name, b, addr] for name, b, addr, _ in areas]
+        placed.append([f"_B{r5.MUSIC_BANK:02d}_{music_base:04X}", r5.MUSIC_BANK, music_base])
+        if rom512.get("wide"):
+            placed.append([f"_B{r5.WIDE_BANK:02d}_WIDE", r5.WIDE_BANK, r5.WIDE_ADDR])
+        with open(os.path.join(gen, "rom512_areas.json"), "w", encoding="utf-8", newline="\n") as f:
+            json.dump({"areas": placed, "music": [r5.MUSIC_BANK, music_base],
+                       "text_bank": r5.TEXT_BANK}, f, indent=1)
+        if not quiet:
+            print(f"[{ver}] ROM512 : banque 33 en {len(areas)} blocs -> banques "
+                  f"{sorted({b for _, b, _, _ in areas})} ; musique -> banque {r5.MUSIC_BANK} ${music_base:04X}")
     for b, data in out.items():
         write_s(os.path.join(gen, f"data_bank{b:02d}.s"), b, data, f"assets/{ver}")
     for b, data in extra.items():

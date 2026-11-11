@@ -209,8 +209,11 @@ def extract(ver):
     print(f"[{ver}] {SONGS} musiques, {SFX} effets, {nflags} drapeaux -> {os.path.relpath(p, ROOT)}")
 
 
-def assemble(text):
-    """Retourne ({banque: (base, octets)}, labels)."""
+def assemble(text, remap=None):
+    """Retourne ({banque: (base, octets)}, labels).
+
+    remap : {banque: (nouvelle_banque, nouvelle_base)} pour deplacer une section (ROM512).
+    """
     lines = [(n, raw.split(";", 1)[0].strip()) for n, raw in enumerate(text.splitlines(), 1)]
     lines = [(n, s) for n, s in lines if s]
     labels = {}
@@ -220,8 +223,10 @@ def assemble(text):
             try:
                 if s.startswith(".section"):
                     _, b, base = s.split()
-                    cur = int(b)
-                    secs[cur] = (int(base, 0), bytearray())
+                    cur, base = int(b), int(base, 0)
+                    if remap and cur in remap:
+                        cur, base = remap[cur]
+                    secs[cur] = (base, bytearray())
                     continue
                 base, buf = secs[cur]
                 pc = base + len(buf)
@@ -265,8 +270,14 @@ def assemble(text):
     return secs, labels
 
 
-def build(ver, quiet=False):
-    secs, labels = assemble(open(path_of(ver), encoding="utf-8").read())
+def section_sizes(ver):
+    """{banque: octets} de chaque section (avant tout deplacement)."""
+    secs, _ = assemble(open(path_of(ver), encoding="utf-8").read())
+    return {b: len(buf) for b, (_, buf) in secs.items()}
+
+
+def build(ver, quiet=False, remap=None):
+    secs, labels = assemble(open(path_of(ver), encoding="utf-8").read(), remap)
     exported = {a: n for n, a in labels.items() if n.startswith("music_")}
     gen = os.path.join(ROOT, "build", ver, "generated")
     os.makedirs(gen, exist_ok=True)

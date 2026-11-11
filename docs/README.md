@@ -22,6 +22,7 @@ ce qui est **confirmé** (lu dans le code, vérifié) de ce qui est **supposé**
 | [music.md](music.md) | Musique et effets sonores (driver SMPS, banques 26-27) |
 | [ram_by_module.md](ram_by_module.md) | Variables RAM groupées par module (GÉNÉRÉ) |
 | [enemies_sprites.md](enemies_sprites.md) | Placement des ennemis (banque 4) et méta-sprites (banque 24) |
+| [rom512.md](rom512.md) | **ROM de 512 Ko** (`ROM512=1`) : textes de la traduction et musique replacés dans les banques 0-31 |
 | [widescreen.md](widescreen.md) | **Vue élargie** (`WIDE=1`) : décor et sprites sur tout l'écran SMS 256×192 |
 
 ## État d'avancement (2026-11-11)
@@ -43,4 +44,5 @@ python tools/build.py                  # ROM SMS EN -> build/sms_en/zenki_sms_en
 python tools/build.py VERSION=gg_jp    # ROM GG JP  -> build/gg_jp/zenki_gg_jp.gg
 python tools/verify.py VERSION=all     # comparaison octet pour octet avec original/
 python tools/build.py WIDE=1           # vue élargie -> build/sms_en_wide/zenki_sms_en_wide.sms
+python tools/build.py ROM512=1         # ROM de 512 Ko -> build/sms_en_512/ (combinable avec WIDE=1)
 ```

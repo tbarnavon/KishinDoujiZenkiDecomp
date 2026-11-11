@@ -35,7 +35,11 @@ sub_68B7::
 	ld a,(text_CBB4)                 ; 68C1
 	ld (text_CBB3),a                 ; 68C4
 .if VERSION_SMS_EN
+.if ROM512
+	ld a,#0x1b                      ; 68C7  ROM512 : dialogues en banque 27 (ex-banque 32)
+.else
 	ld a,#0x20                      ; 68C7
+.endif
 .else ; VERSION_GG_JP
 	ld a,#0x1c                      ; 68C7
 .endif

@@ -22,6 +22,7 @@ Tout est fourni dans `tools/` (voir [docs/toolchain.md](docs/toolchain.md)) :
 ```sh
 python tools/build.py [VERSION=sms_en|gg_jp] [TRIM=1]
 python tools/build.py WIDE=1            # vue élargie 256×192 -> build/sms_en_wide/ (docs/widescreen.md)
+python tools/build.py ROM512=1          # ROM de 512 Ko au lieu de 1 Mo (docs/rom512.md), combinable
 python tools/verify.py VERSION=all      # comparaison octet pour octet avec original/
 ```
 
@@ -49,7 +50,7 @@ Commencer par [docs/README.md](docs/README.md). Principaux documents :
 [architecture](docs/architecture.md) (comment le jeu fonctionne) ·
 [mémoire](docs/memory_map.md) / [RAM par module](docs/ram_by_module.md) ·
 [banques](docs/banks.md) · [modules](docs/modules.md) · [ROMs et différences](docs/roms.md) ·
-[désassemblage](docs/disassembly.md) · [vue élargie](docs/widescreen.md) ·
+[désassemblage](docs/disassembly.md) · [vue élargie](docs/widescreen.md) · [ROM 512 Ko](docs/rom512.md) ·
 [décisions](docs/decisions.md).
 
 ## Modifier le jeu

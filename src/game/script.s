@@ -913,7 +913,11 @@ loc_687F:
 	add hl,hl                       ; 68A4
 	set 7,h                         ; 68A5
 .if VERSION_SMS_EN
+.if ROM512
+	ld a,#0x1b                      ; 68A7  ROM512 : dialogues en banque 27 (ex-banque 32)
+.else
 	ld a,#0x20                      ; 68A7
+.endif
 .else ; VERSION_GG_JP
 	ld a,#0x1c                      ; 68A7
 .endif

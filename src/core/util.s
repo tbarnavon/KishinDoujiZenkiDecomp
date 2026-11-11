@@ -817,7 +817,11 @@ sub_48DA::
 	ld a,h
 	or l
 	ret nz
+.if ROM512
+	ld a,#17                        ;       ROM512 : code en banque 17 ($BF00)
+.else
 	ld a,#63
+.endif
 	ld (bank_slot2_shadow),a
 	ld (MAPPER_SLOT2),a
 	call wide_boss

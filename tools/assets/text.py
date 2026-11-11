@@ -157,7 +157,8 @@ def compile_bank(ver):
     return data
 
 
-def build(ver, quiet=False):
+def build(ver, quiet=False, bank=32):
+    """bank : banque des dialogues (32 ; 27 en ROM512). La table doit rester en $8000."""
     if ver not in EDITABLE:
         return None
     data = compile_bank(ver)
@@ -166,7 +167,7 @@ def build(ver, quiet=False):
     dst = os.path.join(gen, "data_text.s")
     with open(dst, "w", encoding="utf-8", newline="\n") as f:
         f.write(";; GENERE par tools/assets/text.py depuis assets/%s/text/strings.txt - ne pas modifier\n" % ver)
-        f.write("\t.area _B32_8000\n")
+        f.write(f"\t.area _B{bank:02d}_8000\n")
         f.write("text_bank32::\n")
         for i in range(0, len(data), 16):
             f.write("\t.db " + ", ".join("0x%02x" % b for b in data[i:i + 16]) + "\n")

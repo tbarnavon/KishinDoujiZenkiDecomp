@@ -17,6 +17,8 @@
 //   prof LO HI BANQUE     mesure les cycles passes dans [LO,HI) ; 'prof off' affiche le bilan
 //   audit on|off          ecritures VRAM trop rapides (< 26 cycles) ou hors tilemap (bilan a off)
 //   ramuse on|off         liste les plages de RAM jamais ecrites entre on et off
+//   bankwatch N,N | off   signale les PC qui selectionnent ces banques (bilan a off)
+//   psg / framehash       empreintes des ecritures son et de l'image (comparaison de ROMs)
 //   trace ADR [NOM]       signale chaque passage du PC en ADR (trame, ligne)
 //   regs                  affiche les registres VDP et le mapper
 'use strict';
@@ -61,7 +63,13 @@ class SMS {
     if (a < 0xC000) return;
     if (this.ramTouched) this.ramTouched[a & 0x1FFF] = 1;
     this.ram[a & 0x1FFF] = v;
-    if (a >= 0xFFFC) this.mapper[a - 0xFFFC] = v;
+    if (a >= 0xFFFC) {
+      this.mapper[a - 0xFFFC] = v;
+      if (this.bankWatch && this.bankWatch.has(v)) {   // qui selectionne ces banques ?
+        const k = `banque ${v} slot ${a - 0xFFFC} par PC ${((this.cpu.pc - 1) & 0xFFFF).toString(16)}`;
+        this.bankHits.set(k, (this.bankHits.get(k) || 0) + 1);
+      }
+    }
   }
   // --- ports
   portIn(p) {
@@ -81,6 +89,11 @@ class SMS {
     return (~this.keys) & 0xFF;
   }
   portOut(p, v) {
+    if (p >= 0x40 && p < 0x80) {   // PSG : empreinte des ecritures (commande psg)
+      this.psgCount = (this.psgCount || 0) + 1;
+      this.psgHash = (((this.psgHash || 0) * 31) + v + 1) >>> 0;
+      return;
+    }
     if (p < 0x80 || p >= 0xC0) return;
     if (p & 1) {
       if (!this.latchFull) { this.latch = v; this.latchFull = true; this.addr = (this.addr & 0x3F00) | v; return; }
@@ -336,6 +349,14 @@ function main() {
         }
         console.log('RAM jamais ecrite :', out.join(', '));
       }
+    } else if (cmd === 'bankwatch') {   // bankwatch 32,33 ... / bankwatch off : qui selectionne ces banques
+      if (w[1] === 'off') { console.log([...sms.bankHits].map(([k, n]) => `${k} : ${n} fois`).join('\n')); sms.bankWatch = null; }
+      else { sms.bankWatch = new Set(w[1].split(',').map(Number)); sms.bankHits = new Map(); }
+    } else if (cmd === 'psg') {   // empreinte des ecritures sur la puce son depuis le debut
+      console.log(`psg trame ${sms.frameCount} : ${sms.psgCount || 0} ecritures, empreinte ${(sms.psgHash || 0).toString(16)}`);
+    } else if (cmd === 'framehash') {   // empreinte de l'image courante
+      let h = 0; for (const x of sms.frame) h = ((h * 31) + x) >>> 0;
+      console.log(`image trame ${sms.frameCount} : ${h.toString(16)}`);
     } else if (cmd === 'trace') {   // trace ADR NOM : affiche trame/ligne quand le PC passe par ADR
       if (!sms.traces) sms.traces = new Map();
       sms.traces.set(parseInt(w[1], 16), w[2] || w[1]);

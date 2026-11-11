@@ -158,6 +158,11 @@ def assemble(text, reloc=None):
                         moved = reloc.get(f"{vals[2]}:0x{vals[1]:04X}")
                         if moved:
                             vals[1], vals[2] = moved[1], moved[0]
+                    if op == 0x01 and pass_ == 2 and reloc:
+                        # load_vram src, vram, longueur, drapeaux, banque : bloc deplace (ROM512) ?
+                        moved = reloc.get(f"{vals[4]}:0x{vals[0]:04X}")
+                        if moved:
+                            vals[0], vals[4] = moved[1], moved[0]
                     for t, x, v in zip(types, args, vals):
                         if t == "b":
                             if pass_ == 2 and not 0 <= v <= 0xFF:

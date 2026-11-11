@@ -578,7 +578,11 @@ w_cam:
 ;; qui depassent de la fenetre). Mot du tilemap : $19FA.
 ;; Les bandes que le jeu redessine ensuite sur toute la largeur (parallaxe) restent visibles.
 .if WIDESCREEN
+.if ROM512
+	.area _B17_WIDE                 ; ROM512 : banque 17 en $BF00 (tools/assets/rom512.py)
+.else
 	.area _B63_WIDE
+.endif
 
 wide_boss::
 	di                              ; adresse VDP : pas d'IRQ pendant le remplissage

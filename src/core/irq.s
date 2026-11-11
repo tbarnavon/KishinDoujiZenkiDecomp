@@ -348,7 +348,11 @@ loc_0226:
 loc_0237:
 	ld a,#0x1a                      ; 0237
 	ld (MAPPER_SLOT1),a             ; 0239  mapper : banque du slot 1 ($4000-$7FFF)
+.if ROM512
+	ld a,#0x18                      ; 023C  ROM512 : musique en banque 24 (ex-banque 27)
+.else
 	ld a,#0x1b                      ; 023C
+.endif
 	ld (MAPPER_SLOT2),a             ; 023E  mapper : banque du slot 2 ($8000-$BFFF)
 	exx                             ; 0241
 	push af                         ; 0242

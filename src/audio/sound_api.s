@@ -59,7 +59,11 @@ sound_init::
 	di                              ; 05DD
 	ld a,#0x1a                      ; 05DE
 	ld (MAPPER_SLOT1),a             ; 05E0  mapper : banque du slot 1 ($4000-$7FFF)
+.if ROM512
+	ld a,#0x18                      ; 05E3  ROM512 : musique en banque 24 (ex-banque 27)
+.else
 	ld a,#0x1b                      ; 05E3
+.endif
 	ld (MAPPER_SLOT2),a             ; 05E5  mapper : banque du slot 2 ($8000-$BFFF)
 	call sub_b26_44A9               ; 05E8
 	ld a,#0x01                      ; 05EB
