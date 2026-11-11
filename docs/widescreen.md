@@ -7,6 +7,10 @@ python tools/build.py WIDE=1     # -> build/sms_en_wide/zenki_sms_en_wide.sms
 Sans l'option, la ROM reste **identique à l'original** : tout le code de la vue élargie est sous
 `.if WIDESCREEN` et ne prend aucune place. L'option n'existe que pour SMS EN.
 
+Le build `WIDE=1` retire aussi le **logo SEGA animé** du démarrage (option `NO_SEGA_LOGO`
+de `version.inc` : l'appel de `sub_3DD0` en `$06BC`, `src/core/game_flow.s`, devient 3 `nop`) ;
+la ROM démarre directement sur le texte d'introduction.
+
 ## Le problème
 
 Le jeu vient de la Game Gear : son écran LCD ne montre que 160×144 pixels au centre de l'image

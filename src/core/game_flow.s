@@ -56,7 +56,13 @@ sub_06B3::
 	call sub_44BC                   ; 06B3
 	call sub_0A6B                   ; 06B6
 	call sub_0A33                   ; 06B9
-	call sub_3DD0                   ; 06BC
+.if NO_SEGA_LOGO
+	nop                             ; 06BC  logo SEGA anime du demarrage supprime
+	nop
+	nop
+.else
+	call sub_3DD0                   ; 06BC  logo SEGA anime
+.endif
 	ld a,#0x80                      ; 06BF
 loc_06C1:
 	ld (scene_id),a                 ; 06C1

@@ -5,7 +5,7 @@ Usage :
   python tools/build.py [VERSION=sms_en|gg_jp] [WIDE=1] [TRIM=1] [FIX_CHECKSUM=0|1] [VERBOSE=1]
 
   VERSION       version a produire (defaut : sms_en)
-  WIDE=1        vue elargie : decor sur tout l'ecran SMS 256x192 (sms_en seulement ;
+  WIDE=1        vue elargie : decor sur tout l'ecran SMS 256x192, sans logo SEGA (sms_en ;
                 sortie build/sms_en_wide/zenki_sms_en_wide.sms, voir docs/widescreen.md)
   TRIM=1        tronque la ROM a la plus petite puissance de 2 contenant les
                 donnees (le hack SMS fait 1 Mo dont 544 Ko utiles)
@@ -140,6 +140,7 @@ def main():
         for v in VERSIONS:
             f.write(f"VERSION_{v.upper()} = {1 if v == ver else 0}\n")
         f.write(f"WIDESCREEN = {1 if wide else 0}\n")
+        f.write(f"NO_SEGA_LOGO = {1 if wide else 0}\n")   # logo SEGA du demarrage retire avec WIDE=1
     rom_size, banks = parse_layout(os.path.join(ROOT, "config", f"layout_{ver}.cfg"))
 
     # 1b. compilation des assets (fichiers editables -> build/<ver>/generated/*.s)
