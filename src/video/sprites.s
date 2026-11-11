@@ -817,8 +817,13 @@ sub_718F::
 	ld b,#0x66                      ; 71AC
 	add a,b                         ; 71AE
 	ld ACTOR_ANIM(iy),a                      ; 71AF
+.if WIDESCREEN
+	ld ACTOR_Y(iy),#0x15                  ; 71B2  vue elargie : HUD en haut a gauche de l'ecran SMS
+	ld ACTOR_X(iy),#0x1c                  ; 71B6  (X -36 px, Y -20 px ; ACTOR_Y = horizontal)
+.else
 	ld ACTOR_Y(iy),#0x39                  ; 71B2
 	ld ACTOR_X(iy),#0x30                  ; 71B6
+.endif
 	call sub_6D4E                   ; 71BA
 	ret                             ; 71BD
 
@@ -837,8 +842,13 @@ sub_71BE::
 	ld a,#0x0c                      ; 71CF
 	add a,b                         ; 71D1
 	ld ACTOR_ANIM(iy),a                      ; 71D2
+.if WIDESCREEN
+	ld ACTOR_Y(iy),#0x0c                  ; 71D5  vue elargie : objet en haut a gauche de l'ecran SMS
+	ld ACTOR_X(iy),#0x03                  ; 71D9  (X -36 px, Y -20 px ; ACTOR_Y = horizontal)
+.else
 	ld ACTOR_Y(iy),#0x30                  ; 71D5
 	ld ACTOR_X(iy),#0x17                  ; 71D9
+.endif
 	ld a,(game_flags)               ; 71DD
 	push af                         ; 71E0
 	res 6,a                         ; 71E1

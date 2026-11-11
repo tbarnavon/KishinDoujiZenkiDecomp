@@ -48,6 +48,7 @@ concernées.
 | `sub_5606` (`src/game/scroll.s`) : défilement | colonne/rangée de métatuile à chaque changement de case de 16 px | appel de `wide_hscroll`/`wide_vscroll` à chaque changement (`and #0xff`) ; ils calculent combien de colonnes/rangées sont entrées dans l'anneau |
 | `sub_6F03` (`src/video/sprites.s`) : masquage des morceaux de sprites | X dans `[$28,$D0)`, Y dans `[$0F,$A7)` (fenêtre GG) | `wide_cull` : X ≥ 8, Y < `$C0` ; détecte les morceaux qui ont « bouclé » sur 8 bits d'un bord à l'autre (comparaison avec le X de l'objet) |
 | Appel de `sub_405C` dans l'IRQ (`src/core/irq.s`, `$016B`) : copie de la table des sprites (SAT) | 192 `outi` (16 cycles/octet) | `wide_sat` : si la copie commence trop tard (compteur V hors de `$C1-$EF`), elle est reportée à la trame suivante (voir ci-dessous) |
+| `sub_71BE` / `sub_718F` (`src/video/sprites.s`) : HUD des niveaux (objet et icône) | coin haut gauche de la fenêtre GG | coin haut gauche de l'écran SMS (X −36, Y −20 px ; attention, `ACTOR_Y` est l'axe horizontal) |
 | `sub_3A9E` (`src/game/actors.s`) : apparition des ennemis | de 32 px à gauche à 200 px à droite de la caméra | 47 / 205 px : les ennemis apparaissent au ras des bords de l'écran SMS |
 
 Toutes les areas modifiées gardent **exactement leur taille** (`.ds` pour la place libérée) :
@@ -127,6 +128,7 @@ moins de 26 cycles de la précédente pendant l'affichage : **aucune** dans la R
 - **Écrans fixes** (titre, cinématiques, menus, textes) : restent en 160×144 au centre.
 - **Bords de carte répétés** : hors des écrans fixes de boss, au-delà d'une carte la rangée ou
   la colonne du bord est répétée (plus de ciel, de sol…).
-- **HUD** (objet, barres de vie) : reste à sa place dans la fenêtre GG.
+- **Barres de vie des boss** : restent à leur place dans la fenêtre GG (sur les écrans fixes, les
+  contours noirs, prioritaires sur les sprites, les cacheraient).
 - 🔶 À tester sur vrai matériel / Emulicious : l'émulateur de test ne simule pas le délai
   d'accès VRAM ; les écritures gardent au moins 26 cycles d'écart comme le code d'origine.
