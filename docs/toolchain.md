@@ -71,7 +71,7 @@ node tools/emu/sms.js <rom> <script.txt> [dossier_de_sortie]
 Le script contient une commande par ligne : `run N`, `hold TOUCHES N` (UP, DOWN, LEFT,
 RIGHT, B1, B2), `pause`, `shot NOM` (PNG 256×192 de l'écran complet), `save`/`load NOM`
 (état), `peek`/`poke`, `regs`, `trace ADR NOM`, `prof LO HI BANQUE` / `prof off` (cycles),
-`check on|gg|off` et `checkbg` (vérification du décor de la vue élargie, voir
+`audit on|off` (écritures VRAM trop rapides pendant l'affichage, ou hors du tilemap), `check on|gg|off` et `checkbg` (vérification du décor de la vue élargie, voir
 [widescreen.md](widescreen.md)). Détails en tête de `tools/emu/sms.js`.
 
 Astuces : le bouton 1 sert aussi de Start ; `poke C006 N` au titre choisit le niveau de

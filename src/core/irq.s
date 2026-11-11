@@ -219,7 +219,11 @@ loc_015E:
 	call nz,sub_404E                ; 0163
 	ld hl,#vdp_requests             ; 0166
 	bit 7,(hl)                      ; 0169
+.if WIDESCREEN
+	call nz,wide_sat                ; 016B  vue elargie : SAT copiee a vitesse sure si trop tard
+.else
 	call nz,sub_405C                ; 016B
+.endif
 	ld hl,#vdp_requests             ; 016E
 	bit 5,(hl)                      ; 0171
 	jr z,loc_0189                   ; 0173

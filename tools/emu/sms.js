@@ -15,6 +15,7 @@
 //                         fenetre GG seule (gg, toute ROM) ; bilan a off
 //   checkbg               verifie le decor de la vue elargie (WIDE=1) sur la trame courante
 //   prof LO HI BANQUE     mesure les cycles passes dans [LO,HI) ; 'prof off' affiche le bilan
+//   audit on|off          ecritures VRAM trop rapides (< 26 cycles) ou hors tilemap (bilan a off)
 //   trace ADR [NOM]       signale chaque passage du PC en ADR (trame, ligne)
 //   regs                  affiche les registres VDP et le mapper
 'use strict';
@@ -88,10 +89,21 @@ class SMS {
       return;
     }
     this.latchFull = false;
+    if (this.audit) this.auditWrite();
     if (this.code === 3) this.cram[this.addr & 0x1F] = v & 0x3F;
     else this.vram[this.addr] = v;
     this.buffer = v;
     this.addr = (this.addr + 1) & 0x3FFF;
+  }
+  // audit des ecritures VRAM : intervalle < 26 cycles pendant l'affichage actif, et
+  // ecritures du code de la vue elargie (banque 10, $BCBA-$BFFF) hors du tilemap $3800-$3EFF
+  auditWrite() {
+    const A = this.audit, c = this.cpu.cycles, pc = (this.cpu.pc - 1) & 0xFFFF;
+    const key = pc.toString(16) + (pc >= 0x8000 ? '/b' + this.mapper[3] : '');
+    if (this.line < 192 && (this.reg[1] & 0x40) && c - A.last < 26) A.fast.set(key, (A.fast.get(key) || 0) + 1);
+    A.last = c;
+    if (this.code !== 3 && pc >= 0xBCBA && this.mapper[3] === 10 && (this.addr < 0x3800 || this.addr >= 0x3F00))
+      A.outside.set(key + '@' + this.addr.toString(16), (A.outside.get(key + '@' + this.addr.toString(16)) || 0) + 1);
   }
   updateIrq() {
     this.cpu.irqLine = !!(((this.status & 0x80) && (this.reg[1] & 0x20)) || (this.linePending && (this.reg[0] & 0x10)));
@@ -174,7 +186,7 @@ class SMS {
       } else if (this.traces) {
         while (cpu.cycles < end) {
           const t = this.traces.get(cpu.pc);
-          if (t !== undefined && !cpu.halted) console.log(`  trace ${t} : trame ${this.frameCount} ligne ${ln} cycles ${cpu.cycles}`);
+          if (t !== undefined && !cpu.halted) console.log(`  trace ${t} : trame ${this.frameCount} ligne ${ln} cycles ${cpu.cycles} pile ${cpu.rw(cpu.sp).toString(16)},${cpu.rw(cpu.sp + 2).toString(16)},${cpu.rw(cpu.sp + 4).toString(16)} slot2 ${this.mapper[3]}`);
           cpu.step();
         }
       } else while (cpu.cycles < end) cpu.step();
@@ -302,6 +314,14 @@ function main() {
         const L = P.list.sort((a, b) => a - b), q = f => L[Math.min(L.length - 1, Math.floor(f * L.length))];
         console.log(`       trames actives : mediane ${q(0.5)}, 90 % ${q(0.9)}, 99 % ${q(0.99)}`); sms.prof = null; }
       else sms.prof = { lo: parseInt(w[1], 16), hi: parseInt(w[2], 16), bank: +w[3], cur: 0, tot: 0, n: 0, nz: 0, max: 0, list: [] };
+    } else if (cmd === 'audit') {   // audit on / audit off : ecritures VRAM trop rapides ou hors tilemap
+      if (w[1] === 'on') sms.audit = { last: 0, fast: new Map(), outside: new Map() };
+      else {
+        const A = sms.audit;
+        console.log('ecritures trop rapprochees (< 26 cycles, affichage actif) par PC :', [...A.fast].sort((a, b) => b[1] - a[1]).slice(0, 15));
+        console.log('ecritures de la vue elargie hors du tilemap :', [...A.outside].slice(0, 15));
+        sms.audit = null;
+      }
     } else if (cmd === 'trace') {   // trace ADR NOM : affiche trame/ligne quand le PC passe par ADR
       if (!sms.traces) sms.traces = new Map();
       sms.traces.set(parseInt(w[1], 16), w[2] || w[1]);

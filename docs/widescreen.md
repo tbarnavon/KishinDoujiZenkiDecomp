@@ -47,6 +47,7 @@ concernées.
 | `sub_48DA` (`src/core/util.s`) : redessin complet (chargement, événements) | 11 × 12 métatuiles | saut vers `wide_full` (banque 10) ; la place libérée accueille `wide_cull` |
 | `sub_5606` (`src/game/scroll.s`) : défilement | colonne/rangée de métatuile à chaque changement de case de 16 px | appel de `wide_hscroll`/`wide_vscroll` à chaque changement (`and #0xff`) ; ils calculent combien de colonnes/rangées sont entrées dans l'anneau |
 | `sub_6F03` (`src/video/sprites.s`) : masquage des morceaux de sprites | X dans `[$28,$D0)`, Y dans `[$0F,$A7)` (fenêtre GG) | `wide_cull` : X ≥ 8, Y < `$C0` ; détecte les morceaux qui ont « bouclé » sur 8 bits d'un bord à l'autre (comparaison avec le X de l'objet) |
+| Appel de `sub_405C` dans l'IRQ (`src/core/irq.s`, `$016B`) : copie de la table des sprites (SAT) | 192 `outi` (16 cycles/octet) | `wide_sat` : si la copie commence trop tard (compteur V hors de `$C1-$EF`), copie à 41 cycles/octet (voir ci-dessous) |
 | `sub_3A9E` (`src/game/actors.s`) : apparition des ennemis | de 32 px à gauche à 200 px à droite de la caméra | 47 / 205 px : les ennemis apparaissent au ras des bords de l'écran SMS |
 
 Toutes les areas modifiées gardent **exactement leur taille** (`.ds` pour la place libérée) :
@@ -66,6 +67,26 @@ Avec l'émulateur de test (`tools/emu/`, voir [toolchain.md](toolchain.md)) :
   d'origine) et les tuiles que le jeu modifie lui-même (étoiles animées, blocs) ;
 - coût CPU : sur le niveau vertical $0F, 169 « ticks » de jeu contre 173 en 400 trames (≈ 2 %
   de ralentissement, dû surtout aux sprites supplémentaires visibles) ; < 1 % ailleurs.
+
+## Sprites corrompus : défaut d'origine corrigé ✅
+
+L'IRQ de trame copie d'abord les tuiles du joueur (`sub_407B`, 544 `outi`, ≈ 36 lignes) puis la
+table des sprites (`sub_405C`, 192 `outi`). Les deux copies tombent souvent dans le même VBlank
+et, certaines trames, la seconde commence vers la ligne 250 : ses dernières écritures arrivent
+**pendant l'affichage**, à 16 cycles d'intervalle. Le VDP n'accepte alors qu'une écriture toutes
+les ~26 cycles : des octets de la SAT sont perdus et des sprites apparaissent corrompus (X ou
+tuile faux). **La ROM d'origine a le même défaut** (mesuré : 64 débordements sur 3 000 trames du
+niveau $14, 12 pendant le titre et l'intro) ; la vue élargie le rend plus visible car davantage
+de sprites sont affichés.
+
+`wide_sat` (dans la place libérée de `sub_48DA`) lit le compteur V : si la copie tient encore
+dans le VBlank, elle appelle la routine d'origine ; sinon elle copie la SAT à 41 cycles par
+écriture (la mise à jour des sprites peut alors se faire en cours d'image : une trame au pire
+montre l'ancienne position de quelques sprites, sans corruption).
+
+Vérification : la commande `audit on|off` de l'émulateur de test signale toute écriture VRAM à
+moins de 26 cycles de la précédente pendant l'affichage : **aucune** dans la ROM `WIDE=1`
+(6 niveaux × 3 000 trames, titre et intro), contre des dizaines dans la ROM d'origine.
 
 ## Limites connues
 

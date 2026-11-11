@@ -852,7 +852,42 @@ wcu_in:
 wcu_out:
 	or #0xff
 	ret
-	.ds 99                        ;       (place libre, jusqu'a $4983)
+
+;; Copie de la table des sprites (SAT) a l'IRQ de trame (remplace l'appel de sub_405C).
+;; L'original copie 192 octets en outi (16 cycles par octet), ce qui n'est sur que pendant le
+;; VBlank ; quand l'IRQ arrive a cette copie trop tard (fin du VBlank, apres la copie des
+;; tuiles du joueur), les dernieres ecritures tombent pendant l'affichage et sont perdues par
+;; le VDP : sprites corrompus. On copie alors a vitesse sure (>= 26 cycles par ecriture).
+wide_sat::
+	in a,(VDP_VCOUNTER)
+	cp #0xc1                        ;       lignes 0-192 : affichage en cours
+	jr c,wsat_slow
+	cp #0xf0                        ;       lignes 193-245 : le temps suffit (~14 lignes)
+	jp c,sub_405C
+wsat_slow:
+	ld hl,#irq_flags
+	set 1,(hl)
+	xor a
+	out (VDP_CTRL),a
+	ld a,#0x7f
+	out (VDP_CTRL),a                ;       VRAM $3F00 : Y des 64 sprites
+	ld hl,#vdp_C200
+	ld b,#64
+	call wsat_copy
+	ld a,#0x80
+	out (VDP_CTRL),a
+	ld a,#0x7f
+	out (VDP_CTRL),a                ;       VRAM $3F80 : X et tuile
+	ld hl,#vdp_C200+0x4d
+	ld b,#128
+wsat_copy:
+	ld a,(hl)
+	out (VDP_DATA),a
+	inc hl
+	nop
+	djnz wsat_copy                  ;       41 cycles par ecriture
+	ret
+	.ds 47                        ;       (place libre, jusqu'a $4983)
 .else
 	push ix                         ; 48DA
 	ld ix,#0x0000                   ; 48DC
