@@ -68,6 +68,34 @@ Avec l'émulateur de test (`tools/emu/`, voir [toolchain.md](toolchain.md)) :
 - coût CPU : sur le niveau vertical $0F, 169 « ticks » de jeu contre 173 en 400 trames (≈ 2 %
   de ralentissement, dû surtout aux sprites supplémentaires visibles) ; < 1 % ailleurs.
 
+## Écrans fixes de boss : contours noirs ✅
+
+Pour les combats de boss sur écran fixe (`game_mode` = 3, carte de 10 × 9 métatuiles au plus,
+sans défilement vertical : boss de l'intro, scène $07 ; scènes $33-$36, $39…), il n'y a rien
+de caché à montrer : la vue élargie est remplacée par des **contours noirs**.
+
+- `sub_48DA`, après `wide_full`, appelle `wide_boss` (banque 63, area `_B63_WIDE`) qui remplit
+  tout le tilemap hors de la carte avec une tuile noire.
+- Tuile noire : tuile `$1FA` (VRAM `$3F40`, trou inutilisé de la table des sprites entre les Y et
+  les X/tuiles), entièrement de couleur 2, affichée avec la **palette des sprites** (couleur 18,
+  noire dans tous les niveaux et scènes mesurés) et la **priorité** : elle masque aussi les
+  sprites qui dépassent de la fenêtre. Mot du tilemap : `$19FA`.
+- Limite : les bandes que le jeu redessine lui-même sur toute la largeur parce qu'elles défilent
+  en parallaxe (nuages du boss de l'intro, lignes 40-72, registre 8 animé) restent visibles : du
+  noir y glisserait dans la fenêtre. Un bloc de 32 × 8 px à droite (rangée 9, colonnes 26-29) est
+  aussi redessiné par le jeu.
+- Les salles de boss plus larges qui défilent (salle $25, 16 × 9) gardent la vue élargie.
+
+La relocalisation automatique des graphismes trop grands (`tools/assets/banks.py`) s'arrête
+donc à la banque 62.
+
+## Colonne de gauche noire
+
+Le VDP masque la colonne 0 (nécessaire au défilement) avec la couleur de fond (registre 7).
+L'original met 0 (couleur 16 : gris, bleu… selon le niveau) ; la vue élargie met **2**
+(couleur 18, noire partout) dans la table d'initialisation du VDP (`$4036`, dans
+`src/video/vdp.s`).
+
 ## Sprites corrompus : défaut d'origine corrigé ✅
 
 L'IRQ de trame copie d'abord les tuiles du joueur (`sub_407B`, 544 `outi`, ≈ 36 lignes) puis la
@@ -91,10 +119,8 @@ moins de 26 cycles de la précédente pendant l'affichage : **aucune** dans la R
 ## Limites connues
 
 - **Écrans fixes** (titre, cinématiques, menus, textes) : restent en 160×144 au centre.
-- **Bords de carte répétés** : sur les salles de 10 × 9 (boss), la répétition dédouble des
-  éléments du bord (la lune de la salle du niveau $07, des rondins…).
+- **Bords de carte répétés** : hors des écrans fixes de boss, au-delà d'une carte la rangée ou
+  la colonne du bord est répétée (plus de ciel, de sol…).
 - **HUD** (objet, barres de vie) : reste à sa place dans la fenêtre GG.
-- **Colonne de gauche** (8 px) : masquée par le VDP, elle prend la couleur de fond du niveau
-  (registre 7), comme dans le portage d'origine.
 - 🔶 À tester sur vrai matériel / Emulicious : l'émulateur de test ne simule pas le délai
   d'accès VRAM ; les écritures gardent au moins 26 cycles d'écart comme le code d'origine.

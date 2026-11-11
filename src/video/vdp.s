@@ -238,7 +238,11 @@ sub_4033:
 	add a,l                         ; 4033
 	ei                              ; 4034
 	add a,(hl)                      ; 4035
-	nop                             ; 4036
+.if WIDESCREEN
+	.db 0x02                        ; 4036  (donnee) registre 7 = 2 : colonne masquee noire (couleur 18)
+.else
+	nop                             ; 4036  (donnee : valeur du registre 7, table $4028)
+.endif
 	add a,a                         ; 4037
 	nop                             ; 4038
 	adc a,b                         ; 4039

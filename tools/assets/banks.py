@@ -31,7 +31,7 @@ ROMS = {"sms_en": "original/Kishin_Douji_Zenki_GG2SMS_v0_3__EN_.sms",
 # banques sans code : entierement reconstruites depuis assets/ (banque 5 = scripts, 32 = dialogues)
 COMPOSED = {"sms_en": [3, 4] + list(range(6, 23)) + [24, 28, 29, 30, 31, 33]}   # 27 : musique (music.py)
 FIRST_FREE_BANK = {"sms_en": 34}
-LAST_FREE_BANK = {"sms_en": 63}
+LAST_FREE_BANK = {"sms_en": 62}   # 63 : code de la vue elargie (WIDE=1)
 
 
 def raw_path(ver, bank):

@@ -806,7 +806,25 @@ sub_48DA::
 	ld a,#0x0a                      ; 48DA  vue elargie : redessin de tout le tilemap
 	ld (bank_slot2_shadow),a        ; 48DC
 	ld (MAPPER_SLOT2),a             ; 48DF
-	jp wide_full                    ; 48E2
+	call wide_full                  ; 48E2
+	ld a,(game_mode)                ;       ecran fixe de boss (mode 3, carte de 10 x 9 au plus) :
+	cp #0x03                        ;       contours noirs au lieu de la vue elargie
+	ret nz
+	ld a,(level_CF18)
+	cp #11
+	ret nc
+	ld hl,(level_C19C)
+	ld a,h
+	or l
+	ret nz
+	ld a,#63
+	ld (bank_slot2_shadow),a
+	ld (MAPPER_SLOT2),a
+	call wide_boss
+	ld a,#0x0a
+	ld (bank_slot2_shadow),a
+	ld (MAPPER_SLOT2),a
+	ret
 ;; Masquage des sprites de la vue elargie (appele par sub_6F03, banque 1 toujours visible).
 ;; Entree : sprite_C249 = Y, sprite_C24A = X d'un morceau de meta-sprite (8 bits).
 ;; Sortie : Z = visible, NZ = a masquer. Conserve bc, de, hl.
@@ -887,7 +905,7 @@ wsat_copy:
 	nop
 	djnz wsat_copy                  ;       41 cycles par ecriture
 	ret
-	.ds 47                        ;       (place libre, jusqu'a $4983)
+	.ds 9                         ;       (place libre, jusqu'a $4983)
 .else
 	push ix                         ; 48DA
 	ld ix,#0x0000                   ; 48DC

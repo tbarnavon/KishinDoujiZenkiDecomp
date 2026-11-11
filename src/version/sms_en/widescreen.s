@@ -566,3 +566,95 @@ w_cam:
 	ret
 
 .endif
+
+;; ==================================================================
+;; Ecrans fixes de boss (game_mode = 3, carte de 10 x 9 metatuiles au plus) : pas de vue
+;; elargie, tout ce qui est hors de la carte est rempli d'une tuile noire.
+;; Banque 63 (libre) : appele par sub_48DA avec la banque 63 dans le slot 2.
+;;
+;; Tuile noire : tuile $1FA (VRAM $3F40, trou inutilise de la table des sprites entre les Y
+;; et les X/tuiles), entierement de couleur 2 ; affichee avec la palette des sprites
+;; (couleur 18 = noir dans les combats de boss) et la priorite (elle cache aussi les sprites
+;; qui depassent de la fenetre). Mot du tilemap : $19FA.
+;; Les bandes que le jeu redessine ensuite sur toute la largeur (parallaxe) restent visibles.
+.if WIDESCREEN
+	.area _B63_WIDE
+
+wide_boss::
+	di                              ; adresse VDP : pas d'IRQ pendant le remplissage
+	ld de,#0x7f40                   ; VRAM $3F40 en ecriture
+	call wb_addr
+	ld b,#8
+wb_tile:
+	xor a                           ; plans 0, 1, 2, 3 = 00 FF 00 00 : couleur 2
+	call wb_put
+	dec a
+	call wb_put
+	inc a
+	call wb_put
+	call wb_put
+	djnz wb_tile
+	ld a,(level_CF18)
+	add a,a
+	add a,#6
+	ld c,a                          ; colonne de l'anneau juste apres la carte
+	ld de,#0x7800
+	ld b,#28
+wb_row:
+	push bc
+	ld a,#28
+	sub b                           ; numero de rangee de l'anneau
+	cp #3
+	jr c,wb_full
+	cp #21                          ; carte : rangees 3 a 20
+	jr nc,wb_full
+	call wb_addr                    ; rangee de la carte : colonnes 0-5 ...
+	ld b,#6
+	call wb_black
+	push de
+	ld a,c
+	add a,a
+	or e
+	ld e,a
+	call wb_addr                    ; ... et colonnes C-31
+	pop de
+	ld a,#32
+	sub c
+	ld b,a
+	call wb_black
+	jr wb_next
+wb_full:
+	call wb_addr
+	ld b,#32
+	call wb_black
+wb_next:
+	ld a,e
+	add a,#0x40
+	ld e,a
+	jr nc,wb_nc
+	inc d
+wb_nc:
+	pop bc
+	djnz wb_row
+	ei
+	ret
+
+wb_black:                           ; B mots $19FA
+	ld a,#0xfa
+	call wb_put
+	ld a,#0x19
+	call wb_put
+	djnz wb_black
+	ret
+
+wb_addr:                            ; DE = commande d'ecriture VRAM
+	ld a,e
+	out (VDP_CTRL),a
+	ld a,d
+	out (VDP_CTRL),a
+	ret
+
+wb_put:                             ; (l'appel espace les ecritures de plus de 26 cycles)
+	out (VDP_DATA),a
+	ret
+.endif
