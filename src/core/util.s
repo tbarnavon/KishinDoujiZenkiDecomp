@@ -807,16 +807,6 @@ sub_48DA::
 	ld (bank_slot2_shadow),a        ; 48DC
 	ld (MAPPER_SLOT2),a             ; 48DF
 	call wide_full                  ; 48E2
-	ld a,(game_mode)                ;       ecran fixe de boss (mode 3, carte de 10 x 9 au plus) :
-	cp #0x03                        ;       contours noirs au lieu de la vue elargie
-	ret nz
-	ld a,(level_CF18)
-	cp #11
-	ret nc
-	ld hl,(level_C19C)
-	ld a,h
-	or l
-	ret nz
 .if ROM512
 	ld a,#17                        ;       ROM512 : code en banque 17 ($BF00)
 .else
@@ -824,7 +814,7 @@ sub_48DA::
 .endif
 	ld (bank_slot2_shadow),a
 	ld (MAPPER_SLOT2),a
-	call wide_boss
+	call wide_boss                  ;       tuile noire ; contours noirs des ecrans fixes de boss
 	ld a,#0x0a
 	ld (bank_slot2_shadow),a
 	ld (MAPPER_SLOT2),a
@@ -883,11 +873,8 @@ wcu_out:
 ;; retardee (bandes en parallaxe decalees : clignotement). La copie est alors reportee a la
 ;; trame suivante : bit 2 de vdp_requests (inutilise par le jeu, conserve par le and #0x1f
 ;; de fin d'IRQ).
-wide_sat::
+wide_sat::                          ;       (appele si vdp_requests & $84 : demande ou copie reportee)
 	ld hl,#vdp_requests
-	ld a,(hl)
-	and #0x84                       ;       demande (bit 7) ou copie reportee (bit 2)
-	ret z
 	in a,(VDP_VCOUNTER)
 	cp #0xc1                        ;       lignes 0-192 : affichage en cours
 	jr c,wsat_later
@@ -898,7 +885,7 @@ wide_sat::
 wsat_later:
 	set 2,(hl)
 	ret
-	.ds 36                        ;       (place libre, jusqu'a $4983)
+	.ds 58                        ;       (place libre, jusqu'a $4983)
 .else
 	push ix                         ; 48DA
 	ld ix,#0x0000                   ; 48DC

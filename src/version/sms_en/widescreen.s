@@ -13,7 +13,8 @@
 ;;   - rangee de metatuile du monde m -> rangees (3 + 2m) mod 28 et suivante
 ;; L'anneau contient les colonnes [T0, T0+32) avec T0 = floor((cam-40)/8)
 ;; et les rangees de metatuiles [k, k+14) avec k = floor((camy-24)/16).
-;; Hors de la carte, la rangee ou la colonne du bord est repetee.
+;; Hors de la carte, une tuile noire est dessinee (tuile $1FA, mot $09FA : sans priorite,
+;; pour laisser voir le HUD et les sprites). wide_boss (banque 63) ecrit cette tuile en VRAM.
 ;;
 ;; Ce code est en banque 10 (celle des metatuiles) : il est appele avec la banque 10
 ;; dans le slot 2, et lit la carte en RAM (level_map).
@@ -36,6 +37,12 @@ wv_col2 = util_D4D1 + 9     ; colonne de l'anneau * 2
 wv_t0   = util_D4D1 + 10    ; T0 ou k (16 bits signe)
 wv_mcol = util_D4D1 + 12    ; colonne de carte bornee (16 bits)
 wv_vaddr = util_D4D1 + 14   ; commande d'ecriture VRAM courante (16 bits)
+wv_out  = util_D4D1 + 16    ; non nul : colonne (w_col) ou rangee (w_row) hors de la carte
+
+;; mots de la metatuile noire (hors de la carte) : tuile $1FA, palette des sprites
+;; (couleur 18 = noir), sans priorite
+w_black:
+	.dw 0x09FA, 0x09FA, 0x09FA, 0x09FA
 
 ;; ------------------------------------------------------------------
 ;; Redessine tout l'anneau (remplace sub_48DA : chargement de niveau, evenements)
@@ -88,46 +95,63 @@ wh_pos:
 	ld hl,(wv_t0)
 	or a
 	sbc hl,de                       ; n = T0 nouveau - T0 ancien
+	ld c,#32
+	jr w_span
+
+;; w_span : HL = n = nouveau - ancien debut de l'anneau, (wv_t0) = nouveau debut,
+;; C = taille de l'anneau : 32 colonnes (w_col) ou 14 rangees (w_row)
+;; -> dessine les colonnes ou rangees entrees dans l'anneau (toutes si |n| >= C)
+;; Attention : les piles des taches ne font que 64 octets ; pas de profondeur de pile en plus
+;; de l'original (push bc, push hl, call).
+w_span:
+	ld a,h
+	or l
 	ret z
 	bit 7,h
-	jr nz,wh_left
-	ld a,h                          ; vers la droite : colonnes T0+32-n .. T0+31
+	jr nz,wsp_neg
+	ld a,h                          ; vers la droite / le bas : debut + C - n .. debut + C - 1
 	or a
-	jr nz,wh_all
+	jr nz,wsp_all
 	ld a,l
-	cp #33
-	jr nc,wh_all
+	cp c
+	jr nc,wsp_all
 	ld b,a
 	ld hl,(wv_t0)
-	ld de,#32
+	ld e,c
+	ld d,#0
 	add hl,de
 	ld e,b
-	ld d,#0
 	or a
 	sbc hl,de
-	jr wh_loop
-wh_left:                            ; vers la gauche : colonnes T0 .. T0+|n|-1
+	jr wsp_loop
+wsp_neg:                            ; vers la gauche / le haut : debut .. debut + |n| - 1
 	ld a,h
-	cp #0xff
-	jr nz,wh_all
-	xor a
-	sub l
-	cp #33
-	jr nc,wh_all
+	inc a
+	jr nz,wsp_all
+	sub l                           ; A = 0 - l = |n|
+	cp c
+	jr nc,wsp_all
 	ld b,a
+	jr wsp_t0
+wsp_all:
+	ld b,c
+wsp_t0:
 	ld hl,(wv_t0)
-	jr wh_loop
-wh_all:
-	ld b,#32
-	ld hl,(wv_t0)
-wh_loop:
+wsp_loop:
 	push bc
 	push hl
+	ld a,c
+	cp #32
+	jr z,wsp_col
+	call w_row
+	jr wsp_next
+wsp_col:
 	call w_col
+wsp_next:
 	pop hl
 	inc hl
 	pop bc
-	djnz wh_loop
+	djnz wsp_loop
 	ret
 
 ;; ------------------------------------------------------------------
@@ -177,47 +201,8 @@ wv_delta:
 	ld hl,(wv_t0)
 	or a
 	sbc hl,de                       ; n = k nouveau - k ancien
-	ret z
-	bit 7,h
-	jr nz,wv_up
-	ld a,h                          ; vers le bas : rangees k+14-n .. k+13
-	or a
-	jr nz,wv_all
-	ld a,l
-	cp #15
-	jr nc,wv_all
-	ld b,a
-	ld hl,(wv_t0)
-	ld de,#14
-	add hl,de
-	ld e,b
-	ld d,#0
-	or a
-	sbc hl,de
-	jr wv_loop
-wv_up:                              ; vers le haut : rangees k .. k+|n|-1
-	ld a,h
-	cp #0xff
-	jr nz,wv_all
-	xor a
-	sub l
-	cp #15
-	jr nc,wv_all
-	ld b,a
-	ld hl,(wv_t0)
-	jr wv_loop
-wv_all:
-	ld b,#14
-	ld hl,(wv_t0)
-wv_loop:
-	push bc
-	push hl
-	call w_row
-	pop hl
-	inc hl
-	pop bc
-	djnz wv_loop
-	ret
+	ld c,#14
+	jp w_span
 
 ;; ------------------------------------------------------------------
 ;; w_col : HL = colonne de tuile du monde (signe) -> dessine ses 14 metatuiles de l'anneau
@@ -237,6 +222,8 @@ w_col::
 	ld a,(level_CF18)
 	call w_clamp
 	ld (wv_mcol),hl
+	sbc a,a                         ; colonne hors de la carte -> $FF
+	ld (wv_out),a
 	call w_k                        ; HL = k (rangee du haut de l'anneau)
 	ld (wv_m),hl
 	call w_slot                     ; A = rangee de l'anneau
@@ -256,9 +243,21 @@ w_col::
 	ld a,#14
 	ld (wv_cnt),a
 wc_loop:
+	ld a,(wv_out)                   ; hors de la carte (colonne, ou m < 0, ou m >= H) : noir
+	or a
+	jr nz,wc_blk
+	ld hl,(wv_m)
+	ld a,(wv_h)
+	call w_clamp
+	jr nc,wc_map
+wc_blk:
+	ld hl,#w_black
+	jr wc_draw
+wc_map:
 	ld hl,(wv_ptr)
 	ld a,(hl)
 	call w_meta2
+wc_draw:
 	ld de,(wv_vaddr)
 	call w_vput                     ; haut
 	inc hl
@@ -304,6 +303,8 @@ w_row::
 	ld hl,(wv_m)
 	ld a,(wv_h)
 	call w_clamp
+	sbc a,a                         ; rangee hors de la carte -> $FF
+	ld (wv_out),a
 	call w_rowptr
 	ld (wv_ptr),hl
 	call w_cam
@@ -334,10 +335,18 @@ wr_count:
 	rr l
 	ld a,(level_CF18)
 	call w_clamp
+	jr c,wr_blk                     ; colonne hors de la carte : noir
+	ld a,(wv_out)
+	or a
+	jr nz,wr_blk                    ; rangee hors de la carte : noir
 	ld de,(wv_ptr)
 	add hl,de
 	ld a,(hl)
 	call w_meta2                    ; HL -> premier mot (rangee du haut)
+	jr wr_draw
+wr_blk:
+	ld hl,#w_black
+wr_draw:
 	ld a,(wv_tx)
 	add a,#6
 	and #31
@@ -474,7 +483,7 @@ wrp_loop:
 	jr nz,wrp_loop
 	ret
 
-;; w_clamp : HL signe, A = N -> HL borne dans [0, N-1]
+;; w_clamp : HL signe, A = N -> HL borne dans [0, N-1] ; C = 1 si HL etait hors de [0, N)
 w_clamp:
 	bit 7,h
 	jr nz,wcl_zero
@@ -484,14 +493,17 @@ w_clamp:
 	sbc hl,de
 	jr nc,wcl_max
 	add hl,de
+	or a
 	ret
 wcl_zero:
 	ld hl,#0
+	scf
 	ret
 wcl_max:
 	ld l,a
 	ld h,#0
 	dec hl
+	scf
 	ret
 
 ;; w_slot : HL = rangee de metatuile (signe) -> A = rangee de l'anneau (3 + 2m) mod 28
@@ -598,6 +610,16 @@ wb_tile:
 	call wb_put
 	call wb_put
 	djnz wb_tile
+	ld a,(game_mode)                ; ecran fixe de boss : mode 3, carte de 10 x 9 au plus
+	cp #0x03
+	jr nz,wb_end
+	ld a,(level_CF18)
+	cp #11
+	jr nc,wb_end
+	ld hl,(level_C19C)
+	ld a,h
+	or l
+	jr nz,wb_end
 	ld a,(level_CF18)
 	add a,a
 	add a,#6
@@ -608,13 +630,30 @@ wb_row:
 	push bc
 	ld a,#28
 	sub b                           ; numero de rangee de l'anneau
+	ld hl,#0x19fa                   ; tuile noire prioritaire
 	cp #3
 	jr c,wb_full
 	cp #21                          ; carte : rangees 3 a 20
 	jr nc,wb_full
+	push hl                         ; mot des colonnes C-31
+	cp #9                           ; boss de l'intro (scene $07), rangee 9 (lignes 72-79) :
+	jr nz,wb_sides                  ; la ligne 72 est encore affichee avec le defilement des
+	ld a,(scene_id)                 ; nuages (retour au defilement normal un peu tard) : du
+	cp #0x07                        ; noir y glisserait dans la fenetre. Les bords reprennent
+	jr nz,wb_sides                  ; la tuile du bord de la fenetre (ciel).
+	pop hl
+	ld a,c
+	dec a
+	add a,a
+	call wb_rd                      ; mot de la colonne C-1
+	push hl
+	ld a,#12
+	call wb_rd                      ; mot de la colonne 6
+wb_sides:
 	call wb_addr                    ; rangee de la carte : colonnes 0-5 ...
 	ld b,#6
-	call wb_black
+	call wb_fill
+	pop hl
 	push de
 	ld a,c
 	add a,a
@@ -625,12 +664,12 @@ wb_row:
 	ld a,#32
 	sub c
 	ld b,a
-	call wb_black
+	call wb_fill
 	jr wb_next
 wb_full:
 	call wb_addr
 	ld b,#32
-	call wb_black
+	call wb_fill
 wb_next:
 	ld a,e
 	add a,#0x40
@@ -640,15 +679,33 @@ wb_next:
 wb_nc:
 	pop bc
 	djnz wb_row
+wb_end:
 	ei
 	ret
 
-wb_black:                           ; B mots $19FA
-	ld a,#0xfa
+wb_fill:                            ; B mots HL
+	ld a,l
 	call wb_put
-	ld a,#0x19
+	ld a,h
 	call wb_put
-	djnz wb_black
+	djnz wb_fill
+	ret
+
+;; wb_rd : DE = commande d'ecriture du debut de la rangee, A = colonne * 2 -> HL = mot du tilemap
+wb_rd:
+	or e
+	out (VDP_CTRL),a
+	ld a,d
+	and #0x3f                       ; commande de lecture
+	out (VDP_CTRL),a
+	push af                         ; delais (>= 26 cycles entre deux acces VRAM)
+	pop af
+	in a,(VDP_DATA)
+	ld l,a
+	push af
+	pop af
+	in a,(VDP_DATA)
+	ld h,a
 	ret
 
 wb_addr:                            ; DE = commande d'ecriture VRAM

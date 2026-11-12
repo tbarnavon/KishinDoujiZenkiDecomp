@@ -39,19 +39,22 @@ tuile (8 px)** et non par colonne de métatuile (16 px) comme sur GG. L'anneau c
 colonnes `[T0, T0+32)` avec `T0 = floor((cam-40)/8)`, et les rangées de métatuiles `[k, k+14)`
 avec `k = floor((camy-24)/16)`.
 
-**Hors de la carte**, la rangée ou la colonne du bord est **répétée** (il n'existe aucun décor à
-montrer). Les cartes de 9 métatuiles de haut (144 px) et les salles de 10 × 9 (160 px) sont
-concernées.
+**Hors de la carte**, il n'existe aucun décor à montrer : `w_col` / `w_row` y dessinent la
+**tuile noire** (mot `$09FA`, voir les écrans de boss ci-dessous, mais **sans priorité** pour
+laisser voir le HUD et les sprites). Sont concernées : les cartes de 9 métatuiles de haut
+(144 px), les bords gauche/droit au début et à la fin des niveaux, les salles de 10 × 9 et la
+**carte du monde** (sélection des niveaux). Une première version répétait la rangée ou la
+colonne du bord (bâtiments, cascade, bateau… dupliqués).
 
 ## Ce qui a été modifié
 
 | Endroit | Original | Vue élargie |
 |---|---|---|
 | `src/version/sms_en/widescreen.s` (banque 10, area `_B10_WIDE`, après les métatuiles) | — | `wide_full` (redessin de tout l'anneau), `wide_hscroll`, `wide_vscroll`, `w_col`, `w_row` |
-| `sub_48DA` (`src/core/util.s`) : redessin complet (chargement, événements) | 11 × 12 métatuiles | saut vers `wide_full` (banque 10) ; la place libérée accueille `wide_cull` |
+| `sub_48DA` (`src/core/util.s`) : redessin complet (chargement, événements) | 11 × 12 métatuiles | `wide_full` (banque 10) puis `wide_boss` (banque 63 : tuile noire, contours des écrans de boss) ; la place libérée accueille `wide_cull` et `wide_sat` |
 | `sub_5606` (`src/game/scroll.s`) : défilement | colonne/rangée de métatuile à chaque changement de case de 16 px | appel de `wide_hscroll`/`wide_vscroll` à chaque changement (`and #0xff`) ; ils calculent combien de colonnes/rangées sont entrées dans l'anneau |
 | `sub_6F03` (`src/video/sprites.s`) : masquage des morceaux de sprites | X dans `[$28,$D0)`, Y dans `[$0F,$A7)` (fenêtre GG) | `wide_cull` : X ≥ 8, Y < `$C0` ; détecte les morceaux qui ont « bouclé » sur 8 bits d'un bord à l'autre (comparaison avec le X de l'objet) |
-| Appel de `sub_405C` dans l'IRQ (`src/core/irq.s`, `$016B`) : copie de la table des sprites (SAT) | 192 `outi` (16 cycles/octet) | `wide_sat` : si la copie commence trop tard (compteur V hors de `$C1-$EF`), elle est reportée à la trame suivante (voir ci-dessous) |
+| Appel de `sub_405C` dans l'IRQ (`src/core/irq.s`, `$016B`) : copie de la table des sprites (SAT) | 192 `outi` (16 cycles/octet) | `ld a,(vdp_requests)` / `and #0x84` / `call nz,wide_sat` : le test reste en banque 0 (comme l'original) car une IRQ de trame peut arriver pendant le pilote son, banque 26 dans le slot 1 (`ei` de `sub_b26_4485`). `wide_sat` : si la copie commence trop tard (compteur V hors de `$C1-$EF`), elle est reportée à la trame suivante (voir ci-dessous) |
 | `sub_71BE` / `sub_718F` (`src/video/sprites.s`) : HUD des niveaux (objet et icône) | coin haut gauche de la fenêtre GG | coin haut gauche de l'écran SMS (X −36, Y −20 px ; attention, `ACTOR_Y` est l'axe horizontal) |
 | `sub_3A9E` (`src/game/actors.s`) : apparition des ennemis | de 32 px à gauche à 200 px à droite de la caméra | 47 / 205 px : les ennemis apparaissent au ras des bords de l'écran SMS |
 
@@ -61,6 +64,13 @@ banque 10.
 
 Les acteurs vivent déjà en coordonnées écran 0-255 (disparition hors de `[1, 254]`) : ils
 existent sur toute la largeur SMS, seule leur apparition était calée sur la fenêtre GG.
+
+Place : `_B10_WIDE` occupe 818 des 838 octets libres de la banque 10 (la fin de
+`wide_hscroll` et `wide_vscroll` est commune : `w_span`). **Piles** : les piles des tâches ne
+font que 64 octets (`$DD00`, `$DD40`…) : le code appelé par le défilement ne doit pas être plus
+profond que l'original. **Taille des areas de la banque 1** : `_B01_48DA` doit faire exactement
+170 octets (`.ds` de fin) ; un écart décale tout le reste de la banque 1 et casse les tables à
+adresse fixe (plantages, RAM du pilote son écrasée).
 
 ## Vérification
 
@@ -79,8 +89,9 @@ Pour les combats de boss sur écran fixe (`game_mode` = 3, carte de 10 × 9 mét
 sans défilement vertical : boss de l'intro, scène $07 ; scènes $33-$36, $39…), il n'y a rien
 de caché à montrer : la vue élargie est remplacée par des **contours noirs**.
 
-- `sub_48DA`, après `wide_full`, appelle `wide_boss` (banque 63, area `_B63_WIDE`) qui remplit
-  tout le tilemap hors de la carte avec une tuile noire.
+- `sub_48DA`, après `wide_full`, appelle `wide_boss` (banque 63, area `_B63_WIDE`) qui écrit la
+  tuile noire en VRAM (à chaque redessin, pour tous les modes) puis, sur un écran fixe de boss,
+  remplit tout le tilemap hors de la carte avec la version **prioritaire** (`$19FA`).
 - Tuile noire : tuile `$1FA` (VRAM `$3F40`, trou inutilisé de la table des sprites entre les Y et
   les X/tuiles), entièrement de couleur 2, affichée avec la **palette des sprites** (couleur 18,
   noire dans tous les niveaux et scènes mesurés) et la **priorité** : elle masque aussi les
@@ -89,6 +100,13 @@ de caché à montrer : la vue élargie est remplacée par des **contours noirs**
   en parallaxe (nuages du boss de l'intro, lignes 40-72, registre 8 animé) restent visibles : du
   noir y glisserait dans la fenêtre. Un bloc de 32 × 8 px à droite (rangée 9, colonnes 26-29) est
   aussi redessiné par le jeu.
+- Boss de l'intro (scène $07) : le retour au défilement normal sous les nuages (table raster :
+  fin demandée ligne 69) n'agit qu'après la **ligne 72**, encore affichée avec le défilement des
+  nuages : les tuiles noires des bords de la rangée 9 y glissaient dans la fenêtre (**ligne noire
+  d'un pixel**). Pour cette scène, les bords de la rangée 9 reprennent le mot du tilemap au bord
+  de la fenêtre (colonnes 6 et C−1, lus en VRAM par `wb_rd`) : du ciel, comme le bloc que le jeu
+  redessine à droite. La table raster n'existe pas encore au premier dessin : d'où le test sur
+  la scène.
 - Les salles de boss plus larges qui défilent (salle $25, 16 × 9) gardent la vue élargie.
 
 La relocalisation automatique des graphismes trop grands (`tools/assets/banks.py`) s'arrête
@@ -130,8 +148,6 @@ moins de 26 cycles de la précédente pendant l'affichage : **aucune** dans la R
 ## Limites connues
 
 - **Écrans fixes** (titre, cinématiques, menus, textes) : restent en 160×144 au centre.
-- **Bords de carte répétés** : hors des écrans fixes de boss, au-delà d'une carte la rangée ou
-  la colonne du bord est répétée (plus de ciel, de sol…).
 - **Barres de vie des boss** : restent à leur place dans la fenêtre GG (sur les écrans fixes, les
   contours noirs, prioritaires sur les sprites, les cacheraient).
 - 🔶 À tester sur vrai matériel / Emulicious : l'émulateur de test ne simule pas le délai

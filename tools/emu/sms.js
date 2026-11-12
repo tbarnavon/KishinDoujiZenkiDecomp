@@ -256,7 +256,7 @@ function writePNG(file, rgb, w, h, scale = 2) {
 }
 
 // Verification de la vue elargie (WIDE=1) : chaque tuile visible a l'ecran SMS doit
-// correspondre a la carte en RAM (bords repetes hors de la carte). Adresses : src/include/ram.inc.
+// correspondre a la carte en RAM (tuile noire $09FA/$19FA hors de la carte). Adresses : src/include/ram.inc.
 function checkBackground(sms, ggOnly = false) {
   const rd = a => sms.read(a), rw = a => rd(a) | (rd(a + 1) << 8);
   const s16 = v => (v & 0x8000) ? v - 0x10000 : v;
@@ -275,11 +275,12 @@ function checkBackground(sms, ggOnly = false) {
       const mrow = clamp(Math.floor(ty / 2), H), mcol = clamp(Math.floor(tx / 2), W);
       const idx = sms.ram[(0xCF27 + mrow * W + mcol) & 0x1FFF];
       const pa = 10 * 0x4000 + (meta - 0x8000) + idx * 8 + (((ty % 2) + 2) % 2) * 4 + (((tx % 2) + 2) % 2) * 2;
-      const want = sms.rom[pa] | (sms.rom[pa + 1] << 8);
+      const out = !ggOnly && (ty < 0 || ty >= 2 * H || tx < 0 || tx >= 2 * W);   // hors de la carte : tuile noire
+      const want = out ? 0x09FA : sms.rom[pa] | (sms.rom[pa + 1] << 8);
       const row = (((3 + ty) % 28) + 28) % 28, col = (6 + tx) & 31;
       const e = nt + (row * 32 + col) * 2, got = sms.vram[e] | (sms.vram[e + 1] << 8);
       total++;
-      if (got !== want) { if (!bad) first = `(${tx},${ty}) attendu ${want.toString(16)} obtenu ${got.toString(16)}`; bad++; }
+      if (got !== want && !(out && got === 0x19FA)) { if (!bad) first = `(${tx},${ty}) attendu ${want.toString(16)} obtenu ${got.toString(16)}`; bad++; }
     }
   }
   return { bad, total, first, cam, camy };

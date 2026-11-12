@@ -217,12 +217,12 @@ loc_015E:
 	ld hl,#vdp_requests             ; 015E
 	bit 6,(hl)                      ; 0161
 	call nz,sub_404E                ; 0163
-	ld hl,#vdp_requests             ; 0166
 .if WIDESCREEN
-	call wide_sat                   ; 0169  vue elargie : SAT copiee ou reportee si trop tard
-	nop                             ; 016C
-	nop                             ; 016D
-.else
+	ld a,(vdp_requests)             ; 0166  vue elargie : SAT copiee ou reportee si trop tard.
+	and #0x84                       ; 0169  Le test reste ici (banque 0) : une IRQ imbriquee
+	call nz,wide_sat                ; 016B  (ei du pilote son, sub_b26_4485) arrive avec la
+.else                               ;       banque 26 dans le slot 1, ou wide_sat n'est pas.
+	ld hl,#vdp_requests             ; 0166
 	bit 7,(hl)                      ; 0169
 	call nz,sub_405C                ; 016B
 .endif
