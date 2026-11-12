@@ -51,10 +51,10 @@ colonne du bord (bâtiments, cascade, bateau… dupliqués).
 | Endroit | Original | Vue élargie |
 |---|---|---|
 | `src/version/sms_en/widescreen.s` (banque 10, area `_B10_WIDE`, après les métatuiles) | — | `wide_full` (redessin de tout l'anneau), `wide_hscroll`, `wide_vscroll`, `w_col`, `w_row` |
-| `sub_48DA` (`src/core/util.s`) : redessin complet (chargement, événements) | 11 × 12 métatuiles | `wide_full` (banque 10) puis `wide_boss` (banque 63 : tuile noire, contours des écrans de boss) ; la place libérée accueille `wide_cull` et `wide_sat` |
+| `sub_48DA` (`src/core/util.s`) : redessin complet (chargement, événements) | 11 × 12 métatuiles | `wide_save` (banque 63 : tuile `$1C0` de la carte, voir ci-dessous), `wide_full` (banque 10) puis `wide_boss` (banque 63 : tuile noire, contours des écrans de boss) ; la place libérée accueille `wide_cull` et `wide_vblank` |
 | `sub_5606` (`src/game/scroll.s`) : défilement | colonne/rangée de métatuile à chaque changement de case de 16 px | appel de `wide_hscroll`/`wide_vscroll` à chaque changement (`and #0xff`) ; ils calculent combien de colonnes/rangées sont entrées dans l'anneau |
 | `sub_6F03` (`src/video/sprites.s`) : masquage des morceaux de sprites | X dans `[$28,$D0)`, Y dans `[$0F,$A7)` (fenêtre GG) | `wide_cull` : X ≥ 8, Y < `$C0` ; détecte les morceaux qui ont « bouclé » sur 8 bits d'un bord à l'autre (comparaison avec le X de l'objet) |
-| Appel de `sub_405C` dans l'IRQ (`src/core/irq.s`, `$016B`) : copie de la table des sprites (SAT) | 192 `outi` (16 cycles/octet) | `ld a,(vdp_requests)` / `and #0x84` / `call nz,wide_sat` : le test reste en banque 0 (comme l'original) car une IRQ de trame peut arriver pendant le pilote son, banque 26 dans le slot 1 (`ei` de `sub_b26_4485`). `wide_sat` : si la copie commence trop tard (compteur V hors de `$C1-$EF`), elle est reportée à la trame suivante (voir ci-dessous) |
+| Appels de `sub_404E` (palette) et `sub_405C` (SAT) dans l'IRQ (`src/core/irq.s`, `$015E-$016D`) | palette puis SAT | `ld a,(vdp_requests)` / `and #0xcc` / `call nz,wide_vblank` : le test reste en banque 0 (comme l'original) car une IRQ de trame peut arriver pendant le pilote son, banque 26 dans le slot 1 (`ei` de `sub_b26_4485`). `wide_vblank` copie la SAT **puis** la palette ; chacune est reportée à la trame suivante si elle commence trop tard (voir ci-dessous) |
 | `sub_71BE` / `sub_718F` (`src/video/sprites.s`) : HUD des niveaux (objet et icône) | coin haut gauche de la fenêtre GG | coin haut gauche de l'écran SMS (X −36, Y −20 px ; attention, `ACTOR_Y` est l'axe horizontal) |
 | `sub_3A9E` (`src/game/actors.s`) : apparition des ennemis | de 32 px à gauche à 200 px à droite de la caméra | 47 / 205 px : les ennemis apparaissent au ras des bords de l'écran SMS |
 
@@ -112,6 +112,33 @@ de caché à montrer : la vue élargie est remplacée par des **contours noirs**
 La relocalisation automatique des graphismes trop grands (`tools/assets/banks.py`) s'arrête
 donc à la banque 62.
 
+## Carte du monde : bout de route ✅ (2026-11-12)
+
+Sur la carte du monde (après le boss de l'intro), le dernier morceau de la route vers un lieu
+s'affichait comme une tuile rouge rayée. Cause : la liste de tuiles de la carte charge 204
+tuiles à partir de VRAM `$1EA0` (banque 7 `$8B40`) ; la dernière, **`$1C0`**, tombe en VRAM
+**`$3800`**, début du tilemap (rangée 0, colonnes 0-15 : cachée sur GG, l'original s'en sert
+comme réserve). La métatuile du bout de route (jeu de métatuiles de la carte, banque 10 `$8000`,
+non exporté dans `assets/` ; mot en **`$84DA`**) l'utilise. La vue élargie dessine la rangée 0
+(tuiles noires) et écrasait ce dessin. C'est le seul mot ≥ `$1C0` de ce jeu de métatuiles ; ceux
+des 58 niveaux n'en ont aucun.
+
+- `wide_save` (banque 63, ou 17 avec `ROM512=1`), appelé par `sub_48DA` **avant** `wide_full` :
+  si les 32 premiers octets de `$3800` ne sont pas 16 mots `$09FA` (tuile noire), ils viennent
+  d'être chargés : copie vers la tuile **`$1FB`** (`$3F60`, trou de la table des sprites juste
+  après la tuile noire `$1FA`). Tampon : `util_D4D1 + 24` (32 octets, sous `di`). Dans les autres
+  niveaux, la rangée 0 contient des mots du tilemap : la copie est sans effet (`$1FB` n'est
+  utilisée que par la carte).
+- `tools/build.py` (WIDE seulement) remplace le mot `$01C0` de `$84DA` par `$01FB` (et
+  s'arrête si l'octet attendu n'y est pas).
+- Vérifié : dessin de `$1FB` identique à celui de `$3800` dans la ROM d'origine ; route en
+  pointillés jusqu'au sceau comme dans l'original (WIDE et WIDE + ROM512).
+
+Pour atteindre la carte dans l'émulateur de test : points de vie du joueur en **`$CEFE`**
+(remis à 6 à chaque trame pour gagner le boss de l'intro en attaquant), puis cesser de les
+forcer pour laisser la cinématique se dérouler ; la carte est la scène 0 (`$C014` = 0,
+`$C013` = 0).
+
 ## Colonne de gauche noire
 
 Le VDP masque la colonne 0 (nécessaire au défilement) avec la couleur de fond (registre 7).
@@ -130,10 +157,24 @@ tuile faux). **La ROM d'origine a le même défaut** (mesuré : 64 débordements
 niveau $14, 12 pendant le titre et l'intro) ; la vue élargie le rend plus visible car davantage
 de sprites sont affichés.
 
-`wide_sat` (dans la place libérée de `sub_48DA`) lit le compteur V : si la copie tient encore
-dans le VBlank, elle appelle la routine d'origine ; sinon elle la **reporte à la trame
-suivante** (bit 2 de `vdp_requests`, jamais utilisé par le jeu et conservé par le `and #0x1f`
-de fin d'IRQ). Les sprites gardent alors leur position une trame de plus, sans corruption.
+`wide_vblank` (dans la place libérée de `sub_48DA`) lit le compteur V : si la copie de la SAT
+tient encore dans le VBlank, elle appelle la routine d'origine ; sinon elle la **reporte à la
+trame suivante** (bit 2 de `vdp_requests`, jamais utilisé par le jeu et conservé par le
+`and #0x1f` de fin d'IRQ). Les sprites gardent alors leur position une trame de plus, sans
+corruption.
+
+**Ordre SAT puis palette** ✅ (2026-11-12). L'original fait tuiles du joueur (lignes 194-231),
+conversion de palette GG→SMS (`sub_404E`, ≈ 20 lignes) puis SAT. Une première version de
+`wide_sat` gardait cet ordre : quand les trois copies tombaient dans la même trame (niveaux à
+palette animée : grotte rouge du niveau 01, éclairs, cascade), la SAT commençait ligne 250 et
+était reportée, **toujours** juste après une copie des tuiles du joueur (mesuré : 182 reports
+sur 3 parties, tous dans ce cas). Pendant une trame, les nouvelles tuiles du joueur
+s'affichaient avec l'ancien agencement de sprites : **personnage « en bouillie »**.
+`wide_vblank` copie maintenant la SAT avant la palette ; l'IRQ commence aux lignes 193-197, la
+SAT tient donc toujours après les tuiles (aucun report mesuré). C'est la **palette** qui est
+reportée si elle commence après la ligne 235 (bit 3 de `vdp_requests`, lui aussi inutilisé par
+le jeu ; le bit 1 est écrit par `$5126` mais jamais lu) : couleurs en retard d'une trame,
+invisible. L'IRQ finit au plus tard ligne 246 (251 avant).
 
 Une première version copiait la SAT lentement (41 cycles par octet) au lieu de la reporter :
 l'IRQ de trame débordait alors jusqu'à la ligne ~27, et la table raster (remise à zéro en fin

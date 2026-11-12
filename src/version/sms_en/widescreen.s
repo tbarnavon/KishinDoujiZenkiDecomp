@@ -683,6 +683,56 @@ wb_end:
 	ei
 	ret
 
+;; ------------------------------------------------------------------
+;; Tuile $1C0 de la carte du monde (dernier morceau de la route vers un lieu). La liste de
+;; tuiles de la carte charge 204 tuiles a partir de VRAM $1EA0 : la derniere, $1C0, tombe en
+;; VRAM $3800, debut du tilemap (rangee 0, colonnes 0-15, cachee sur GG). La vue elargie
+;; dessine cette rangee (tuiles noires) et ecrasait ce dessin.
+;; Avant chaque redessin complet (sub_48DA), si la rangee 0 ne contient pas que la tuile
+;; noire (= le dessin vient d'etre charge), ses 32 premiers octets sont recopies dans la
+;; tuile $1FB (VRAM $3F60, trou de la table des sprites apres la tuile noire). La metatuile
+;; de la carte (banque 10, $84DA) utilise $1FB au lieu de $1C0 dans la ROM WIDE
+;; (tools/build.py). Dans les autres niveaux, la copie (des mots du tilemap) est sans effet.
+ws_buf = util_D4D1 + 24             ; 32 octets (tampon de dessin du moteur, inutilise ici)
+
+wide_save::
+	di
+	ld de,#0x3800                   ; VRAM $3800 en lecture
+	call wb_addr
+	ld hl,#ws_buf
+	ld b,#32
+ws_rd:
+	in a,(VDP_DATA)                 ; >= 26 cycles entre deux lectures
+	ld (hl),a
+	inc hl
+	djnz ws_rd
+	ld hl,#ws_buf
+	ld b,#16
+ws_chk:                             ; que des mots $09FA (tuile noire) : rien a sauver
+	ld a,(hl)
+	inc hl
+	cp #0xfa
+	jr nz,ws_copy
+	ld a,(hl)
+	inc hl
+	cp #0x09
+	jr nz,ws_copy
+	djnz ws_chk
+	ei
+	ret
+ws_copy:
+	ld de,#0x7f60                   ; VRAM $3F60 (tuile $1FB) en ecriture
+	call wb_addr
+	ld hl,#ws_buf
+	ld b,#32
+ws_wr:
+	ld a,(hl)
+	call wb_put
+	inc hl
+	djnz ws_wr
+	ei
+	ret
+
 wb_fill:                            ; B mots HL
 	ld a,l
 	call wb_put

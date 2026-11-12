@@ -263,6 +263,16 @@ def main():
         written[off] = 1
         rom[off] = v
         used = max(used, off + 1)
+    if wide:
+        # Vue elargie : la metatuile du bout de route de la carte du monde (jeu de metatuiles
+        # de la banque 10 en $8000, mot en $84DA) utilise la tuile $1C0, dont le dessin est en
+        # VRAM $3800 = rangee 0 du tilemap, que la vue elargie dessine. wide_save recopie ce
+        # dessin dans la tuile $1FB ; la metatuile pointe dessus (docs/widescreen.md).
+        off = 10 * BANK + 0x04DA
+        if rom[off:off + 2] != b"\xC0\x01":
+            sys.exit("WIDE=1 : mot $01C0 attendu en banque 10 $84DA (carte du monde), "
+                     f"trouve {rom[off]:02X} {rom[off + 1]:02X}")
+        rom[off] = 0xFB
     if o["TRIM"] == "1":
         size = 0x8000
         while size < used:

@@ -803,7 +803,15 @@ loc_48A5:
 	.area _B01_48DA
 sub_48DA::
 .if WIDESCREEN
-	ld a,#0x0a                      ; 48DA  vue elargie : redessin de tout le tilemap
+.if ROM512
+	ld a,#17                        ; 48DA  vue elargie : sauve d'abord la tuile $1C0 (dessin
+.else                               ;       en VRAM $3800, rangee 0 du tilemap) vers $1FB,
+	ld a,#63                        ;       voir wide_save
+.endif
+	ld (bank_slot2_shadow),a
+	ld (MAPPER_SLOT2),a
+	call wide_save
+	ld a,#0x0a                      ;       redessin de tout le tilemap
 	ld (bank_slot2_shadow),a        ; 48DC
 	ld (MAPPER_SLOT2),a             ; 48DF
 	call wide_full                  ; 48E2
@@ -865,27 +873,51 @@ wcu_out:
 	or #0xff
 	ret
 
-;; Copie de la table des sprites (SAT) a l'IRQ de trame (remplace bit 7 / call nz,sub_405C).
-;; L'original copie 192 octets en outi (16 cycles par octet), ce qui n'est sur que pendant le
-;; VBlank. Quand l'IRQ arrive a cette copie trop tard (apres la copie des tuiles du joueur et
-;; la conversion de palette), les dernieres ecritures tombent pendant l'affichage (perdues par
-;; le VDP : sprites corrompus) et la fin de l'IRQ (remise a zero de la table raster) est
-;; retardee (bandes en parallaxe decalees : clignotement). La copie est alors reportee a la
-;; trame suivante : bit 2 de vdp_requests (inutilise par le jeu, conserve par le and #0x1f
-;; de fin d'IRQ).
-wide_sat::                          ;       (appele si vdp_requests & $84 : demande ou copie reportee)
+;; Fin de l'IRQ de trame : table des sprites (SAT) puis palette (remplace bit 6 / call
+;; nz,sub_404E puis bit 7 / call nz,sub_405C ; appele si vdp_requests & $CC).
+;; L'original copie les tuiles du joueur (~38 lignes), convertit la palette (~20 lignes) puis
+;; copie la SAT (192 octets en outi, 16 cycles par octet, sur seulement pendant le VBlank) :
+;; les dernieres ecritures de la SAT tombent alors pendant l'affichage (perdues par le VDP :
+;; sprites corrompus) et la fin de l'IRQ (remise a zero de la table raster) est retardee
+;; (bandes en parallaxe decalees : clignotement).
+;; - La SAT passe avant la palette. Si elle commence trop tard, elle est reportee a la trame
+;;   suivante (bit 2). Apres une copie des tuiles du joueur, elle tient toujours (IRQ aux
+;;   lignes 193-197, fin des tuiles avant la ligne 236) : reporter la SAT seule afficherait les
+;;   nouvelles tuiles du joueur avec l'ancien agencement (personnage en bouillie une trame).
+;; - La palette (32 octets ecrits lentement) est reportee si elle commence apres la ligne 235
+;;   (bit 3) : couleurs en retard d'une trame, invisible.
+;; Bits 2 et 3 de vdp_requests : inutilises par le jeu, conserves par le and #0x1f de fin d'IRQ.
+wide_vblank::
 	ld hl,#vdp_requests
+	ld a,(hl)
+	and #0x84                       ;       SAT demandee ou reportee ?
+	jr z,wvb_pal
 	in a,(VDP_VCOUNTER)
 	cp #0xc1                        ;       lignes 0-192 : affichage en cours
-	jr c,wsat_later
-	cp #0xf0                        ;       lignes 193-245 : le temps suffit (~14 lignes)
-	jr nc,wsat_later
+	jr c,wvb_satl
+	cp #0xf0                        ;       lignes 193-239 : le temps suffit (~14 lignes)
+	jr nc,wvb_satl
 	res 2,(hl)
-	jp sub_405C
-wsat_later:
+	call sub_405C
+	jr wvb_pal
+wvb_satl:
 	set 2,(hl)
+wvb_pal:
+	ld hl,#vdp_requests
+	ld a,(hl)
+	and #0x48                       ;       palette demandee ou reportee ?
+	ret z
+	in a,(VDP_VCOUNTER)
+	cp #0xc1
+	jr c,wvb_pall
+	cp #0xec                        ;       lignes 193-235 : fin avant la ligne 256
+	jr nc,wvb_pall
+	res 3,(hl)
+	jp sub_404E
+wvb_pall:
+	set 3,(hl)
 	ret
-	.ds 58                        ;       (place libre, jusqu'a $4983)
+	.ds 16                        ;       (place libre, jusqu'a $4983)
 .else
 	push ix                         ; 48DA
 	ld ix,#0x0000                   ; 48DC
